@@ -10,14 +10,13 @@ import cors from 'cors';
 //IMPORTED FILES
 import dbConnect from './dbConnect.ts';
 
-
 const app = express();
 const PORT: number = 3333;
 const __dirname = import.meta.dirname;
 
 const options = {
-  key: fs.readFileSync(path.join(__dirname, "localhost-key.pem")),
-  cert: fs.readFileSync(path.join(__dirname, "localhost.pem")),
+  key: fs.readFileSync(path.join(__dirname, 'localhost-key.pem')),
+  cert: fs.readFileSync(path.join(__dirname, 'localhost.pem')),
 };
 
 app.use(express.urlencoded({ extended: true }));
@@ -27,6 +26,13 @@ app.use(cookieParser());
 
 //404 handler for any unrecognized requests
 app.use('*', (req, res) => res.sendStatus(404).send('Page not found'));
+
+app.get('/auth/github', (req: Request, res: Response) => {
+  const githubOAuthURl = `https://github.com/login/oauth/authorize?client_id=${process.env.GITHUB_CLIENT_ID}&redirect_uri=${process.env.GITHUB_CALLBACK_URL}`;
+  res.redirect(githubOAuthURl);
+});
+
+app.get('/auth/callback');
 
 // Global error handler
 /* eslint-disable-next-line @typescript-eslint/no-unused-vars */
@@ -47,5 +53,5 @@ dbConnect();
 const server = https.createServer(options, app);
 //initialize server
 server.listen(PORT, () => {
-  console.log(`Listening on PORT: ${PORT}`)
+  console.log(`Listening on PORT: ${PORT}`);
 });
