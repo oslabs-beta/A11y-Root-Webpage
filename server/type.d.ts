@@ -20,3 +20,10 @@ export type projectController = {
   updateProject: (req: Request, res: Response, next: NextFunction) => void;
   deleteProject: (req: Request, res: Response, next: NextFunction) => void;
 }
+
+export type pageController = {
+  getPage: (req: Request, res: Response, next: NextFunction) => void;
+  postPage: (req: Request, res: Response, next: NextFunction) => void;
+  updatePage: (req: Request, res: Response, next: NextFunction) => void;
+  deletePage: (req: Request, res: Response, next: NextFunction) => void;
+}

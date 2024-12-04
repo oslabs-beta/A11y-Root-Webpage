@@ -1,22 +1,18 @@
 import express from 'express';
-// import path from 'path';
+import PageController from '../controllers/pageController';
 
 const pageRoute = express.Router();
 
-pageRoute.get('/', (req,res)=> {
-    res.status(200).send(res.locals)
+pageRoute.get('/:pageId', PageController.getPage, (req, res) => {
+  res.status(200).json(res.locals.page)
 });
 
-pageRoute.post('/', (req,res)=> {
-    res.status(200).send(res.locals)
+pageRoute.post('/', PageController.postPage, (req, res) => {
+  res.status(200).json(res.locals.page)
 });
 
-pageRoute.patch('/', (req,res)=> {
-    res.status(200).send(res.locals)
-});
-
-pageRoute.delete('/', (req,res)=> {
-    res.status(200).send(res.locals)
+pageRoute.delete('/:pageId', PageController.deletePage, (req, res) => {
+  res.status(200).json(res.locals.page)
 });
 
 export default pageRoute;
