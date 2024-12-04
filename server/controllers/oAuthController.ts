@@ -3,6 +3,7 @@ import UserModel from '../models/userModel';
 
 const oAuthController = {
   getTemporaryCode: (req: Request, res: Response, next: NextFunction): void => {
+    console.log('Request Query:', req.query);
     const temporaryCode = req.query.code;
     if (!temporaryCode) {
       return next({
@@ -12,7 +13,7 @@ const oAuthController = {
       });
     }
     res.locals.temporaryCode = temporaryCode;
-    next();
+    return next();
   },
   requestToken: async (req: Request, res: Response, next: NextFunction) => {
     try {
@@ -31,11 +32,19 @@ const oAuthController = {
           },
         }
       );
+      if (!response.ok) {
+        return next({
+          log: `Error in oAuthController.requestToken: GitHub API responded with status ${response.status}`,
+          status: 500,
+          message: { err: 'Failed to obtain access token from GitHub' },
+        });
+      }
       const data = await response.json();
+      console.log('Data:', data);
       const githubToken = data.access_token;
       if (!githubToken) {
         return next({
-          log: 'Failed to obtain access token from Github',
+          log: 'Failed to get access token from Github',
           status: 500,
           message: { err: 'An error occurred while obtaingin access token' },
         });
@@ -51,14 +60,24 @@ const oAuthController = {
     }
   },
   getUserData: async (req: Request, res: Response, next: NextFunction) => {
+    console.log('got here');
     try {
       const response = await fetch('https://api.github.com/user', {
         headers: {
           Authorization: `Bearer ${res.locals.token}`,
         },
       });
+      if (!response.ok) {
+        return next({
+          log: `Error in oAuthController.getUserData: Could not get a response`,
+          status: 500,
+          message: { err: 'Failed to obtain user data from GitHub' },
+        });
+      }
       const githubUser = await response.json();
+      console.log('Github User:', githubUser);
       res.locals.githubUser = githubUser;
+      return next();
     } catch {
       return next({
         log: 'Error in oAuthController.getUserData:Failed to obtain user Data from Github',
@@ -77,10 +96,11 @@ const oAuthController = {
           username: githubUser.login,
           profileUrl: githubUser.html_url,
           avatarUrl: githubUser.avatar_url,
-          projects: githubUser.projects,
+          projects: githubUser.projects || [],
         });
         await user.save();
       }
+      console.log('user:', user);
       res.locals.user = user;
       return next();
     } catch {

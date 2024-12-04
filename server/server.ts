@@ -27,12 +27,13 @@ app.use(cors());
 app.use(express.json());
 app.use(cookieParser());
 
-//404 handler for any unrecognized requests
-app.use('*', (req, res) => res.sendStatus(404).send('Page not found'));
+app.get('/', (req, res) => {
+  res.sendFile(path.join(__dirname, '../index.html'));
+});
 
-app.get('/auth/github', (req: Request, res: Response) => {
+app.get('/auth', (req: Request, res: Response) => {
   const githubOAuthURl = `https://github.com/login/oauth/authorize?client_id=${process.env.GITHUB_CLIENT_ID}&redirect_uri=${process.env.GITHUB_CALLBACK_URL}`;
-  res.redirect(githubOAuthURl);
+  return res.redirect(githubOAuthURl);
 });
 //add middleware here
 app.get(
@@ -43,10 +44,13 @@ app.get(
   oAuthController.saveUser,
   cookieController.setSSIDCookie,
   sessionController.startSession,
-  (req, res) => {
-    return res.redirect('/dashboard');
+  (req: Request, res: Response) => {
+    return res.redirect('/');
   }
 );
+
+//404 handler for any unrecognized requests
+app.use('*', (req, res) => res.sendStatus(404).send('Page not found'));
 
 // Global error handler
 /* eslint-disable-next-line @typescript-eslint/no-unused-vars */

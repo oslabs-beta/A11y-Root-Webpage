@@ -8,9 +8,10 @@ const cookieController = {
       return next({
         log: 'Error in cookieController.setSSIDCookie: no ssid found',
         status: 500,
-        message: { err: 'An error occurred in findin the ssid' },
+        message: { err: 'An error occurred in finding the ssid' },
       });
     }
+    console.log('SSID:', res.locals.ssid);
     res.cookie('ssid', res.locals.ssid, { httpOnly: true });
     //secure: process.env.NODE_ENV === 'production' (may need this for https)
     return next();
