@@ -13,6 +13,7 @@ const elementSchema = new Schema({
 const ElementModel = mongoose.model('Element', elementSchema);
 
 const pageSchema = new Schema({
+  project: { type : Schema.Types.ObjectId, ref: 'Project' },
   url: { type: String, required: true },
   pageRole: { type: String },
   pageName: { type: String },
