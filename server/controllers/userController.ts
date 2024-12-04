@@ -21,7 +21,7 @@ UserController.getUser = async (req, res, next) => {  // req: Request, res: Resp
 		.catch((err) => {
 			return next({
 				log: `Error in UserController.getUser: ERROR: ${err}`,
-				message: { err: 'An error occurred in UserController.getUser.' },
+				message: { err: 'An error occurred retrieving user info.' },
 				status: 500
 			});
 		})
@@ -83,11 +83,32 @@ UserController.updateUser = async (req, res, next) => {
 	} catch(error) {
 		const err = {
 			log: `Express error handler caught error in updateUser middleware` + error,
-			message: { err: 'error in updateUser middleware'},
+			message: { err: 'An error occurred while updating the user.'},
 			status: 500
 		}
 		return next(err);
 	}
+}
+
+UserController.deleteUser = async (req, res, next) => {  // req: Request, res: Response, next: NextFunction
+  const githubId = req.params.githubId;
+
+	UserModel.findOneAndDelete({githubId}) // use githubId to find user
+		.then((user) => {
+			if (user === null) {
+				return res.status(404).send('No user found.');
+			}
+
+			res.locals.user = user;
+			return next();
+		})
+		.catch((err) => {
+			return next({
+				log: `Error in UserController.deleteUser: ERROR: ${err}`,
+				message: { err: 'An error occurred while trying to delete the user.' },
+				status: 500
+			});
+		})
 }
 
 export default UserController;

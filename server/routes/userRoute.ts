@@ -1,5 +1,4 @@
 import express from 'express';
-import path from 'path';
 import UserController from '../controllers/userController';
 
 const userRoute = express.Router();
@@ -16,16 +15,20 @@ const userRoute = express.Router();
 // 	}
 // })
 
-userRoute.get('/:githubId', UserController.getUser, (req, res, next) => {
-	res.status(200).send(res.locals.user);
-})
-
-userRoute.post('/', UserController.postUser, (req, res, next) => {
+userRoute.get('/:githubId', UserController.getUser, (req, res) => {
 	res.status(200).json(res.locals.user);
 })
 
-userRoute.patch('/', UserController.updateUser, (req, res, next) => {
+userRoute.post('/', UserController.postUser, (req, res) => {
 	res.status(200).json(res.locals.user);
+})
+
+userRoute.patch('/', UserController.updateUser, (req, res) => {
+	res.status(200).json(res.locals.user);
+})
+
+userRoute.delete('/:githubId', UserController.deleteUser, (req, res) => {
+	res.status(200).json(res.locals.user)
 })
 
 export default userRoute;
