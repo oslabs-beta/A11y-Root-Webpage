@@ -41,7 +41,6 @@ const oAuthController = {
         });
       }
       res.locals.token = githubToken;
-      res.locals.ssid = githubToken;
       return next();
     } catch {
       return next({
@@ -93,4 +92,4 @@ const oAuthController = {
     }
   },
 };
-module.exports = oAuthController;
+export default oAuthController;

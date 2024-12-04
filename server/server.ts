@@ -6,6 +6,9 @@ import cookieParser from 'cookie-parser';
 import path from 'path';
 import fs from 'fs';
 import cors from 'cors';
+import oAuthController from './controllers/oAuthController.ts';
+import cookieController from './controllers/cookieController.ts';
+import sessionController from './controllers/sessionController.ts';
 
 //IMPORTED FILES
 import dbConnect from './dbConnect.ts';
@@ -31,8 +34,19 @@ app.get('/auth/github', (req: Request, res: Response) => {
   const githubOAuthURl = `https://github.com/login/oauth/authorize?client_id=${process.env.GITHUB_CLIENT_ID}&redirect_uri=${process.env.GITHUB_CALLBACK_URL}`;
   res.redirect(githubOAuthURl);
 });
-
-app.get('/auth/callback');
+//add middleware here
+app.get(
+  '/auth/callback',
+  oAuthController.getTemporaryCode,
+  oAuthController.requestToken,
+  oAuthController.getUserData,
+  oAuthController.saveUser,
+  cookieController.setSSIDCookie,
+  sessionController.startSession,
+  (req, res) => {
+    return res.redirect('/dashboard');
+  }
+);
 
 // Global error handler
 /* eslint-disable-next-line @typescript-eslint/no-unused-vars */

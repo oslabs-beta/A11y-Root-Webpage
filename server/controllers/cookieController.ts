@@ -2,6 +2,8 @@ import { Request, Response, NextFunction } from 'express';
 
 const cookieController = {
   setSSIDCookie: async (req: Request, res: Response, next: NextFunction) => {
+    const { user } = res.locals;
+    res.locals.ssid = user._id.toString();
     if (!res.locals.ssid) {
       return next({
         log: 'Error in cookieController.setSSIDCookie: no ssid found',
@@ -9,9 +11,10 @@ const cookieController = {
         message: { err: 'An error occurred in findin the ssid' },
       });
     }
-    res.cookie('ssid', res.locals.ssid); // can't do httpOnly on https
+    res.cookie('ssid', res.locals.ssid, { httpOnly: true });
+    //secure: process.env.NODE_ENV === 'production' (may need this for https)
     return next();
   },
 };
 
-module.exports = cookieController;
+export default cookieController;
