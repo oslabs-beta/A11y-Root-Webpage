@@ -1,13 +1,19 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import './css/App.css';
 import Home from './pages/Home';
+import BtnDownload from './components/BtnDownload';
 
 function App() {
+  const handleDownload = (): void => {
+    return;
+  };
+
   return (
     <Router>
       <div className='app'>
-        <header>
+        <header className='header'>
           <h1>A11y Root</h1>
+          <BtnDownload handleDownload={handleDownload} />
         </header>
         <Routes>
           <Route path='/' element={<Home />} />
