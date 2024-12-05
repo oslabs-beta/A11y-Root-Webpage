@@ -1,9 +1,5 @@
 {
-  "files": [
-    "./src/App.tsx",
-    "src/main.tsx",
-    "./src/vite-env.d.ts"
-  ],
+  "files": ["./src/App.tsx", "src/main.tsx", "./src/vite-env.d.ts"],
   "references": [
     { "path": "./tsconfig.app.json" },
     { "path": "./tsconfig.node.json" }
