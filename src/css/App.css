@@ -10,6 +10,7 @@
   width: 100vw;
   height: 15vw;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
 }
