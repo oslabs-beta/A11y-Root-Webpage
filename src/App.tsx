@@ -1,5 +1,6 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import './css/App.css';
+import Home from './pages/Home';
 
 function App() {
   return (
@@ -8,8 +9,14 @@ function App() {
         <header>
           <h1>A11y Root</h1>
         </header>
-        <Routes>{/* <Route path='/' element={} /> */}</Routes>
-        <footer></footer>
+        <Routes>
+          <Route path='/' element={<Home />} />
+        </Routes>
+        {/* {Update Footer with copyright notice, privacy policy link, sitemap, logo, contact info, social media icons} */}
+        <footer>
+          <h6>A11y Root</h6>
+          <nav></nav>
+        </footer>
       </div>
     </Router>
   );
