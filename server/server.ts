@@ -9,9 +9,7 @@ import cors from 'cors';
 
 //IMPORTED FILES
 import dbConnect from './dbConnect.ts';
-import userRoute from './routes/userRoute.ts';
-import projectRoute from './routes/projectRoute.ts';
-import pageRoute from './routes/pageRoute.ts';
+
 
 const app = express();
 const PORT: number = 3333;
@@ -22,16 +20,10 @@ const options = {
   cert: fs.readFileSync(path.join(__dirname, "localhost.pem")),
 };
 
-//PARSING MIDDLEWARE
 app.use(express.urlencoded({ extended: true }));
 app.use(cors());
 app.use(express.json());
 app.use(cookieParser());
-
-//routes for our defined API endpoints
-app.use('/users', userRoute);
-app.use('/projects', projectRoute);
-app.use('/pages', pageRoute);
 
 //404 handler for any unrecognized requests
 app.use('*', (req, res) => res.sendStatus(404).send('Page not found'));
