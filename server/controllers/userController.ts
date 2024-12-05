@@ -60,6 +60,7 @@ UserController.postUser = async (req, res, next) => {
 			})
 }
 
+//need to test once projectRoute is complete, since we need a valid project object ID in order to update user.projects
 UserController.updateUser = async (req, res, next) => {
 	const { githubId, projectId } = req.body;
 

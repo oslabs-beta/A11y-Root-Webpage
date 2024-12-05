@@ -1,22 +1,22 @@
 import express from 'express';
-// import path from 'path';
+import ProjectController from '../controllers/projectController';
 
 const projectRoute = express.Router();
 
-projectRoute.get('/', (req,res)=> {
-    res.status(200).send(res.locals)
+projectRoute.get('/:projectId', ProjectController.getProject, (req, res)=> {
+    res.status(200).json(res.locals.project)
 });
 
-projectRoute.post('/', (req,res)=> {
-    res.status(200).send(res.locals)
+projectRoute.post('/', ProjectController.postProject, (req, res)=> {
+    res.status(200).json(res.locals.project)
 });
 
-projectRoute.patch('/', (req,res)=> {
-    res.status(200).send(res.locals)
+projectRoute.patch('/', ProjectController.updateProject, (req, res)=> {
+  res.status(200).json(res.locals.project)
 });
 
-projectRoute.delete('/', (req,res)=> {
-    res.status(200).send(res.locals)
+projectRoute.delete('/:projectId', ProjectController.deleteProject, (req, res)=> {
+    res.status(200).json(res.locals)
 });
 
 export default projectRoute;
