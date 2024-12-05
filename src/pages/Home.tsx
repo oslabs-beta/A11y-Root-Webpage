@@ -3,8 +3,8 @@ const Home = () => {
   return (
     <main className='home'>
       <section className='a11y-details'>
-        <Fragment>
-          <h2>Why Build With A11y?</h2>
+        <div>
+          <h2 className='border-mint'>Why Build With A11y?</h2>
           <p>
             Assistive technologies are hindered by poorly constructed
             accessibility trees (their map of the DOM). Web developers are often
@@ -13,16 +13,16 @@ const Home = () => {
             then struggle to navigate the website and are given limited access
             to its features.
           </p>
-        </Fragment>
-        <Fragment>
+        </div>
+        <div>
           <h2>DOM Structure VS A11y Tree</h2>
           <img
             src=''
             alt="side by side comparison of the browser's DOM structure and it's conversion to an A11y tree."
           />
-        </Fragment>
+        </div>
       </section>
-      <section>
+      <section className='quote-rooted'>
         <h2>“a Visual Studio Code extension rooted in accessibility”</h2>
       </section>
       <section className='demo'>
