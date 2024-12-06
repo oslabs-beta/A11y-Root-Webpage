@@ -14,12 +14,15 @@
     "start-dev": "nodemon server/server.ts"
   },
   "dependencies": {
+    "@fortawesome/free-brands-svg-icons": "^6.7.1",
+    "@fortawesome/react-fontawesome": "^0.2.2",
     "@types/mongoose": "^5.11.96",
     "concurrently": "^9.1.0",
     "cookie-parser": "^1.4.7",
     "cors": "^2.8.5",
     "dotenv": "^16.4.5",
     "express": "^4.21.1",
+    "framer-motion": "^11.13.1",
     "https": "^1.0.0",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",

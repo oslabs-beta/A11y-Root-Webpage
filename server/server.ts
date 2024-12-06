@@ -41,7 +41,7 @@ app.get('/', (req, res) => {
 });
 
 app.get('/auth', (req: Request, res: Response) => {
-  const githubOAuthURl = `https://github.com/login/oauth/authorize?client_id=${process.env.GITHUB_CLIENT_ID}&redirect_uri=${process.env.GITHUB_CALLBACK_URL}`;
+  const githubOAuthURl = `https://github.com/login/oauth/authorize?client_id=${process.env.GITHUB_CLIENT_ID}&redirect_uri=${process.env.GITHUB_CALLBACK_URL}&force_login=true`;
   return res.redirect(githubOAuthURl);
 });
 //add middleware here
@@ -54,7 +54,7 @@ app.get(
   cookieController.setSSIDCookie,
   sessionController.startSession,
   (req: Request, res: Response) => {
-    return res.redirect('/');
+    return res.redirect('https://localhost:5173/');
   }
 );
 
