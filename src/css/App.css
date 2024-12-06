@@ -1,42 +1,60 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+.app {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+.app header {
+  background-color: #333333;
+  width: 100vw;
+  height: 15vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.app header h1 {
+  background-color: #f4f6fc;
+  border-radius: 1rem;
+  width: 15rem;
+  padding: 1rem;
+  align-self: center;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
+.github-login {
+	display: flex;
+	align-items: flex-end;
 }
 
-.card {
-  padding: 2em;
+.oauth-icons{
+	margin: 20px 0;
+	display: flex;
+	justify-content: flex-start;
 }
 
-.read-the-docs {
-  color: #888;
+.oauth-icons a {
+	font-family: Oswald-Regular;
+	font-size: 16px;
+	
+  background-color: #fff;
+  border: none;
+  border-radius: 20%;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  margin: 15px 12px;
+  width: 200px;
+  height: 40px;
+	transition: all 0.4s;
+}
+
+button {
+	background-color: #f4f6fc;
+  border-radius: 1rem;
+  width: 15rem;
+  padding: 1rem;
+}
+button:hover {
+	background-color: #e2e7f5;
 }
