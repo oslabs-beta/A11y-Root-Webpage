@@ -27,7 +27,8 @@ const options = {
 
 //PARSING MIDDLEWARE
 app.use(express.urlencoded({ extended: true }));
-app.use(cors());
+app.use(cors(
+  {credentials: true,  origin: true}));
 app.use(express.json());
 app.use(cookieParser());
 
@@ -41,9 +42,15 @@ app.get('/', (req, res) => {
 });
 
 app.get('/auth', (req: Request, res: Response) => {
-  const githubOAuthURl = `https://github.com/login/oauth/authorize?client_id=${process.env.GITHUB_CLIENT_ID}&redirect_uri=${process.env.GITHUB_CALLBACK_URL}`;
+  const githubOAuthURl = `https://github.com/login/oauth/authorize?client_id=${process.env.GITHUB_CLIENT_ID}&redirect_uri=${process.env.GITHUB_CALLBACK_URL}&force_login=true`;
   return res.redirect(githubOAuthURl);
 });
+
+app.get('/auth/checkstatus', oAuthController.checkStatus, (req: Request, res: Response) => {
+	res.header('Access-Control-Allow-Credentials', true);
+  return res.status(200).json(res.locals.user)
+})
+
 //add middleware here
 app.get(
   '/auth/callback',
@@ -54,7 +61,7 @@ app.get(
   cookieController.setSSIDCookie,
   sessionController.startSession,
   (req: Request, res: Response) => {
-    return res.redirect('/');
+    return res.redirect('https://localhost:5173/');
   }
 );
 

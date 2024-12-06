@@ -33,3 +33,40 @@
   padding: 1rem;
   margin: 1rem;
 }
+
+.github-login {
+	display: flex;
+	align-items: flex-end;
+}
+
+.oauth-icons{
+	margin: 20px 0;
+	display: flex;
+	justify-content: flex-start;
+}
+
+.oauth-icons a {
+	font-family: Oswald-Regular;
+	font-size: 16px;
+	
+  background-color: #fff;
+  border: none;
+  border-radius: 20%;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  margin: 15px 12px;
+  width: 200px;
+  height: 40px;
+	transition: all 0.4s;
+}
+
+button {
+	background-color: #f4f6fc;
+  border-radius: 1rem;
+  width: 15rem;
+  padding: 1rem;
+}
+button:hover {
+	background-color: #e2e7f5;
+}

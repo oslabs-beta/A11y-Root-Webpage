@@ -12,7 +12,7 @@ const cookieController = {
       });
     }
     console.log('SSID:', res.locals.ssid);
-    res.cookie('ssid', res.locals.ssid, { httpOnly: true });
+    res.cookie('ssid', res.locals.ssid, { httpOnly: true, maxAge: 6 * 60 * 60 * 1000 }); //6 hours
     //secure: process.env.NODE_ENV === 'production' (may need this for https)
     return next();
   },
