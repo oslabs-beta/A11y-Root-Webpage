@@ -7,10 +7,6 @@
   text-align: center;
 }
 
-.home h2 {
-  margin-bottom: 2rem;
-}
-
 .border-mint {
   background-color: #83e09e;
   border-radius: 1rem;
@@ -19,7 +15,7 @@
 }
 
 .a11y-details {
-  width: 100vw;
+  max-width: 100%;
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
@@ -28,21 +24,28 @@
 .a11y-details div {
   width: 30rem;
   padding: 4rem 0 4rem 0;
+  margin: 3rem 6rem 3rem 6rem;
 }
 
 .quote-rooted {
-  width: 100vw;
-  background-color: #83e09e;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  min-height: fit-content;
   padding: 4rem;
+  background-color: #83e09e;
 }
 
 .demo {
-  width: 100vw;
+  width: 100%;
   padding: 4rem 0 4rem 0;
 }
 
 footer {
-  width: 100vw;
+  width: 100%;
+  height: fit-content;
+  padding: 6rem;
   background-color: #3a3b3e;
   color: white;
+  text-align: center;
 }

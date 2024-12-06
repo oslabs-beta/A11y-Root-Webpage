@@ -6,20 +6,32 @@
 }
 
 .app header {
-  background-color: #333333;
-  width: 100vw;
-  height: 15vw;
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  justify-content: flex-start;
   align-items: center;
+  min-width: 100%;
+  min-height: fit-content;
+  padding: 1rem 0 3rem 0;
+  background-color: #333333;
 }
 
 .app header h1 {
   background-color: #f4f6fc;
   border-radius: 1rem;
-  width: 15rem;
-  padding: 1rem;
+  min-width: fit-content;
+  padding: 1rem 2rem 1rem 2rem;
+  margin-bottom: 2.5rem;
   align-self: center;
+  text-align: center;
+}
+
+.app header button {
+  align-self: flex-end;
+  background-color: #83e09e;
+  border-radius: 1rem;
+  padding: 1rem;
+  margin: 1rem;
 }
 
 .github-login {
