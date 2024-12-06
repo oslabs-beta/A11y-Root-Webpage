@@ -11,7 +11,8 @@ function App() {
   return (
     <Router>
       <div className='app'>
-        <header className='header'>
+        <header>
+          <button>Login Placeholder</button>
           <h1>A11y Root</h1>
           <BtnDownload handleDownload={handleDownload} />
         </header>

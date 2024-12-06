@@ -2,23 +2,41 @@
 * {
   margin: 0;
   padding: 0;
+  /* font-size: 16px; */
+  font-size: calc(1rem + 0.5vw);
   box-sizing: border-box; /* Sets the box-sizing model to border-box for all elements, making element width and height calculations more predictable by including padding and borders in the specified width and height.  */
 }
 
 body {
-  min-height: 100vh; /* sets body's height to the entire viewport's height */
-  width: 100%; /* sets width to full parent element's (body) width; if we used vw a horizontal scroll bar will appear when height expands and requires a vertical scroll bar. This is because the vertical scroll bar takes up an additional 10px of width. */
+  max-height: 100vh; /* sets body's height to the entire viewport's height */
+  max-width: 100%; /* sets width to full parent element's (body) width; if we used vw a horizontal scroll bar will appear when height expands and requires a vertical scroll bar. This is because the vertical scroll bar takes up an additional 10px of width. */
   background-color: #ffffff;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
-  font-size: 100%; /* 16px default */
   letter-spacing: 0.1rem;
   line-height: 1.5;
 }
 
-body h1 {
+h1 {
+  font-size: 4.5rem;
   font-weight: bold;
+  min-width: fit-content;
 }
 
-body h2 {
+h2 {
   font-weight: lighter;
+}
+
+/* for touch-friendly targets */
+button {
+  min-width: 44px;
+  min-height: 44px;
+  font-weight: 600;
+}
+
+@media (max-width: 768px) {
+  /* Tablet */
+}
+
+@media (max-width: 480px) {
+  /* Mobile */
 }
