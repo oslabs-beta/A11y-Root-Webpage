@@ -7,6 +7,7 @@ import { useEffect, useState } from 'react';
 function App() {
 
 	const [isLoggedIn, setIsLoggedIn] = useState(false);
+	const [userInfo, setUserInfo] = useState(null);
 	
 	const handleOAuthClick = () => {
       window.location.href = 'https://localhost:3333/auth';
@@ -14,18 +15,26 @@ function App() {
 
 	const handleLogout = () => {
 		setIsLoggedIn(false);
+		setUserInfo(null);
 	}
 
 	useEffect(() => {
 		const checkLoginStatus = async() => {
+      // console.log('CheckLoginStatus function is running');
+      
 			try {
-				const response = await fetch('https://api.github.com/user');
-				const {loginInfo} = await response.json();
-				console.log("Login response: ", response)
-				console.log("Login INFO: ", loginInfo)
-				setIsLoggedIn(loginInfo);
+				const response = await fetch('https://localhost:3333/auth/checkstatus', { 
+          credentials: 'include'
+				});
+				const userInfo = await response.json();
+				// console.log("Login response: ", response)
+				// console.log("User Login INFO: ", userInfo)
+
+				setUserInfo(userInfo);
+				setIsLoggedIn(true);
 			} catch(error) {
 				console.error('Cannot login: ', error)
+        setIsLoggedIn(false);
 			}
 		}
 

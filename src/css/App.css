@@ -48,3 +48,13 @@
   height: 40px;
 	transition: all 0.4s;
 }
+
+button {
+	background-color: #f4f6fc;
+  border-radius: 1rem;
+  width: 15rem;
+  padding: 1rem;
+}
+button:hover {
+	background-color: #e2e7f5;
+}

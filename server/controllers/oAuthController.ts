@@ -1,5 +1,6 @@
 import { Request, Response, NextFunction } from 'express';
 import UserModel from '../models/userModel';
+import SessionModel from '../models/sessionModel';
 
 const oAuthController = {
   getTemporaryCode: (req: Request, res: Response, next: NextFunction): void => {
@@ -15,6 +16,7 @@ const oAuthController = {
     res.locals.temporaryCode = temporaryCode;
     return next();
   },
+
   requestToken: async (req: Request, res: Response, next: NextFunction) => {
     try {
       const response = await fetch(
@@ -59,6 +61,7 @@ const oAuthController = {
       });
     }
   },
+
   getUserData: async (req: Request, res: Response, next: NextFunction) => {
     console.log('got here');
     try {
@@ -86,6 +89,7 @@ const oAuthController = {
       });
     }
   },
+
   saveUser: async (req: Request, res: Response, next: NextFunction) => {
     try {
       const { githubUser } = res.locals;
@@ -111,5 +115,44 @@ const oAuthController = {
       });
     }
   },
+
+  //when our webpage loads, check if user is logged in (based on cookie)
+  checkStatus: async (req: Request, res: Response, next: NextFunction) => {
+    try {
+      const{ssid} = req.cookies;
+
+      if (!ssid) {
+        return next({
+          log: 'Error in oAuthController.checkStatus:Failed to get ssid',
+          status: 500,
+          message: { err: 'An error occurred while retrieving the ssid' },
+        });
+      }
+      const session = await SessionModel.findOne({cookieId:ssid})
+      if (!session) {
+        return next({
+          log: 'Error in oAuthController.checkStatus:Failed to find session in database',
+          status: 500,
+          message: { err: 'An error occurred while finding the session' },
+        });
+      }
+      const user = await UserModel.findById(ssid);
+      if(!user) {
+        return next({
+          log: 'Error in oAuthController.checkStatus:Failed to check status',
+          status: 500,
+          message: { err: 'An error occurred while checking status' },
+        });
+      }
+      res.locals.user = user;
+      return next();
+    } catch {
+      return next({
+        log: 'Error in oAuthController.checkStatus:Failed to find user',
+        status: 500,
+        message: { err: 'An error occurred while finding the user' },
+      });
+		}
+  } 
 };
 export default oAuthController;
