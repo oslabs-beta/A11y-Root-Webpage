@@ -24,7 +24,7 @@ const OAuth: React.FC <OAuthProp> = ({ handleOAuthClick }) => {
 				>
 					<a href='#' className='icon' onClick={() => handleOAuthClick("github")}>
 						<FontAwesomeIcon icon={faGithub} />
-						Sign in with Github
+						Sign in with GitHub
 					</a>
 				</motion.div>
 		</div>
