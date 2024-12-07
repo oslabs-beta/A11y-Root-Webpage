@@ -33,18 +33,18 @@ export default function AccountMenu({
     <div>
       <Tooltip title='Account settings'>
         <IconButton
+          id='btn-icon'
           onClick={handleClick}
-          size='small'
-          sx={{ ml: 2 }}
           aria-controls={open ? 'account-menu' : undefined}
           aria-haspopup='true'
           aria-expanded={open ? 'true' : undefined}
         >
-          <span style={{ fontSize: '1rem', fontWeight: 'bold' }}>
+          {/* <span style={{ fontSize: '1rem', fontWeight: 'bold' }}> */}
+          <span>
             Hello, {userInfo?.username || 'Guest'}
           </span>
           <Avatar
-            sx={{ width: 80, height: 80 }}
+            id='avatar'
             src={userInfo?.avatarUrl || undefined}
             alt={userInfo?.username || 'Avatar'}
           >

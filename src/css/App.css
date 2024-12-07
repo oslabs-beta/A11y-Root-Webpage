@@ -35,9 +35,9 @@ header button {
 }
 
 .github-login {
-  /* display: flex; */
   align-self: flex-end;
   font-family: Hubot;
+  margin-right: 2rem;
 }
 
 .oauth-icons {
@@ -53,12 +53,31 @@ header button {
   transition: all 0.4s;
 }
 
+#avatar {
+  width: 2.5rem;
+  height: auto;
+}
+
+#btn-icon {
+  background-color: #83e09e;
+  size: small;
+  border-radius: 1rem;
+  width: fit-content;
+  padding: 1rem;
+  /* sx: 2; */
+}
+
+#btn-icon:hover {
+  background-color: #e2e7f5;
+}
+
 .btn {
   background-color: #83e09e;
   border-radius: 1rem;
   width: fit-content;
   padding: 1rem;
 }
+
 
 button {
   background-color: #83e09e;
