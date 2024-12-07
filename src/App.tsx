@@ -1,6 +1,7 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import './css/App.css';
 import Home from './pages/Home';
+import Dashboard from './pages/Dashboard';
 import BtnDownload from './components/BtnDownload';
 import OAuth from './components/OAuth';
 import { useEffect, useState } from 'react';
@@ -64,12 +65,12 @@ function App() {
       <Router>
         <Routes>
           <Route path='/' element={<Home />} />
+          <Route path='/dashboard' element={<Dashboard />} />
         </Routes>
       </Router>
       {/* {Update Footer with copyright notice, privacy policy link, sitemap, logo, contact info, social media icons} */}
       <footer>
         <h6>A11y Root</h6>
-        <nav></nav>
       </footer>
     </div>
   );
