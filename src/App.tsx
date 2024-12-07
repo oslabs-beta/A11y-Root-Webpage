@@ -49,30 +49,29 @@ function App() {
   };
 
   return (
-    <Router>
-      <div className='app'>
-        <header>
-          <button>Login Placeholder</button>
-          <h1>A11y Root</h1>
-          <div className='github-login'>
-            {isLoggedIn ? (
-              <button onClick={handleLogout}>LOGOUT</button>
-            ) : (
-              <OAuth handleOAuthClick={handleOAuthClick}></OAuth>
-            )}
-          </div>
-          <BtnDownload handleDownload={handleDownload} />
-        </header>
+    <div className='app'>
+      <header>
+        <div className='github-login'>
+          {isLoggedIn ? (
+            <button onClick={handleLogout}>LOGOUT</button>
+          ) : (
+            <OAuth handleOAuthClick={handleOAuthClick}></OAuth>
+          )}
+        </div>
+        <h1>A11y Root</h1>
+        <BtnDownload handleDownload={handleDownload} />
+      </header>
+      <Router>
         <Routes>
           <Route path='/' element={<Home />} />
         </Routes>
-        {/* {Update Footer with copyright notice, privacy policy link, sitemap, logo, contact info, social media icons} */}
-        <footer>
-          <h6>A11y Root</h6>
-          <nav></nav>
-        </footer>
-      </div>
-    </Router>
+      </Router>
+      {/* {Update Footer with copyright notice, privacy policy link, sitemap, logo, contact info, social media icons} */}
+      <footer>
+        <h6>A11y Root</h6>
+        <nav></nav>
+      </footer>
+    </div>
   );
 }
 
