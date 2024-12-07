@@ -4,6 +4,7 @@ import Home from './pages/Home';
 import BtnDownload from './components/BtnDownload';
 import OAuth from './components/OAuth';
 import { useEffect, useState } from 'react';
+import AccountMenu from './components/AccountMenu';
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -23,20 +24,23 @@ function App() {
       // console.log('CheckLoginStatus function is running');
 
       try {
-        const response = await fetch(
-          'https://localhost:3333/auth/checkstatus',
+        const response = await fetch('https://localhost:3333/auth/checkstatus',
           {
             credentials: 'include',
           }
         );
-        const userInfo = await response.json();
-        // console.log("Login response: ", response)
-        // console.log("User Login INFO: ", userInfo)
 
-        setUserInfo(userInfo);
-        setIsLoggedIn(true);
+				if (response.ok) {
+					const userInfo = await response.json();
+					setUserInfo(userInfo);
+					setIsLoggedIn(true);
+				} else {
+					setUserInfo(null);
+					setIsLoggedIn(false);
+				}
       } catch (error) {
         console.error('Cannot login: ', error);
+				setUserInfo(null);
         setIsLoggedIn(false);
       }
     };
@@ -52,15 +56,14 @@ function App() {
     <Router>
       <div className='app'>
         <header>
-          <button>Login Placeholder</button>
-          <h1>A11y Root</h1>
-          <div className='github-login'>
+				<div className='github-login'>
             {isLoggedIn ? (
-              <button onClick={handleLogout}>LOGOUT</button>
+							<AccountMenu userInfo={userInfo} handleLogout={handleLogout}></AccountMenu>
             ) : (
               <OAuth handleOAuthClick={handleOAuthClick}></OAuth>
             )}
           </div>
+          <h1>A11y Root</h1>
           <BtnDownload handleDownload={handleDownload} />
         </header>
         <Routes>
