@@ -19,19 +19,19 @@ const OAuth: React.FC<OAuthProp> = ({ handleOAuthClick }) => {
           stiffness: 260,
           damping: 30,
         }}
-        // whileHover={{ scale: 1.2 }}
+        whileHover={{ scale: 1.2 }}
       >
-        {/* <a href='#' className='icon' onClick={() => handleOAuthClick('github')}>
-        <FontAwesomeIcon icon={faGithub} />
-          Sign in with Github
-        </a> */}
+        {/* <a href='#' className='icon' onClick={() => handleOAuthClick("github")}>
+						<FontAwesomeIcon icon={faGithub} />
+						Sign in with Github
+					</a> */}
         <button
           id='icon'
           className='btn'
           onClick={() => handleOAuthClick('github')}
         >
           <FontAwesomeIcon icon={faGithub} />
-          Sign in with GitHub
+          Sign in with Github
         </button>
       </motion.div>
     </div>

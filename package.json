@@ -14,8 +14,12 @@
     "start-dev": "nodemon server/server.ts"
   },
   "dependencies": {
+    "@emotion/react": "^11.13.5",
+    "@emotion/styled": "^11.13.5",
     "@fortawesome/free-brands-svg-icons": "^6.7.1",
     "@fortawesome/react-fontawesome": "^0.2.2",
+    "@mui/icons-material": "^6.1.10",
+    "@mui/material": "^6.1.10",
     "@types/mongoose": "^5.11.96",
     "concurrently": "^9.1.0",
     "cookie-parser": "^1.4.7",

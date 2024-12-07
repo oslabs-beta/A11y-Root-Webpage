@@ -5,6 +5,7 @@ import Dashboard from './pages/Dashboard';
 import BtnDownload from './components/BtnDownload';
 import OAuth from './components/OAuth';
 import { useEffect, useState } from 'react';
+import AccountMenu from './components/AccountMenu';
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -30,14 +31,18 @@ function App() {
             credentials: 'include',
           }
         );
-        const userInfo = await response.json();
-        // console.log("Login response: ", response)
-        // console.log("User Login INFO: ", userInfo)
 
-        setUserInfo(userInfo);
-        setIsLoggedIn(true);
+        if (response.ok) {
+          const userInfo = await response.json();
+          setUserInfo(userInfo);
+          setIsLoggedIn(true);
+        } else {
+          setUserInfo(null);
+          setIsLoggedIn(false);
+        }
       } catch (error) {
         console.error('Cannot login: ', error);
+        setUserInfo(null);
         setIsLoggedIn(false);
       }
     };
@@ -54,7 +59,10 @@ function App() {
       <header>
         <div className='github-login'>
           {isLoggedIn ? (
-            <button onClick={handleLogout}>LOGOUT</button>
+            <AccountMenu
+              userInfo={userInfo}
+              handleLogout={handleLogout}
+            ></AccountMenu>
           ) : (
             <OAuth handleOAuthClick={handleOAuthClick}></OAuth>
           )}
