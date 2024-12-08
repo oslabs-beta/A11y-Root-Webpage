@@ -33,16 +33,14 @@ export default function AccountMenu({
     <div>
       <Tooltip title='Account settings'>
         <IconButton
-          id='btn-icon'
+          id='btn-icon' // mui element
           onClick={handleClick}
           aria-controls={open ? 'account-menu' : undefined}
           aria-haspopup='true'
           aria-expanded={open ? 'true' : undefined}
         >
           {/* <span style={{ fontSize: '1rem', fontWeight: 'bold' }}> */}
-          <span>
-            Hello, {userInfo?.username || 'Guest'}
-          </span>
+          <span>Hello, {userInfo?.username || 'Guest'}</span>
           <Avatar
             id='avatar'
             src={userInfo?.avatarUrl || undefined}

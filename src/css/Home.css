@@ -10,8 +10,9 @@
 .border-mint {
   background-color: #83e09e;
   border-radius: 1rem;
+  width: fit-content;
   align-self: center;
-  padding: 1rem 0 1rem 0;
+  padding: 2rem;
 }
 
 .a11y-details {
@@ -34,6 +35,16 @@
   min-height: fit-content;
   padding: 4rem;
   background-color: #83e09e;
+}
+
+#dom-a11y-trees {
+  width: fit-content;
+  text-align: center;
+  /* align-self: center; */
+}
+
+#img-a11y-tree {
+  height: 90%;
 }
 
 .demo {
