@@ -5,7 +5,7 @@
   align-items: center;
 }
 
-.app header {
+header {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
@@ -16,17 +16,17 @@
   background-color: #333333;
 }
 
-.app header h1 {
+header h1 {
   background-color: #f4f6fc;
   border-radius: 1rem;
-  min-width: fit-content;
+  border-width: fit-content;
   padding: 1rem 2rem 1rem 2rem;
   margin-bottom: 2.5rem;
-  align-self: center;
-  text-align: center;
+  /* align-self: center;
+  text-align: center; */
 }
 
-.app header button {
+header button {
   align-self: flex-end;
   background-color: #83e09e;
   border-radius: 1rem;
@@ -35,38 +35,58 @@
 }
 
 .github-login {
-	display: flex;
-	align-self: flex-end;
+  align-self: flex-end;
+  font-family: Hubot;
+  margin-right: 2rem;
 }
 
-.oauth-icons{
-	margin: 20px 0;
-	display: flex;
-	justify-content: flex-start;
+.oauth-icons {
+  margin: 20px 0;
+  display: flex;
+  justify-content: flex-start;
 }
 
-.oauth-icons a {
-	font-family: Oswald-Regular;
-	font-size: 16px;
-	
-  background-color: #fff;
-  border: none;
-  border-radius: 20%;
+#icon {
   display: inline-flex;
   justify-content: center;
   align-items: center;
-  margin: 15px 12px;
-  width: 200px;
-  height: 40px;
-	transition: all 0.4s;
+  transition: all 0.4s;
 }
 
+#avatar {
+  width: 2.5rem;
+  height: auto;
+}
+
+#btn-icon {
+  background-color: #83e09e;
+  size: small;
+  border-radius: 1rem;
+  width: fit-content;
+  padding: 1rem;
+  /* sx: 2; */
+}
+
+#btn-icon:hover {
+  background-color: #e2e7f5;
+}
+
+.btn {
+  background-color: #83e09e;
+  border-radius: 1rem;
+  width: fit-content;
+  padding: 1rem;
+}
+
+
 button {
-	background-color: #f4f6fc;
+  background-color: #83e09e;
   border-radius: 1rem;
   width: 15rem;
   padding: 1rem;
 }
+
 button:hover {
-	background-color: #e2e7f5;
+  background-color: #e2e7f5;
+  cursor: pointer;
 }

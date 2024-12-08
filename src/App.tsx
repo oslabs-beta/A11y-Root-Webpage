@@ -1,6 +1,7 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import './css/App.css';
 import Home from './pages/Home';
+import Dashboard from './pages/Dashboard';
 import BtnDownload from './components/BtnDownload';
 import OAuth from './components/OAuth';
 import { useEffect, useState } from 'react';
@@ -24,23 +25,24 @@ function App() {
       // console.log('CheckLoginStatus function is running');
 
       try {
-        const response = await fetch('https://localhost:3333/auth/checkstatus',
+        const response = await fetch(
+          'https://localhost:3333/auth/checkstatus',
           {
             credentials: 'include',
           }
         );
 
-				if (response.ok) {
-					const userInfo = await response.json();
-					setUserInfo(userInfo);
-					setIsLoggedIn(true);
-				} else {
-					setUserInfo(null);
-					setIsLoggedIn(false);
-				}
+        if (response.ok) {
+          const userInfo = await response.json();
+          setUserInfo(userInfo);
+          setIsLoggedIn(true);
+        } else {
+          setUserInfo(null);
+          setIsLoggedIn(false);
+        }
       } catch (error) {
         console.error('Cannot login: ', error);
-				setUserInfo(null);
+        setUserInfo(null);
         setIsLoggedIn(false);
       }
     };
@@ -53,29 +55,32 @@ function App() {
   };
 
   return (
-    <Router>
-      <div className='app'>
-        <header>
-				<div className='github-login'>
-            {isLoggedIn ? (
-							<AccountMenu userInfo={userInfo} handleLogout={handleLogout}></AccountMenu>
-            ) : (
-              <OAuth handleOAuthClick={handleOAuthClick}></OAuth>
-            )}
-          </div>
-          <h1>A11y Root</h1>
-          <BtnDownload handleDownload={handleDownload} />
-        </header>
+    <div className='app'>
+      <header>
+        <div className='github-login'>
+          {isLoggedIn ? (
+            <AccountMenu
+              userInfo={userInfo}
+              handleLogout={handleLogout}
+            ></AccountMenu>
+          ) : (
+            <OAuth handleOAuthClick={handleOAuthClick}></OAuth>
+          )}
+        </div>
+        <h1>A11y Root</h1>
+        <BtnDownload handleDownload={handleDownload} />
+      </header>
+      <Router>
         <Routes>
           <Route path='/' element={<Home />} />
+          <Route path='/dashboard' element={<Dashboard />} />
         </Routes>
-        {/* {Update Footer with copyright notice, privacy policy link, sitemap, logo, contact info, social media icons} */}
-        <footer>
-          <h6>A11y Root</h6>
-          <nav></nav>
-        </footer>
-      </div>
-    </Router>
+      </Router>
+      {/* {Update Footer with copyright notice, privacy policy link, sitemap, logo, contact info, social media icons} */}
+      <footer>
+        <h6>A11y Root</h6>
+      </footer>
+    </div>
   );
 }
 

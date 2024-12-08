@@ -1,4 +1,7 @@
 import '../css/Home.css';
+import a11yTree from '../assets/a11y-tree-light.png';
+import demo from '../assets/a11y-tree-grey.png';
+
 const Home = () => {
   return (
     <main className='home'>
@@ -14,10 +17,11 @@ const Home = () => {
             to its features.
           </p>
         </div>
-        <div>
-          <h2>DOM Structure VS A11y Tree</h2>
+        <div id='dom-a11y-trees'>
+          <h2 className='border-mint'>Is Your A11y Tree's Structure Clear?</h2>
           <img
-            src=''
+            id='img-a11y-tree'
+            src={a11yTree}
             alt="side by side comparison of the browser's DOM structure and it's conversion to an A11y tree."
           />
         </div>
@@ -28,7 +32,7 @@ const Home = () => {
       <section className='demo'>
         <h2>Try It Out!</h2>
         <img
-          src=''
+          src={demo}
           alt='a demonstration of how to use the A11y Root extension in VS Code Studio'
         />
       </section>

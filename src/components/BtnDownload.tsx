@@ -7,9 +7,9 @@ interface BtnDownloadProps {
 
 const BtnDownload = ({ handleDownload }: BtnDownloadProps) => {
   return (
-    <div className='btn'>
+    <div className='btn-download'>
       {/* react-aria-components have built-in a11y compliant components that work as expected, even in a div */}
-      <Button id='download-extension' onPress={handleDownload}>
+      <Button id='download-extension' className='btn' onPress={handleDownload}>
         Download VS Code Extension
       </Button>
     </div>
