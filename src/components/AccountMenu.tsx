@@ -6,7 +6,7 @@ interface AccountMenuProps {
   userInfo: {
     username: string | null;
     avatarUrl: string | null;
-  };
+  } | null;
   handleLogout: () => void;
 }
 

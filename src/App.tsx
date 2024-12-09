@@ -7,9 +7,14 @@ import OAuth from './components/OAuth';
 import { useEffect, useState } from 'react';
 import AccountMenu from './components/AccountMenu';
 
+interface UserInfo {
+  username: string | null;
+  avatarUrl: string | null;
+}
+
 function App() {
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
-  const [userInfo, setUserInfo] = useState(null);
+  const [isLoggedIn, setIsLoggedIn] = useState<boolean>(false);
+  const [userInfo, setUserInfo] = useState<UserInfo | null>(null);
 
   const handleOAuthClick = () => {
     window.location.href = 'https://localhost:3333/auth';
