@@ -1,9 +1,6 @@
 import * as React from 'react';
-import Avatar from '@mui/material/Avatar';
-import Menu from '@mui/material/Menu';
-import MenuItem from '@mui/material/MenuItem';
-import IconButton from '@mui/material/IconButton';
-import Tooltip from '@mui/material/Tooltip';
+import { Avatar, Menu, MenuItem, IconButton, Tooltip } from '@mui/material';
+import '../css/AccountMenu.css';
 
 interface AccountMenuProps {
   userInfo: {
