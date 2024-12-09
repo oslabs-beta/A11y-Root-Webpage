@@ -1,0 +1,12 @@
+#basic-menu {
+  position: absolute;
+  right: 0;
+  margin-top: 0.75rem; /* 3 units of Tailwind spacing */
+  width: 16rem; /* 256px */
+  background-color: white;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  border-radius: 0.5rem; /* Rounded-lg */
+  overflow: hidden;
+  border: 1px solid #e5e7eb; /* Gray-100 */
+  z-index: 10;
+}
