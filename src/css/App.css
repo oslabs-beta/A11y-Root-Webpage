@@ -58,7 +58,7 @@ header button {
   height: auto;
 }
 
-#btn-icon {
+#btn-github-icon {
   background-color: #83e09e;
   size: small;
   border-radius: 1rem;
@@ -67,7 +67,7 @@ header button {
   /* sx: 2; */
 }
 
-#btn-icon:hover {
+#btn-github-icon:hover {
   background-color: #e2e7f5;
 }
 
@@ -77,7 +77,6 @@ header button {
   width: fit-content;
   padding: 1rem;
 }
-
 
 button {
   background-color: #83e09e;

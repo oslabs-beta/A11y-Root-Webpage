@@ -27,17 +27,17 @@ export default function AccountMenu({
   };
 
   return (
-    <div>
+    <div id='account-menu-container'>
       <Tooltip title='Account settings'>
         <IconButton
-          id='btn-icon' // mui element
+          id='btn-github-icon' // mui element
           onClick={handleClick}
           aria-controls={open ? 'account-menu' : undefined}
           aria-haspopup='true'
           aria-expanded={open ? 'true' : undefined}
         >
           {/* <span style={{ fontSize: '1rem', fontWeight: 'bold' }}> */}
-          <span>Hello, {userInfo?.username || 'Guest'}</span>
+          <span id='user-greeting'>Hello, {userInfo?.username || 'Guest'}</span>
           <Avatar
             id='avatar'
             src={userInfo?.avatarUrl || undefined}
@@ -48,7 +48,7 @@ export default function AccountMenu({
         </IconButton>
       </Tooltip>
       <Menu
-        id='basic-menu'
+        id='dropdown-menu'
         anchorEl={anchorEl}
         open={open}
         onClose={handleClose}
@@ -56,9 +56,14 @@ export default function AccountMenu({
           'aria-labelledby': 'basic-button',
         }}
       >
-        <MenuItem onClick={handleClose}>Profile</MenuItem>
-        <MenuItem onClick={handleClose}>Dashboard</MenuItem>
+        <MenuItem id='link-profile' onClick={handleClose}>
+          Profile
+        </MenuItem>
+        <MenuItem id='link-dashboard' onClick={handleClose}>
+          Dashboard
+        </MenuItem>
         <MenuItem
+          id='link-logout'
           onClick={() => {
             handleLogout();
             handleClose();
