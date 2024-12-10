@@ -1,6 +1,3 @@
-import path from 'path';
-// import { Request, Response, NextFunction } from 'express';
-
 import UserModel from '../models/userModel';
 import { userController } from '../type';
 
@@ -111,5 +108,29 @@ UserController.deleteUser = async (req, res, next) => {  // req: Request, res: R
 			});
 		})
 }
+
+UserController.fullUserDetails = async (req, res, next) => {
+	const githubId = req.params.githubId;
+
+	try {
+		const response = await UserModel
+		  .findOne({githubId})
+		  .populate({path: 'projects', populate: {path: 'pages'} })
+
+		if (!response) {
+			return res.status(404).send('No user found.');
+		}
+
+		  res.locals.user = response;
+			return next();
+	  } catch (err) {
+		return next({
+			log: `Error in UserController.fullUserDetails: ERROR: ${err}`,
+			message: { err: 'An error occurred while trying get user details.' },
+			status: 500
+		});
+	  }
+	}
+
 
 export default UserController;

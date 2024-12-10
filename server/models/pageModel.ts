@@ -9,7 +9,7 @@ const pageSchema = new Schema({
   tree: { type: String,  required: true },
   skipLink: { type: Boolean, required: [true, 'A skip link must be present'] },
   h1: { type: Boolean, required: [true, 'An h1 tag must be present'] }
-})
+});
 
 const PageModel = mongoose.model('Page', pageSchema);
 
