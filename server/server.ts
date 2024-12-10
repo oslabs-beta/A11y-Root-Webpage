@@ -27,8 +27,7 @@ const options = {
 
 //PARSING MIDDLEWARE
 app.use(express.urlencoded({ extended: true }));
-app.use(cors(
-  {credentials: true,  origin: true}));
+app.use(cors({ credentials: true, origin: true }));
 app.use(express.json());
 app.use(cookieParser());
 
@@ -46,10 +45,14 @@ app.get('/auth', (req: Request, res: Response) => {
   return res.redirect(githubOAuthURl);
 });
 
-app.get('/auth/checkstatus', oAuthController.checkStatus, (req: Request, res: Response) => {
-	res.header('Access-Control-Allow-Credentials', true);
-  return res.status(200).json(res.locals.user)
-})
+app.get(
+  '/auth/checkstatus',
+  oAuthController.checkStatus,
+  (req: Request, res: Response) => {
+    res.header('Access-Control-Allow-Credentials', true);
+    return res.status(200).json(res.locals.user);
+  }
+);
 
 //add middleware here
 app.get(
