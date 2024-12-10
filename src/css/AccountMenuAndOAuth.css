@@ -1,0 +1,104 @@
+/* mui elements have a built in class. Therefore, you need to use an ID to call on it */
+
+.github-login {
+  align-self: flex-end;
+  font-family: Hubot;
+  margin-right: 2rem;
+  /* background-color: yellow; */
+  /* width: 50rem; */
+}
+
+/* ---------- OAuth Component ---------- */
+/* .oauth {
+  padding: 20px 0;
+  display: flex;
+  justify-content: flex-start;
+} */
+
+#btn-login {
+  display: flex;
+  align-items: center;
+}
+
+#icon-github {
+  padding-right: 0.5rem;
+}
+
+/* .btn {
+  background-color: #83e09e;
+  border-radius: 1rem;
+  width: fit-content;
+  padding: 1rem;
+} */
+
+/* ---------- AccountMenu Component ---------- */
+#account-menu-container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  /* width: 50rem; */
+  /* background-color: red; */
+  /* position: relative; */
+}
+
+#btn-account {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: black;
+
+  /* 
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+ */
+}
+
+#avatar {
+  width: 2.5rem;
+  height: auto;
+}
+
+#menu-account {
+  display: flex;
+  flex-direction: column;
+  justify-self: ;
+  background-color: white;
+  width: 10rem;
+  /* position: absolute;
+  
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  border-radius: 0.5rem;
+  overflow: hidden; */
+}
+
+menuitem:hover {
+  cursor: pointer;
+}
+
+/* Menu Items */
+/* #link-profile,
+#link-dashboard,
+#link-logout {
+  font-size: 0.875rem;
+  color: #1e293b;
+  padding: 0.5rem 1rem;
+  transition: background-color 0.2s ease;
+} */
+
+/* #link-profile:hover,
+#link-dashboard:hover,
+#link-logout:hover {
+  background-color: #eef2ff;
+  color: #4338ca;
+} */
+
+/* Logout Menu Item */
+/* #link-logout {
+  font-weight: bold;
+} */
+
+/* Popover #link-logout:hover {
+  background-color: #fee2e2;
+  color: #dc2626;
+  cursor: pointer;
+} */

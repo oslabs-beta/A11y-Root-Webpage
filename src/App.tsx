@@ -36,7 +36,6 @@ function App() {
             credentials: 'include',
           }
         );
-
         if (response.ok) {
           const userInfo = await response.json();
           setUserInfo(userInfo);

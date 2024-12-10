@@ -22,8 +22,6 @@ header h1 {
   border-width: fit-content;
   padding: 1rem 2rem 1rem 2rem;
   margin-bottom: 2.5rem;
-  /* align-self: center;
-  text-align: center; */
 }
 
 header button {
@@ -34,54 +32,10 @@ header button {
   margin: 1rem;
 }
 
-.github-login {
-  align-self: flex-end;
-  font-family: Hubot;
-  margin-right: 2rem;
-}
-
-.oauth-icons {
-  margin: 20px 0;
-  display: flex;
-  justify-content: flex-start;
-}
-
-#icon {
-  display: inline-flex;
-  justify-content: center;
-  align-items: center;
-  transition: all 0.4s;
-}
-
-#avatar {
-  width: 2.5rem;
-  height: auto;
-}
-
-#btn-github-icon {
-  background-color: #83e09e;
-  size: small;
-  border-radius: 1rem;
-  width: fit-content;
-  padding: 1rem;
-  /* sx: 2; */
-}
-
-#btn-github-icon:hover {
-  background-color: #e2e7f5;
-}
-
-.btn {
-  background-color: #83e09e;
-  border-radius: 1rem;
-  width: fit-content;
-  padding: 1rem;
-}
-
 button {
   background-color: #83e09e;
   border-radius: 1rem;
-  width: 15rem;
+  width: fit-content;
   padding: 1rem;
 }
 
