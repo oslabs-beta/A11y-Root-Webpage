@@ -4,6 +4,7 @@ import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
 import IconButton from '@mui/material/IconButton';
 import Tooltip from '@mui/material/Tooltip';
+import { useNavigate } from 'react-router-dom';
 
 interface AccountMenuProps {
   userInfo: {
@@ -20,6 +21,7 @@ export default function AccountMenu({
   // <null | HTMLElement> is the type syntax for useState; HTMLElement is required for the event object
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
   const open = Boolean(anchorEl);
+	const navigate = useNavigate();
 
   const handleClick = (event: React.MouseEvent<HTMLElement>) => {
     setAnchorEl(event.currentTarget);
@@ -60,7 +62,9 @@ export default function AccountMenu({
         }}
       >
         <MenuItem onClick={handleClose}>Profile</MenuItem>
-        <MenuItem onClick={handleClose}>Dashboard</MenuItem>
+        <MenuItem onClick={() => {
+					navigate('/dashboard'); 
+					handleClose()}}>Dashboard</MenuItem>
         <MenuItem
           onClick={() => {
             handleLogout();
