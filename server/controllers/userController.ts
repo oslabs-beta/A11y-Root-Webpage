@@ -4,25 +4,25 @@ import { userController } from '../type';
 const UserController = {} as userController;
 
 UserController.getUser = async (req, res, next) => {  // req: Request, res: Response, next: NextFunction
-  const githubId = req.params.githubId;
-
-	UserModel.find({githubId}) // use githubId to find user
-		.then((user) => {
-			if (!user.length) {
-				return res.status(404).send('No user found.');
-			}
-
-			res.locals.user = user;
-			return next();
-		})
-		.catch((err) => {
-			return next({
-				log: `Error in UserController.getUser: ERROR: ${err}`,
-				message: { err: 'An error occurred retrieving user info.' },
-				status: 500
-			});
-		})
-}
+	const userId = req.params.userId;
+  
+	  UserModel.findById({_id: userId}) // use _id to find user
+		  .then((user) => {
+			  if (!user) {
+				  return res.status(404).send('No user found.');
+			  }
+  
+			  res.locals.user = user;
+			  return next();
+		  })
+		  .catch((err) => {
+			  return next({
+				  log: `Error in UserController.getUser: ERROR: ${err}`,
+				  message: { err: 'An error occurred retrieving user info.' },
+				  status: 500
+			  });
+		  })
+  }
 
 UserController.postUser = async (req, res, next) => {
     //check if required information exists in req.body
