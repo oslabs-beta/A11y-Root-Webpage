@@ -7,7 +7,7 @@ const projectSchema = new Schema({
   createdAt: { type: Date, default: Date.now },
   updatedAt: { type: Date, default: Date.now },
   pages: [{ type : Schema.Types.ObjectId, ref: 'Page' }]
-})
+});
 
 const ProjectModel = mongoose.model('Project', projectSchema);
 
