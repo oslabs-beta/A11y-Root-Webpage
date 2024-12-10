@@ -6,6 +6,7 @@ import BtnDownload from './components/BtnDownload';
 import OAuth from './components/OAuth';
 import { useEffect, useState } from 'react';
 import AccountMenu from './components/AccountMenu';
+import MainDashboard from './pages/MainDashboard';
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -75,8 +76,8 @@ function App() {
       </header>
       <Routes>
 				<Route path='/' element={<Home />} />
-				<Route path='/dashboard' element={<Dashboard />} />
-					{/* <Route path='/treeDashboard' element={<TreeDashboard />} /> */}
+				{/* <Route path='/dashboard' element={<Dashboard />} /> */}
+					<Route path='/dashboard' element={<MainDashboard />} />
       </Routes>
       {/* {Update Footer with copyright notice, privacy policy link, sitemap, logo, contact info, social media icons} */}
 			{showHeaderFooter && (
