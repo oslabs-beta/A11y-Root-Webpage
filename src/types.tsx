@@ -120,3 +120,21 @@ export interface AccountMenuProps {
   userInfo: UserInfo;
   handleLogout: () => void;
 }
+
+//DB stringified types
+
+export interface DBProject {
+  _id: string;
+  userGithubId: string;
+  projectName: string;
+  pages: DBPage[];
+}
+
+export interface DBPage {
+  _id: string; //id from our database (unique per page)
+  url: string; // The URL of the analyzed page
+  tree: string; // The accessibility tree
+  skipLink: string; // Information about skip links
+  h1: string; // Information about the main heading (h1)
+  tabIndex: string[]; // List of tab index entries
+}
