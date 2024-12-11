@@ -1,9 +1,5 @@
 import React from 'react';
-
-interface TabNavigationProps {
-  activeTab: string;
-  handleTabChange: (activeTab: string) => void;
-}
+import { TabNavigationProps } from '../types';
 
 const TabNavigation: React.FC<TabNavigationProps> = ({
   activeTab,

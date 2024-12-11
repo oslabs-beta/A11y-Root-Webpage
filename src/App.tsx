@@ -12,15 +12,11 @@ import OAuth from './components/OAuth';
 import { useEffect, useState } from 'react';
 import AccountMenu from './components/AccountMenu';
 import MainDashboard from './pages/MainDashboard';
-
-interface UserInfo {
-  username: string | null;
-  avatarUrl: string | null;
-}
+import { UserInfo } from './types';
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState<boolean>(false);
-  const [userInfo, setUserInfo] = useState<UserInfo | null>(null);
+  const [userInfo, setUserInfo] = useState<UserInfo|null>(null);
 
   const handleOAuthClick = () => {
     window.location.href = 'https://localhost:3333/auth';
@@ -45,6 +41,7 @@ function App() {
         if (response.ok) {
           const userInfo = await response.json();
           setUserInfo(userInfo);
+          console.log(`userinfoset: ${JSON.stringify(userInfo)}`)
           setIsLoggedIn(true);
         } else {
           setUserInfo(null);
@@ -71,7 +68,7 @@ function App() {
     <div className='app'>
       <header>
         <div className='github-login'>
-          {isLoggedIn ? (
+          {(isLoggedIn && userInfo) ? (
             <AccountMenu
               userInfo={userInfo}
               handleLogout={handleLogout}
@@ -86,7 +83,10 @@ function App() {
       <Routes>
         <Route path='/' element={<Home />} />
         <Route path='/testdashboard' element={<Dashboard />} />
-        <Route path='/dashboard' element={<MainDashboard />} />
+        <Route
+          path='/dashboard'
+          element={userInfo && <MainDashboard userInfo={userInfo} />}
+        />
       </Routes>
       {/* {Update Footer with copyright notice, privacy policy link, sitemap, logo, contact info, social media icons} */}
       {showHeaderFooter && (
