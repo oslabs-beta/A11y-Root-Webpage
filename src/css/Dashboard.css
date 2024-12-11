@@ -1,0 +1,9 @@
+.enterUrl {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+	align-self: flex-end;
+  font-family: Hubot;
+  margin-right: 2rem;
+}
