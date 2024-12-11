@@ -1,9 +1,4 @@
-import {
-  BrowserRouter as Router,
-  Routes,
-  Route,
-  useLocation,
-} from 'react-router-dom';
+import { Routes, Route, useLocation, useNavigate } from 'react-router-dom';
 import './css/App.css';
 import Home from './pages/Home';
 import Dashboard from './pages/Dashboard';
@@ -19,6 +14,7 @@ interface UserInfo {
 }
 
 function App() {
+  const navigate = useNavigate();
   const [isLoggedIn, setIsLoggedIn] = useState<boolean>(false);
   const [userInfo, setUserInfo] = useState<UserInfo | null>(null);
 
@@ -80,7 +76,7 @@ function App() {
             <OAuth handleOAuthClick={handleOAuthClick}></OAuth>
           )}
         </div>
-        <h1>A11y Root</h1>
+        <h1 onClick={() => navigate('/')}>A11y Root</h1>
         <BtnDownload handleDownload={handleDownload} />
       </header>
       <Routes>
