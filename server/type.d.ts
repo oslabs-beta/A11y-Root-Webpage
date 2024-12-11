@@ -9,6 +9,7 @@ export type ServerError = {
 
 export type userController = {
   getUser: (req: Request, res: Response, next: NextFunction) => void;
+  fullUserDetails: (req: Request, res: Response, next: NextFunction) => void;
   postUser: (req: Request, res: Response, next: NextFunction) => void;
   updateUser: (req: Request, res: Response, next: NextFunction) => void;
   deleteUser: (req: Request, res: Response, next: NextFunction) => void;
