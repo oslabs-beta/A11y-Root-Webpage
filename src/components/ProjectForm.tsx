@@ -3,12 +3,14 @@ import { useState, useEffect } from 'react';
 import { ProjectFormProps, Project } from '../types';
 
 //pass in user info from form container and use github id in fetch
-export default function ProjectForm({ userInfo }: ProjectFormProps) {
+export default function ProjectForm({ userInfo, setSelectedProject }: ProjectFormProps) {
   const [projects, setProjects] = useState<Project[]>([]);
-  const [selectedProject, setSelectedProject] = useState<string>('');
 
   const handleSelectChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
-    setSelectedProject(event.target.value);
+    
+    const chosenProject = projects.find((project)=> project._id === event.target.value)
+    setSelectedProject(chosenProject || null);
+    console.log('selected project: ', chosenProject);
   };
 
   useEffect(() => {
@@ -22,8 +24,10 @@ export default function ProjectForm({ userInfo }: ProjectFormProps) {
           const userDetails = await response.json();
           console.log(userDetails);
           console.log('********', userDetails.projects);
+
+          //get project pages sensicle
+
           setProjects(userDetails.projects);
-          // setPages(userDetails.projects.pages);
         }
       } catch (error) {
         console.error('Could not get user details: ', error);
@@ -35,10 +39,10 @@ export default function ProjectForm({ userInfo }: ProjectFormProps) {
   return (
     <form id='project-form'>
       <label>Select a project:</label>
-      <select value={selectedProject} onChange={handleSelectChange}>
-        {/* <option value="" disabled>
+      <select onChange={handleSelectChange}>
+        { <option value="" selected disabled hidden>
           -- Select a Project --
-        </option> */}
+        </option> }
         {projects.map((project) => (
           <option key={project._id} value={project._id}>
             {project.projectName}

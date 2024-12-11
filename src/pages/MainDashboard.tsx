@@ -16,11 +16,13 @@ function MainDashboard({ userInfo }: MainDashboardProps) {
     <>
       <h2>Accessibility Tree</h2>
       <FormContainer userInfo={userInfo} setPageResults={setPageResults} />
-      <TabNavigation
-        activeTab={activeTab}
-        handleTabChange={handleclick}
-        pageResults={pageResults}
-      />
+      {pageResults && (
+        <TabNavigation
+          activeTab={activeTab}
+          handleTabChange={handleclick}
+          pageResults={pageResults}
+        />
+      )}
     </>
   );
 }

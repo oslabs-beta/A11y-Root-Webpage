@@ -41,6 +41,7 @@ export type AccessibilityTree = AccessibilityNode & {
 };
 
 export type PageResults = {
+  _id: string; //id from our database (unique per page)
   url: string; // The URL of the analyzed page
   tree: AccessibilityTree | null; // The accessibility tree
   skipLink: AccessibilityNode | null; // Information about skip links
@@ -73,10 +74,11 @@ export interface Project {
 //prop passing interfaces
 export interface ProjectFormProps {
   userInfo: UserInfo;
+  setSelectedProject: (project: Project | null) => void;
 }
 
 export interface MainDashboardProps {
-  userInfo: UserInfo
+  userInfo: UserInfo;
 }
 
 export interface DisplayElementsProps {
@@ -90,15 +92,16 @@ export interface ElementProps {
 }
 
 export interface URLInputFormProps {
-  setPageResults: (pageResults: PageResults) => void;
+  setPageResults: (pageResults: PageResults | null) => void;
 }
 
 export interface PageFormProps {
-  setPageResults: (pageResults: PageResults) => void;
+  setPageResults: (pageResults: PageResults | null) => void;
+  selectedProject: Project;
 }
 
 export interface FormContainerProps {
-  setPageResults: (pageResults: PageResults) => void;
+  setPageResults: (pageResults: PageResults | null) => void;
   userInfo: UserInfo;
 }
 
