@@ -119,7 +119,7 @@ const oAuthController = {
   //when our webpage loads, check if user is logged in (based on cookie)
   checkStatus: async (req: Request, res: Response, next: NextFunction) => {
     try {
-      const{ssid} = req.cookies;
+      const { ssid } = req.cookies;
 
       if (!ssid) {
         return next({
@@ -128,7 +128,7 @@ const oAuthController = {
           message: { err: 'An error occurred while retrieving the ssid' },
         });
       }
-      const session = await SessionModel.findOne({cookieId:ssid})
+      const session = await SessionModel.findOne({ cookieId: ssid });
       if (!session) {
         return next({
           log: 'Error in oAuthController.checkStatus:Failed to find session in database',
@@ -137,7 +137,7 @@ const oAuthController = {
         });
       }
       const user = await UserModel.findById(ssid);
-      if(!user) {
+      if (!user) {
         return next({
           log: 'Error in oAuthController.checkStatus:Failed to check status',
           status: 500,
@@ -146,11 +146,11 @@ const oAuthController = {
       }
       // res.locals.user = user;
 
-			res.locals.user = {
-				username: user.username,
-				avatarUrl: user.avatarUrl,
-				profileUrl: user.profileUrl,
-			};
+      res.locals.user = {
+        username: user.username,
+        avatarUrl: user.avatarUrl,
+        profileUrl: user.profileUrl,
+      };
 
       return next();
     } catch {
@@ -159,7 +159,7 @@ const oAuthController = {
         status: 500,
         message: { err: 'An error occurred while finding the user' },
       });
-		}
-  } 
+    }
+  },
 };
 export default oAuthController;
