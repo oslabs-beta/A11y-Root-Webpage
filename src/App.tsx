@@ -16,7 +16,7 @@ import { UserInfo } from './types';
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState<boolean>(false);
-  const [userInfo, setUserInfo] = useState<UserInfo>(null);
+  const [userInfo, setUserInfo] = useState<UserInfo|null>(null);
 
   const handleOAuthClick = () => {
     window.location.href = 'https://localhost:3333/auth';
@@ -41,6 +41,7 @@ function App() {
         if (response.ok) {
           const userInfo = await response.json();
           setUserInfo(userInfo);
+          console.log(`userinfoset: ${JSON.stringify(userInfo)}`)
           setIsLoggedIn(true);
         } else {
           setUserInfo(null);
@@ -67,7 +68,7 @@ function App() {
     <div className='app'>
       <header>
         <div className='github-login'>
-          {isLoggedIn ? (
+          {(isLoggedIn && userInfo) ? (
             <AccountMenu
               userInfo={userInfo}
               handleLogout={handleLogout}
@@ -84,7 +85,7 @@ function App() {
         <Route path='/testdashboard' element={<Dashboard />} />
         <Route
           path='/dashboard'
-          element={<MainDashboard userInfo={userInfo} />}
+          element={userInfo && <MainDashboard userInfo={userInfo} />}
         />
       </Routes>
       {/* {Update Footer with copyright notice, privacy policy link, sitemap, logo, contact info, social media icons} */}

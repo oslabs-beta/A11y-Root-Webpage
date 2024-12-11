@@ -76,7 +76,7 @@ export interface ProjectFormProps {
 }
 
 export interface MainDashboardProps {
-  userInfo: UserInfo;
+  userInfo: UserInfo
 }
 
 export interface DisplayElementsProps {
@@ -111,4 +111,9 @@ export interface TabNavigationProps {
   activeTab: string;
   pageResults: PageResults;
   handleTabChange: (activeTab: string) => void;
+}
+
+export interface AccountMenuProps {
+  userInfo: UserInfo;
+  handleLogout: () => void;
 }
