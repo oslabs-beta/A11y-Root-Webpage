@@ -1,4 +1,5 @@
-// import * as React from 'react';
+import * as React from 'react';
+import { useNavigate } from 'react-router-dom';
 import {
   Button,
   Menu,
@@ -21,17 +22,8 @@ export default function AccountMenu({
   userInfo,
   handleLogout,
 }: AccountMenuProps) {
-  // <null | HTMLElement> is the type syntax for useState; HTMLElement is required for the event object
-  // const [anchorEl, setAnchorEl] = React.useState<HTMLElement | null>(null);
-  // const open = Boolean(anchorEl);
-
-  // const handleClick = (event: React.MouseEvent<HTMLElement>) => {
-  //   setAnchorEl(event.currentTarget);
-  // };
-
-  // const handleClose = () => {
-  //   setAnchorEl(null);
-  // };
+  
+  const navigate = useNavigate();
 
   return (
     <div id='account-menu-container'>
@@ -49,7 +41,8 @@ export default function AccountMenu({
             <MenuItem className='menu-item' onAction={() => alert('profile')}>
               Profile
             </MenuItem>
-            <MenuItem className='menu-item' onAction={() => alert('dashboard')}>
+
+            <MenuItem className='menu-item' onAction={() => navigate('/dashboard')}>
               Dashboard
             </MenuItem>
             <MenuItem className='menu-item' onAction={handleLogout}>

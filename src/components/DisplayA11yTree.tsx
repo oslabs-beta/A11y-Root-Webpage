@@ -15,7 +15,7 @@ import {
   nonSemanticLinksAside,
 } from './AsideContent';
 import { nanoid } from 'nanoid';
-import DisplayElements from '../containers/DisplayElements';
+import DisplayElements from '../pages/DisplayElements';
 
 function DisplayA11yTree({ pageResults, activeTab }: DisplayA11yTreeProps) {
   //const skipLink = tree.skipLink;
@@ -33,7 +33,7 @@ function DisplayA11yTree({ pageResults, activeTab }: DisplayA11yTreeProps) {
       <Element node={pageResults.skipLink} />
     ) : null
   );
-
+console.log(pageResults)
   function setNode(node: AccessibilityNode) {
     setElements((prev) => [...prev, <Element node={node} />]);
     switch (node.role) {

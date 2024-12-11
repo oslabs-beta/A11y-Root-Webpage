@@ -8,7 +8,7 @@ interface Project {
   	pages: any[]
 }
 //pass in user info from form container and use github id in fetch
-export default function ProjectForm({userInfo}) {
+export default function ProjectForm({ setPageResults }) {
 	const [projects, setProjects] = useState<Project[]>([]);
 	const [selectedProject, setSelectedProject] = useState<string>('');
 	
@@ -26,6 +26,7 @@ export default function ProjectForm({userInfo}) {
 					console.log(userDetails);
 					console.log("********", userDetails.projects);
 					setProjects(userDetails.projects);
+					setPageResults();
 					// setPages(userDetails.projects.pages);
 				}
 			} catch (error) {

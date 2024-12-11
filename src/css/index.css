@@ -51,6 +51,8 @@ button:hover {
   width: fit-content;
   padding: 2rem;
 }
+
+
 @media (max-width: 768px) {
   /* Tablet */
 }
