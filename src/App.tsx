@@ -1,7 +1,6 @@
 import { Routes, Route, useLocation, useNavigate } from 'react-router-dom';
 import './css/App.css';
 import Home from './pages/Home';
-import Dashboard from './pages/Dashboard';
 import BtnDownload from './components/BtnDownload';
 import OAuth from './components/OAuth';
 import { useEffect, useState } from 'react';
@@ -81,7 +80,6 @@ function App() {
       </header>
       <Routes>
         <Route path='/' element={<Home />} />
-        <Route path='/testdashboard' element={<Dashboard />} />
         <Route path='/dashboard' element={<MainDashboard />} />
       </Routes>
       {/* {Update Footer with copyright notice, privacy policy link, sitemap, logo, contact info, social media icons} */}
