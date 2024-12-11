@@ -34,7 +34,13 @@ export default function AccountMenu({
                      src={userInfo?.avatarUrl || undefined}
                      alt={userInfo?.username || 'Avatar'}
                    >
-                     {userInfo?.username?.charAt(0) || 'U'}/> */}
+                     {userInfo?.username?.charAt(0) || 'U'} 
+					</img> */}
+
+					<img id='avatar'
+						src={userInfo?.avatarUrl || undefined}
+						alt={userInfo?.username || 'Avatar'}
+					/>
         </Button>
         <Popover>
           <Menu id='menu-account'>
