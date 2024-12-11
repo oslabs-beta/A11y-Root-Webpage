@@ -1,4 +1,9 @@
-import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  useLocation,
+} from 'react-router-dom';
 import './css/App.css';
 import Home from './pages/Home';
 import Dashboard from './pages/Dashboard';
@@ -59,8 +64,8 @@ function App() {
     return;
   };
 
-	const location = useLocation();
-	const showHeaderFooter = location.pathname !== '/dashboard';
+  const location = useLocation();
+  const showHeaderFooter = location.pathname !== '/dashboard';
 
   return (
     <div className='app'>
@@ -79,16 +84,16 @@ function App() {
         <BtnDownload handleDownload={handleDownload} />
       </header>
       <Routes>
-				<Route path='/' element={<Home />} />
-				{/* <Route path='/dashboard' element={<Dashboard />} /> */}
-					<Route path='/dashboard' element={<MainDashboard />} />
+        <Route path='/' element={<Home />} />
+        <Route path='/dashboard' element={<Dashboard />} />
+        <Route path='/maindashboard' element={<MainDashboard />} />
       </Routes>
       {/* {Update Footer with copyright notice, privacy policy link, sitemap, logo, contact info, social media icons} */}
-			{showHeaderFooter && (
-				<footer>
-					<h6>A11y Root</h6>
-				</footer>
-			)}
+      {showHeaderFooter && (
+        <footer>
+          <h6>A11y Root</h6>
+        </footer>
+      )}
     </div>
   );
 }
