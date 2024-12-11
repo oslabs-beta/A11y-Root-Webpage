@@ -10,13 +10,7 @@ import {
 // import { Avatar, Menu, MenuItem, IconButton, Tooltip } from '@mui/material';
 import '../css/AccountMenuAndOAuth.css';
 
-interface AccountMenuProps {
-  userInfo: {
-    username: string | null;
-    avatarUrl: string | null;
-  } | null;
-  handleLogout: () => void;
-}
+import {AccountMenuProps} from '../types'
 
 export default function AccountMenu({
   userInfo,

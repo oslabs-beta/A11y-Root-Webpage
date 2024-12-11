@@ -144,13 +144,8 @@ const oAuthController = {
           message: { err: 'An error occurred while checking status' },
         });
       }
-      // res.locals.user = user;
 
-      res.locals.user = {
-        username: user.username,
-        avatarUrl: user.avatarUrl,
-        profileUrl: user.profileUrl,
-      };
+      res.locals.user = user;
 
       return next();
     } catch {

@@ -1,6 +1,5 @@
 import { Types } from 'mongoose';
 
-
 export type SerializedAXNode = {
   role: string; // The role of the node
   name?: string; // The accessible name of the node
@@ -42,6 +41,7 @@ export type AccessibilityTree = AccessibilityNode & {
 };
 
 export type PageResults = {
+  _id: string; //id from our database (unique per page)
   url: string; // The URL of the analyzed page
   tree: AccessibilityTree | null; // The accessibility tree
   skipLink: AccessibilityNode | null; // Information about skip links
@@ -49,16 +49,36 @@ export type PageResults = {
   tabIndex: TabIndexEntry[]; // List of tab index entries
 };
 
-export interface DisplayA11yTreeProps {
-  pageResults: PageResults | null;
-  activeTab: string;
-}
-
 // Supporting interfaces
 
 export interface TabIndexEntry {
   role: string;
   name?: string;
+}
+
+export interface UserInfo {
+  githubId: string; // Required and unique
+  username: string; // Required
+  profileUrl?: string; // Optional
+  avatarUrl?: string; // Optional
+  projects?: Types.ObjectId[]; // Array of ObjectIds referencing the 'Project' collection
+}
+
+export interface Project {
+  _id: string;
+  userGithubId: string;
+  projectName: string;
+  pages: PageResults[];
+}
+
+//prop passing interfaces
+export interface ProjectFormProps {
+  userInfo: UserInfo;
+  setSelectedProject: (project: Project | null) => void;
+}
+
+export interface MainDashboardProps {
+  userInfo: UserInfo;
 }
 
 export interface DisplayElementsProps {
@@ -72,22 +92,49 @@ export interface ElementProps {
 }
 
 export interface URLInputFormProps {
-  setPageResults: (pageResults: PageResults) => void;
+  setPageResults: (pageResults: PageResults | null) => void;
 }
 
-export interface PageFormProps { 
-    setPageResults: (pageResults: PageResults) => void;
+export interface PageFormProps {
+  setPageResults: (pageResults: PageResults | null) => void;
+  selectedProject: Project;
 }
 
 export interface FormContainerProps {
-    setPageResults: (pageResults: PageResults) => void;
-    userInfo: UserInfo;
+  setPageResults: (pageResults: PageResults | null) => void;
+  userInfo: UserInfo;
 }
 
-export interface UserInfo {
-  githubId: string; // Required and unique
-  username: string; // Required
-  profileUrl?: string; // Optional
-  avatarUrl?: string; // Optional
-  projects?: Types.ObjectId[]; // Array of ObjectIds referencing the 'Project' collection
+export interface DisplayA11yTreeProps {
+  pageResults: PageResults | null;
+  activeTab: string;
+}
+
+export interface TabNavigationProps {
+  activeTab: string;
+  pageResults: PageResults;
+  handleTabChange: (activeTab: string) => void;
+}
+
+export interface AccountMenuProps {
+  userInfo: UserInfo;
+  handleLogout: () => void;
+}
+
+//DB stringified types
+
+export interface DBProject {
+  _id: string;
+  userGithubId: string;
+  projectName: string;
+  pages: DBPage[];
+}
+
+export interface DBPage {
+  _id: string; //id from our database (unique per page)
+  url: string; // The URL of the analyzed page
+  tree: string; // The accessibility tree
+  skipLink: string; // Information about skip links
+  h1: string; // Information about the main heading (h1)
+  tabIndex: string[]; // List of tab index entries
 }
