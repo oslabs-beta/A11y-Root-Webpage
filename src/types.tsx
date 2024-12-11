@@ -1,6 +1,5 @@
 import { Types } from 'mongoose';
 
-
 export type SerializedAXNode = {
   role: string; // The role of the node
   name?: string; // The accessible name of the node
@@ -49,16 +48,35 @@ export type PageResults = {
   tabIndex: TabIndexEntry[]; // List of tab index entries
 };
 
-export interface DisplayA11yTreeProps {
-  pageResults: PageResults | null;
-  activeTab: string;
-}
-
 // Supporting interfaces
 
 export interface TabIndexEntry {
   role: string;
   name?: string;
+}
+
+export interface UserInfo {
+  githubId: string; // Required and unique
+  username: string; // Required
+  profileUrl?: string; // Optional
+  avatarUrl?: string; // Optional
+  projects?: Types.ObjectId[]; // Array of ObjectIds referencing the 'Project' collection
+}
+
+export interface Project {
+  _id: string;
+  userGithubId: string;
+  projectName: string;
+  pages: PageResults[];
+}
+
+//prop passing interfaces
+export interface ProjectFormProps {
+  userInfo: UserInfo;
+}
+
+export interface MainDashboardProps {
+  userInfo: UserInfo;
 }
 
 export interface DisplayElementsProps {
@@ -75,19 +93,22 @@ export interface URLInputFormProps {
   setPageResults: (pageResults: PageResults) => void;
 }
 
-export interface PageFormProps { 
-    setPageResults: (pageResults: PageResults) => void;
+export interface PageFormProps {
+  setPageResults: (pageResults: PageResults) => void;
 }
 
 export interface FormContainerProps {
-    setPageResults: (pageResults: PageResults) => void;
-    userInfo: UserInfo;
+  setPageResults: (pageResults: PageResults) => void;
+  userInfo: UserInfo;
 }
 
-export interface UserInfo {
-  githubId: string; // Required and unique
-  username: string; // Required
-  profileUrl?: string; // Optional
-  avatarUrl?: string; // Optional
-  projects?: Types.ObjectId[]; // Array of ObjectIds referencing the 'Project' collection
+export interface DisplayA11yTreeProps {
+  pageResults: PageResults | null;
+  activeTab: string;
+}
+
+export interface TabNavigationProps {
+  activeTab: string;
+  pageResults: PageResults;
+  handleTabChange: (activeTab: string) => void;
 }

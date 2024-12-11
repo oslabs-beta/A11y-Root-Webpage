@@ -1,23 +1,28 @@
 // import * as React from 'react';
 import { useState } from 'react';
-import ProjectForm from '../components/ProjectForm';
+import FormContainer from '../components/FormContainer';
 import TabNavigation from '../components/TabNavigation';
+import { MainDashboardProps } from '../types';
 
-function MainDashboard() {
+function MainDashboard({ userInfo }: MainDashboardProps) {
+  const [activeTab, setActiveTab] = useState('');
+  const [pageResults, setPageResults] = useState(null);
 
-	const [activeTab, setActiveTab] = useState('');
+  const handleclick = (e: string) => {
+    setActiveTab(e);
+  };
 
-	const handleclick = (e: string) => {
-		setActiveTab(e);
-	}
-
-	return (
-		<>
-			<h2>Accessibility Tree</h2>
-			<ProjectForm></ProjectForm>
-			<TabNavigation activeTab={activeTab} handleTabChange={handleclick} />
-		</>
-	)
+  return (
+    <>
+      <h2>Accessibility Tree</h2>
+      <FormContainer userInfo={userInfo} setPageResults={setPageResults} />
+      <TabNavigation
+        activeTab={activeTab}
+        handleTabChange={handleclick}
+        pageResults={pageResults}
+      />
+    </>
+  );
 }
 
 export default MainDashboard;
