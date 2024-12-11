@@ -1,8 +1,4 @@
-<<<<<<< HEAD
 // import * as React from 'react';
-=======
-import * as React from 'react';
->>>>>>> 1fc89669ab72583752f59cb906feac38cb7399cf
 import { useNavigate } from 'react-router-dom';
 import {
   Button,
@@ -26,7 +22,6 @@ export default function AccountMenu({
   userInfo,
   handleLogout,
 }: AccountMenuProps) {
-<<<<<<< HEAD
   // <null | HTMLElement> is the type syntax for useState; HTMLElement is required for the event object
   // const [anchorEl, setAnchorEl] = React.useState<HTMLElement | null>(null);
   // const open = Boolean(anchorEl);
@@ -38,9 +33,7 @@ export default function AccountMenu({
   // const handleClose = () => {
   //   setAnchorEl(null);
   // };
-=======
-  
->>>>>>> 1fc89669ab72583752f59cb906feac38cb7399cf
+
   const navigate = useNavigate();
 
   return (
@@ -54,26 +47,21 @@ export default function AccountMenu({
                    >
                      {userInfo?.username?.charAt(0) || 'U'} 
 					</img> */}
-
-					<img id='avatar'
-						src={userInfo?.avatarUrl || undefined}
-						alt={userInfo?.username || 'Avatar'}
-					/>
+          <img
+            id='avatar'
+            src={userInfo?.avatarUrl || undefined}
+            alt={userInfo?.username || 'Avatar'}
+          />
         </Button>
         <Popover>
           <Menu id='menu-account'>
             <MenuItem className='menu-item' onAction={() => alert('profile')}>
               Profile
             </MenuItem>
-<<<<<<< HEAD
             <MenuItem
               className='menu-item'
               onAction={() => navigate('/dashboard')}
             >
-=======
-
-            <MenuItem className='menu-item' onAction={() => navigate('/dashboard')}>
->>>>>>> 1fc89669ab72583752f59cb906feac38cb7399cf
               Dashboard
             </MenuItem>
             <MenuItem className='menu-item' onAction={handleLogout}>
