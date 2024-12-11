@@ -31,8 +31,26 @@ button {
   min-width: 44px;
   min-height: 44px;
   font-weight: 600;
+  background-color: #83e09e;
+  border-radius: 5rem;
+  width: fit-content;
+  padding: 2rem;
 }
 
+button:hover {
+  background-color: #e2e7f5;
+  cursor: pointer;
+}
+
+.btn {
+  min-width: 44px;
+  min-height: 44px;
+  font-weight: 600;
+  background-color: #83e09e;
+  border-radius: 5rem;
+  width: fit-content;
+  padding: 2rem;
+}
 @media (max-width: 768px) {
   /* Tablet */
 }

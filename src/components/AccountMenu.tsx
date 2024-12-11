@@ -1,4 +1,4 @@
-import * as React from 'react';
+// import * as React from 'react';
 import {
   Button,
   Menu,
@@ -46,13 +46,13 @@ export default function AccountMenu({
         </Button>
         <Popover>
           <Menu id='menu-account'>
-            <MenuItem id='link-profile' onAction={() => alert('profile')}>
+            <MenuItem className='menu-item' onAction={() => alert('profile')}>
               Profile
             </MenuItem>
-            <MenuItem id='link-dashboard' onAction={() => alert('dashboard')}>
+            <MenuItem className='menu-item' onAction={() => alert('dashboard')}>
               Dashboard
             </MenuItem>
-            <MenuItem id='link-logout' onAction={handleLogout}>
+            <MenuItem className='menu-item' onAction={handleLogout}>
               Logout
             </MenuItem>
           </Menu>

@@ -2,10 +2,13 @@
 
 .github-login {
   align-self: flex-end;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
   font-family: Hubot;
   margin-right: 2rem;
-  /* background-color: yellow; */
-  /* width: 50rem; */
+  width: fit-content;
 }
 
 /* ---------- OAuth Component ---------- */
@@ -35,16 +38,18 @@
 #account-menu-container {
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
-  /* width: 50rem; */
-  /* background-color: red; */
-  /* position: relative; */
+  justify-content: flex-start;
+  align-items: center;
+  width: 100%;
+  position: relative;
 }
 
 #btn-account {
+  border-radius: 2rem;
   font-size: 1.5rem;
   font-weight: bold;
   color: black;
+  width: 18rem;
 
   /* 
   display: inline-flex;
@@ -58,47 +63,34 @@
   height: auto;
 }
 
+.react-aria-Popover {
+  position: absolute;
+  right: 9%;
+  text-align: center;
+}
+
 #menu-account {
   display: flex;
   flex-direction: column;
-  justify-self: ;
-  background-color: white;
-  width: 10rem;
-  /* position: absolute;
-  
-  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-  border-radius: 0.5rem;
-  overflow: hidden; */
-}
-
-menuitem:hover {
-  cursor: pointer;
+  justify-content: flex-start;
+  align-items: flex-start;
+  background-color: #ffffff;
+  width: 18rem;
+  position: absolute;
+  border-radius: 1rem;
+  box-shadow: 0px 4px 6px #0000001a;
+  /* border-radius: 0.5rem; */
+  overflow: hidden;
 }
 
 /* Menu Items */
-/* #link-profile,
-#link-dashboard,
-#link-logout {
-  font-size: 0.875rem;
-  color: #1e293b;
-  padding: 0.5rem 1rem;
-  transition: background-color 0.2s ease;
-} */
-
-/* #link-profile:hover,
-#link-dashboard:hover,
-#link-logout:hover {
-  background-color: #eef2ff;
-  color: #4338ca;
-} */
-
-/* Logout Menu Item */
-/* #link-logout {
+.menu-item {
+  width: 100%;
+}
+.menu-item:hover {
+  background-color: #83e09e;
+  color: black;
   font-weight: bold;
-} */
-
-/* Popover #link-logout:hover {
-  background-color: #fee2e2;
-  color: #dc2626;
   cursor: pointer;
-} */
+  /* transition: background-color 0.2s ease; */
+}

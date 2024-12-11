@@ -85,8 +85,8 @@ function App() {
       </header>
       <Routes>
         <Route path='/' element={<Home />} />
-        <Route path='/dashboard' element={<Dashboard />} />
-        <Route path='/maindashboard' element={<MainDashboard />} />
+        <Route path='/testdashboard' element={<Dashboard />} />
+        <Route path='/dashboard' element={<MainDashboard />} />
       </Routes>
       {/* {Update Footer with copyright notice, privacy policy link, sitemap, logo, contact info, social media icons} */}
       {showHeaderFooter && (

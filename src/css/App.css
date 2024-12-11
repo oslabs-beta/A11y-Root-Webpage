@@ -18,7 +18,7 @@ header {
 
 header h1 {
   background-color: #f4f6fc;
-  border-radius: 1rem;
+  border-radius: 5rem;
   border-width: fit-content;
   padding: 1rem 2rem 1rem 2rem;
   margin-bottom: 2.5rem;
@@ -27,19 +27,7 @@ header h1 {
 header button {
   align-self: flex-end;
   background-color: #83e09e;
-  border-radius: 1rem;
-  padding: 1rem;
+  border-radius: 5rem;
+  padding: 2rem;
   margin: 1rem;
-}
-
-button {
-  background-color: #83e09e;
-  border-radius: 1rem;
-  width: fit-content;
-  padding: 1rem;
-}
-
-button:hover {
-  background-color: #e2e7f5;
-  cursor: pointer;
 }
