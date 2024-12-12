@@ -11,7 +11,8 @@
   padding-right: 0.5rem;
 }
 
-/* ---------- AccountMenu Component ---------- */
+/* ---------- Menu Components ---------- */
+/* AccountMenu, ProjectForm, PageForm */
 
 #avatar {
   width: 2.2rem;
@@ -33,11 +34,30 @@
   overflow: hidden;
 }
 
+#menu-project {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  background-color: #ffffff;
+  border-radius: 1rem;
+  box-shadow: 0px 4px 6px #0000001a;
+}
+
+#menu-page {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  background-color: #ffffff;
+  border-radius: 1rem;
+  box-shadow: 0px 4px 6px #0000001a;
+}
+
 /* Menu Items */
 .menu-item {
   font-size: 1.5rem;
   width: 100%;
   padding-left: 1rem;
+  padding-right: 1rem;
 }
 
 .menu-item:hover {

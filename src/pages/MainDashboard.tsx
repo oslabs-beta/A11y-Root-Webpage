@@ -18,7 +18,7 @@ function MainDashboard({ userInfo }: MainDashboardProps) {
   return (
     <main className='dashboard'>
       <h2>Accessibility (A11y) Tree Dashboard</h2>
-      <FormContainer userInfo={userInfo} setPageResults={setPageResults} />
+      <FormContainer userInfo={userInfo} setPageResults={setPageResults} pageResults={pageResults} />
       {pageResults && (
         <TabNavigation
           activeTab={activeTab}

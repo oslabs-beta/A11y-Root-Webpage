@@ -91,6 +91,7 @@ function DisplayA11yTree({ pageResults, activeTab }: DisplayA11yTreeProps) {
 
       setTabIndex(buildTabIndexElements(pageResults.tabIndex));
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [pageResults]);
 
   //   const nonSemanticLinks = tree.nonSemanticLinks.map(({ text, link }) => {
@@ -147,7 +148,7 @@ function DisplayA11yTree({ pageResults, activeTab }: DisplayA11yTreeProps) {
         <DisplayElements
           key={nanoid()}
           aside={skipLinkAside}
-          title={'Skip Links'}
+          title={'Skip Link'}
         >
           {skipLink ? (
             skipLink
