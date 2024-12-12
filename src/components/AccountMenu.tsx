@@ -1,4 +1,5 @@
 // import * as React from 'react';
+import { useNavigate } from 'react-router-dom';
 import {
   Button,
   Menu,
@@ -27,6 +28,8 @@ export default function AccountMenu({
   //   setAnchorEl(null);
   // };
 
+  const navigate = useNavigate();
+
   return (
     <div id='account-menu-container'>
       <MenuTrigger>
@@ -36,14 +39,23 @@ export default function AccountMenu({
                      src={userInfo?.avatarUrl || undefined}
                      alt={userInfo?.username || 'Avatar'}
                    >
-                     {userInfo?.username?.charAt(0) || 'U'}/> */}
+                     {userInfo?.username?.charAt(0) || 'U'} 
+					</img> */}
+          <img
+            id='avatar'
+            src={userInfo?.avatarUrl || undefined}
+            alt={userInfo?.username || 'Avatar'}
+          />
         </Button>
         <Popover>
           <Menu id='menu-account'>
             <MenuItem className='menu-item' onAction={() => alert('profile')}>
               Profile
             </MenuItem>
-            <MenuItem className='menu-item' onAction={() => alert('dashboard')}>
+            <MenuItem
+              className='menu-item'
+              onAction={() => navigate('/dashboard')}
+            >
               Dashboard
             </MenuItem>
             <MenuItem className='menu-item' onAction={handleLogout}>

@@ -45,22 +45,26 @@
 }
 
 #btn-account {
+  display: inline-flex; /* Flexbox for layout */
+  align-items: center; /* Align items vertically at the center */
   border-radius: 2rem;
-  font-size: 1.5rem;
+  font-size: 1.5rem; /* Adjust text size to match avatar */
   font-weight: bold;
   color: black;
-  width: 18rem;
-
-  /* 
-  display: inline-flex;
-  justify-content: center;
-  align-items: center;
- */
+  /* padding: 0.5rem 1rem; Padding for consistent spacing */
+  /* background-color: #f0f0f0; Optional: button background color */
+  /* border: 1px solid #ccc; Optional: button border */
+  cursor: pointer; /* Pointer cursor for button */
+  gap: 0.5rem; /* Space between text and avatar */
+  white-space: nowrap; /* Prevent text wrapping */
 }
 
 #avatar {
-  width: 2.5rem;
-  height: auto;
+  width: 2.2rem;
+  height: 2.2rem;
+  border-radius: 50%; /* Makes the avatar circular */
+  object-fit: cover; /* Ensures the image fits without distortion */
+  vertical-align: middle; /* Align avatar with text */
 }
 
 .react-aria-Popover {

@@ -33,7 +33,7 @@ export default function ProjectForm({
               page.tree = JSON.parse(page.tree);
               page.skipLink = JSON.parse(page.skipLink);
               page.h1 = JSON.parse(page.h1);
-              page.tabIndex = page.tabIndex.map((node:string) => {
+              page.tabIndex = page.tabIndex.map((node: string) => {
                 return JSON.parse(node);
               });
             });

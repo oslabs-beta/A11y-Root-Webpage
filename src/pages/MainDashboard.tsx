@@ -2,11 +2,13 @@
 import { useState } from 'react';
 import FormContainer from '../components/FormContainer';
 import TabNavigation from '../components/TabNavigation';
+import DisplayA11yTree from '../components/DisplayA11yTree';
 import { MainDashboardProps } from '../types';
+import { PageResults } from '../types';
 
 function MainDashboard({ userInfo }: MainDashboardProps) {
   const [activeTab, setActiveTab] = useState('');
-  const [pageResults, setPageResults] = useState(null);
+  const [pageResults, setPageResults] = useState<PageResults | null>(null);
 
   const handleclick = (e: string) => {
     setActiveTab(e);
@@ -23,6 +25,7 @@ function MainDashboard({ userInfo }: MainDashboardProps) {
           pageResults={pageResults}
         />
       )}
+      <DisplayA11yTree activeTab={activeTab} pageResults={pageResults} />
     </>
   );
 }
