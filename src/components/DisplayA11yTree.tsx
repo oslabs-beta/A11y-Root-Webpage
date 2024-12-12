@@ -33,7 +33,7 @@ function DisplayA11yTree({ pageResults, activeTab }: DisplayA11yTreeProps) {
       <Element node={pageResults.skipLink} />
     ) : null
   );
-console.log(pageResults)
+  console.log(pageResults);
   function setNode(node: AccessibilityNode) {
     setElements((prev) => [...prev, <Element node={node} />]);
     switch (node.role) {
@@ -106,7 +106,11 @@ console.log(pageResults)
   return (
     <section id='tree'>
       {activeTab === 'Full Tree' && (
-        <DisplayElements key={nanoid()} aside={treeAside} title={'Full Tree'}>
+        <DisplayElements
+          key={nanoid()}
+          aside={treeAside}
+          title={'Full A11y Tree'}
+        >
           {elements}
         </DisplayElements>
       )}

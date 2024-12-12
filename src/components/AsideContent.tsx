@@ -1,5 +1,5 @@
 const headerAside = (
-  <p>
+  <p className='aside'>
     <a
       href='https://www.w3.org/WAI/tutorials/page-structure/headings/'
       className=''
@@ -13,12 +13,9 @@ const headerAside = (
 
 const skipLinkAside = (
   <>
-    <p>
-      A{' '}
-      <a className='' href='https://webaim.org/techniques/skipnav/'>
-        skip link
-      </a>{' '}
-      is an essential accessibility feature that allows users, especially those
+    <p className='aside'>
+      A <a href='https://webaim.org/techniques/skipnav/'>skip link</a> is an
+      essential accessibility feature that allows users, especially those
       relying on assistive technologies like screen readers and keyboard
       navigation, to bypass repetitive navigation and jump directly to the main
       content of a page. This improves navigation efficiency, reduces cognitive
@@ -31,48 +28,36 @@ const skipLinkAside = (
 );
 
 const linksAside = (
-  <p>
+  <p className='aside'>
     Looking for{' '}
-    <a
-      className=''
-      href='https://digital.accessibility.princeton.edu/how/content/links'
-    >
+    <a href='https://digital.accessibility.princeton.edu/how/content/links'>
       Meaningful
     </a>{' '}
     link text that provide context to the links content or purpose.
   </p>
 );
 const treeAside = (
-  <p>
+  <p className='aside'>
     This is a breakdown of the meaningful elements found in the{' '}
-    <a
-      className=''
-      href='https://developer.mozilla.org/en-US/docs/Glossary/Accessibility_tree'
-    >
-      Accessability Tree
+    <a href='https://developer.mozilla.org/en-US/docs/Glossary/Accessibility_tree'>
+      Accessibility Tree
     </a>
   </p>
 );
 
 const tabIndexAside = (
-  <p>
+  <p className='aside'>
     This is an ordered list of the{' '}
-    <a
-      className=''
-      href='https://www.a11y-collective.com/blog/tabindex-accessibility/'
-    >
+    <a href='https://www.a11y-collective.com/blog/tabindex-accessibility/'>
       tabindex
     </a>
     , it is important that the order is meaningful.
   </p>
 );
 const nonSemanticLinksAside = (
-  <p>
+  <p className='aside'>
     When a link has{' '}
-    <a
-      className=''
-      href='https://stevenmouret.github.io/web-accessibility-guidelines/accessibility/links/empty-link.html#:~:text=Explanation,text%20link%20for%20each%20link.'
-    >
+    <a href='https://stevenmouret.github.io/web-accessibility-guidelines/accessibility/links/empty-link.html#:~:text=Explanation,text%20link%20for%20each%20link.'>
       no text (empty link)
     </a>
     , it is not read in the technical assistance or indicated as empty.

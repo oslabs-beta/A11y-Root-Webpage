@@ -3,7 +3,62 @@
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
-	align-self: flex-end;
+  align-self: flex-end;
   font-family: Hubot;
   margin-right: 2rem;
+}
+
+/* ---------- Main Dashboard ---------- */
+.tabs {
+  padding-top: 5rem;
+}
+
+.tabs button {
+  border-radius: 2rem 2rem 0 0;
+  margin: 0 1rem;
+  padding: 0 5rem;
+}
+
+.app {
+  display: grid;
+}
+
+.dashboard {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 3rem;
+}
+
+.dashboard h2 {
+  font-size: 2rem;
+  text-align: center;
+  padding-bottom: 2rem;
+}
+
+#tree h2 {
+  font-size: 2rem;
+  text-decoration: underline;
+}
+
+.dashboard-display {
+  background-color: #f2fcf4;
+  width: 100%;
+  padding: 1.5rem 5rem;
+  border: 3px solid black;
+}
+
+.aside {
+  background-color: #3a3b3e;
+  color: white;
+  padding: 5rem;
+  width: 100%;
+}
+
+.aside a {
+  color: #83e09e;
+}
+
+.dashboard-header {
+  padding-bottom: 3rem;
 }
