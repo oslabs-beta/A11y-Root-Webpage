@@ -1,8 +1,5 @@
 .app {
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: center;
+  position: relative;
 }
 
 header {
@@ -10,24 +7,20 @@ header {
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
-  min-width: 100%;
-  min-height: fit-content;
-  padding: 1rem 0 3rem 0;
+  max-width: 100%;
+  height: auto;
+  padding: 1rem 0 2rem 0;
   background-color: #333333;
+  position: relative;
 }
 
+/* A11y Root Title Style --> To be replaced with logo svg */
 header h1 {
   background-color: #f4f6fc;
   border-radius: 5rem;
   border-width: fit-content;
-  padding: 1rem 2rem 1rem 2rem;
-  margin-bottom: 2.5rem;
+  padding: 1rem 2rem;
+  margin-bottom: 2rem;
 }
 
-header button {
-  align-self: flex-end;
-  background-color: #83e09e;
-  border-radius: 5rem;
-  padding: 2rem;
-  margin: 1rem;
-}
+/* add tree image here and set position to absolute */

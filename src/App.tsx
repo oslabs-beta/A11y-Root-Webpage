@@ -85,7 +85,7 @@ function App() {
       {/* {Update Footer with copyright notice, privacy policy link, sitemap, logo, contact info, social media icons} */}
       {showHeaderFooter && (
         <footer>
-          <h6>A11y Root</h6>
+          <small>© Copyright 2024, A11y Root LLC</small>
         </footer>
       )}
     </div>
