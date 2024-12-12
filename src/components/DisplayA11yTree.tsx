@@ -147,7 +147,7 @@ function DisplayA11yTree({ pageResults, activeTab }: DisplayA11yTreeProps) {
         <DisplayElements
           key={nanoid()}
           aside={skipLinkAside}
-          title={'Non Contextual Links'}
+          title={'Skip Links'}
         >
           {skipLink ? (
             skipLink
