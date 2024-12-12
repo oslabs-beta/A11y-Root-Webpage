@@ -9,6 +9,15 @@
 }
 
 /* ---------- Main Dashboard ---------- */
+.tabs {
+  padding-top: 5rem;
+}
+
+.tabs button {
+  border-radius: 2rem 2rem 0 0;
+  margin: 0 1rem;
+  padding: 0 5rem;
+}
 
 .app {
   display: grid;
