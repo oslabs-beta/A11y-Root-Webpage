@@ -67,6 +67,18 @@
   transition: background-color 0.2s ease;
 }
 
+.menu-item:focus {
+  background-color: #83e09e;
+  font-weight: bold;
+  transition: background-color 0.2s ease;
+}
+
+/* .menu-item:focus {
+  background-color: #83e09e;
+  font-weight: bold;
+  transition: background-color 0.2s ease;
+} */
+
 /*
 display: inline-flex; Flexbox for layout 
 align-items: center; Align items vertically at the center
