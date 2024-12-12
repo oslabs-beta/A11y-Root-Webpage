@@ -91,7 +91,7 @@ function DisplayA11yTree({ pageResults, activeTab }: DisplayA11yTreeProps) {
 
       setTabIndex(buildTabIndexElements(pageResults.tabIndex));
     }
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [pageResults]);
 
   //   const nonSemanticLinks = tree.nonSemanticLinks.map(({ text, link }) => {
@@ -105,7 +105,7 @@ function DisplayA11yTree({ pageResults, activeTab }: DisplayA11yTreeProps) {
   //   );
 
   return (
-    <section id='tree'>
+    <section className='tree-results'>
       {activeTab === 'Full Tree' && (
         <DisplayElements
           key={nanoid()}

@@ -9,15 +9,6 @@
 }
 
 /* ---------- Main Dashboard ---------- */
-.tabs {
-  padding-top: 5rem;
-}
-
-.tabs button {
-  border-radius: 2rem 2rem 0 0;
-  margin: 0 1rem;
-  padding: 0 5rem;
-}
 
 .app {
   display: grid;
@@ -36,7 +27,39 @@
   padding-bottom: 2rem;
 }
 
-#tree h2 {
+/* ---------- Dashboard Tabs & Results Display ---------- */
+.tabs-and-display-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex-wrap: nowrap;
+  width: 100%;
+  padding: 5rem 8rem;
+  /* For Visual Testing => */
+  /* border: 3px solid rgb(60, 60, 213); */
+}
+
+.tabs {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  width: 100%;
+  /* For Visual Testing => */
+  /* border: 3px solid rgb(60, 60, 213); */
+}
+
+.tabs button {
+  border-radius: 2rem 2rem 0 0;
+  margin: 0 1rem;
+  padding: 0 5rem;
+}
+.tree-results {
+  width: 100%;
+  /* For Visual Testing => */
+  /* border: 3px solid rgb(60, 60, 213); */
+}
+
+.tree-results h2 {
   font-size: 2rem;
   text-decoration: underline;
 }

@@ -18,15 +18,21 @@ function MainDashboard({ userInfo }: MainDashboardProps) {
   return (
     <main className='dashboard'>
       <h2>Accessibility (A11y) Tree Dashboard</h2>
-      <FormContainer userInfo={userInfo} setPageResults={setPageResults} pageResults={pageResults} />
-      {pageResults && (
-        <TabNavigation
-          activeTab={activeTab}
-          handleTabChange={handleclick}
-          pageResults={pageResults}
-        />
-      )}
-      <DisplayA11yTree activeTab={activeTab} pageResults={pageResults} />
+      <FormContainer
+        userInfo={userInfo}
+        setPageResults={setPageResults}
+        pageResults={pageResults}
+      />
+      <div className='tabs-and-display-container'>
+        {pageResults && (
+          <TabNavigation
+            activeTab={activeTab}
+            handleTabChange={handleclick}
+            pageResults={pageResults}
+          />
+        )}
+        <DisplayA11yTree activeTab={activeTab} pageResults={pageResults} />
+      </div>
     </main>
   );
 }
