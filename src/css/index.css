@@ -1,83 +1,73 @@
+/* 
+Styling Hierarchy (in order of highest precedence): 
+  !important Declaration > Inline Style > ID Selector > Class Selector > Tag Selector > Universal
+    
+    Hierarchy Examples: 
+      !important Declaration => p { color: black !important; }
+      ID Selector => #id
+      Class/Pseudo-class Selector => .class
+      Tag Selector => div or p
+      Universal Selector => *
+*/
+
 /* CSS Reset - Browsers apply different default styles to elements, which can lead to inconsistent layouts. This reset ensures a clean slate. */
 html {
   font-size: 10px;
 }
 
+/* Universal Selector (*) overrides default browser styling unless specified otherwise in specific rules. */
 * {
   margin: 0;
   padding: 0;
-  font-size: 10px;
-  /* font-size: clamp(16px, calc(1rem), 1.5rem); */
+  font-size: clamp(1.6rem, calc(1.6rem), calc(1rem + 1vw));
   box-sizing: border-box; /* Sets the box-sizing model to border-box for all elements, making element width and height calculations more predictable by including padding and borders in the specified width and height.  */
 }
 
-@media only screen and (min-width: 992px) {
-  /* styles for desktop devices */
-}
-
-@media (max-width: 768px) {
+@media only screen and (max-width: 768px) {
   /* Tablet */
-  /* html {
-    font-size: ;
-  } */
 }
 
-@media (max-width: 480px) {
+@media only screen and (max-width: 480px) {
   /* Mobile */
-  /* html {
-    font-size: ;
-  } */
 }
 
 body {
   max-height: 100vh; /* sets body's height to the entire viewport's height */
   max-width: 100%; /* sets width to full parent element's (body) width; if we used vw a horizontal scroll bar will appear when height expands and requires a vertical scroll bar. This is because the vertical scroll bar takes up an additional 10px of width. */
   background-color: #ffffff;
-  /* font-size: clamp(1rem, 1.2vw, 1.5rem); */
+  font-size: clamp(1.3rem, calc(1.3rem + 1vw), 1.3rem);
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   letter-spacing: 0.1rem;
   line-height: 1.5;
 }
 
 h1 {
-  font-size: clamp(2rem, calc(3rem + 1vw), 3rem);
   font-weight: bold;
   min-width: fit-content;
-  /* font-size: 1rem; */
+  font-size: clamp(5rem, calc(5rem + 1vw), 8rem);
 }
 
-h2 {
-  /* font-size: clamp(1rem, calc(1rem + 0.5vw), 1.5rem); */
-  font-weight: lighter;
-}
-
-p {
-  /* font-size: clamp(1rem, calc(1rem + 0.3vw), 1.25rem); */
-}
-
-/* for touch-friendly targets */
-button {
-  min-width: 44px;
-  min-height: 44px;
-  font-weight: 600;
-  background-color: #83e09e;
-  border-radius: 5rem;
-  width: fit-content;
-  padding: 2rem;
-  /* font-size: clamp(1rem, calc(1rem + 0.5vw), 1rem); */
-}
-
-button:hover {
-  background-color: #e2e7f5;
+h1:hover {
   cursor: pointer;
 }
 
-.btn {
-  min-width: 44px;
-  min-height: 44px;
-  font-weight: 600;
+button {
   background-color: #83e09e;
   border-radius: 5rem;
+  min-width: 44px; /* min-width & min-height 44px for touch-friendly targets */
   width: fit-content;
-  padding: 2rem;
+  min-height: 44px;
+  padding: 0 1rem;
+  margin: 1rem;
+  font-size: clamp(1.5rem, calc(1.5rem + 1vw), 1.5rem);
+  font-weight: 600;
+}
+
+button:hover {
+  background-color: #bef3d6;
+  cursor: pointer;
+}
+
+img {
+  width: 100%;
 }

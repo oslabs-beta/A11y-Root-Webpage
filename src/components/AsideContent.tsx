@@ -49,7 +49,7 @@ const treeAside = (
       className=''
       href='https://developer.mozilla.org/en-US/docs/Glossary/Accessibility_tree'
     >
-      Accessability Tree
+      Accessibility Tree
     </a>
   </p>
 );

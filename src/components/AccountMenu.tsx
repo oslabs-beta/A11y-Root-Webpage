@@ -1,5 +1,6 @@
-// import * as React from 'react';
 import { useNavigate } from 'react-router-dom';
+import { AccountMenuProps } from '../types';
+import '../css/AccountMenuAndOAuth.css';
 import {
   Button,
   Menu,
@@ -7,27 +8,11 @@ import {
   MenuTrigger,
   Popover,
 } from 'react-aria-components';
-// import { Avatar, Menu, MenuItem, IconButton, Tooltip } from '@mui/material';
-import '../css/AccountMenuAndOAuth.css';
-
-import {AccountMenuProps} from '../types'
 
 export default function AccountMenu({
   userInfo,
   handleLogout,
 }: AccountMenuProps) {
-  // <null | HTMLElement> is the type syntax for useState; HTMLElement is required for the event object
-  // const [anchorEl, setAnchorEl] = React.useState<HTMLElement | null>(null);
-  // const open = Boolean(anchorEl);
-
-  // const handleClick = (event: React.MouseEvent<HTMLElement>) => {
-  //   setAnchorEl(event.currentTarget);
-  // };
-
-  // const handleClose = () => {
-  //   setAnchorEl(null);
-  // };
-
   const navigate = useNavigate();
 
   return (
@@ -35,12 +20,6 @@ export default function AccountMenu({
       <MenuTrigger>
         <Button id='btn-account' aria-label='Menu'>
           Hello, {userInfo?.username || 'Guest'}
-          {/* <img id='avatar'
-                     src={userInfo?.avatarUrl || undefined}
-                     alt={userInfo?.username || 'Avatar'}
-                   >
-                     {userInfo?.username?.charAt(0) || 'U'} 
-					</img> */}
           <img
             id='avatar'
             src={userInfo?.avatarUrl || undefined}
@@ -67,6 +46,28 @@ export default function AccountMenu({
     </div>
   );
 }
+
+// OLD CODE (to be cleaned up later):
+// import { Avatar, Menu, MenuItem, IconButton, Tooltip } from '@mui/material';
+
+// <null | HTMLElement> is the type syntax for useState; HTMLElement is required for the event object
+// const [anchorEl, setAnchorEl] = React.useState<HTMLElement | null>(null);
+// const open = Boolean(anchorEl);
+
+// const handleClick = (event: React.MouseEvent<HTMLElement>) => {
+//   setAnchorEl(event.currentTarget);
+// };
+
+// const handleClose = () => {
+//   setAnchorEl(null);
+// };
+
+// {/* <img id='avatar'
+//                    src={userInfo?.avatarUrl || undefined}
+//                    alt={userInfo?.username || 'Avatar'}
+//                  >
+//                    {userInfo?.username?.charAt(0) || 'U'}
+// 				</img> */}
 
 // {
 //   <Tooltip title='Account settings'>
