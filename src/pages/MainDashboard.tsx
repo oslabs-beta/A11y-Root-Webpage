@@ -5,6 +5,7 @@ import TabNavigation from '../components/TabNavigation';
 import DisplayA11yTree from '../components/DisplayA11yTree';
 import { MainDashboardProps } from '../types';
 import { PageResults } from '../types';
+import '../css/Dashboard.css';
 
 function MainDashboard({ userInfo }: MainDashboardProps) {
   const [activeTab, setActiveTab] = useState('');
@@ -15,8 +16,8 @@ function MainDashboard({ userInfo }: MainDashboardProps) {
   };
 
   return (
-    <>
-      <h2>Accessibility Tree</h2>
+    <main className='dashboard'>
+      <h2>Accessibility (A11y) Tree Dashboard</h2>
       <FormContainer userInfo={userInfo} setPageResults={setPageResults} />
       {pageResults && (
         <TabNavigation
@@ -26,7 +27,7 @@ function MainDashboard({ userInfo }: MainDashboardProps) {
         />
       )}
       <DisplayA11yTree activeTab={activeTab} pageResults={pageResults} />
-    </>
+    </main>
   );
 }
 
