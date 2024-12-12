@@ -62,3 +62,8 @@
 .dashboard-header {
   padding-bottom: 3rem;
 }
+
+.compliance-issue {
+  color: red;
+  font-weight: bold;
+}
