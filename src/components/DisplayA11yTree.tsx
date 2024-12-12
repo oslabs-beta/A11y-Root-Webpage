@@ -105,7 +105,7 @@ function DisplayA11yTree({ pageResults, activeTab }: DisplayA11yTreeProps) {
   //   );
 
   return (
-    <section id='tree'>
+    <section className='tree-results'>
       {activeTab === 'Full Tree' && (
         <DisplayElements
           key={nanoid()}
