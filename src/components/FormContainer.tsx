@@ -4,7 +4,7 @@ import ProjectForm from '../components/ProjectForm'
 import { FormContainerProps, Project } from '../types';
 
 
-function FormContainer({ setPageResults, userInfo }:FormContainerProps) {
+function FormContainer({ pageResults,setPageResults, userInfo }:FormContainerProps) {
     const [selectedProject, setSelectedProject] = useState<Project | null>(null);
     // project state
     // update project state handler -> passed to projectform
@@ -13,8 +13,8 @@ function FormContainer({ setPageResults, userInfo }:FormContainerProps) {
 
 	return (
 		<>
-            <ProjectForm userInfo={userInfo} setSelectedProject = {setSelectedProject}/>
-            {selectedProject && <PageForm setPageResults = {setPageResults} selectedProject = {selectedProject} />}
+            <ProjectForm userInfo={userInfo} setSelectedProject = {setSelectedProject} selectedProject = {selectedProject}/>
+            {selectedProject && <PageForm setPageResults = {setPageResults} selectedProject = {selectedProject} pageResults = {pageResults} />}
 		</>
 	)
 }
