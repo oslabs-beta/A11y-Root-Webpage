@@ -104,7 +104,7 @@ export interface PageFormProps {
 
 export interface FormContainerProps {
   setPageResults: (pageResults: PageResults | null) => void;
-  pageResults: PageResults;
+  pageResults: PageResults | null;
   userInfo: UserInfo;
 }
 

@@ -8,6 +8,7 @@ import {
 } from 'react-aria-components';
 
 import { PageFormProps } from '../types';
+import { useEffect } from 'react';
 
 export default function PageForm({
   pageResults,
@@ -25,14 +26,15 @@ export default function PageForm({
     console.log('selected page: ', JSON.stringify(chosenPage));
   };
 
+  useEffect(()=>{},[pageResults])
 
   return(<div id='page-form'>
     <MenuTrigger>
       <Button id='page-form-button' aria-label='Menu'>
-      {pageResults ? (pageResults.url):('-- Select a Project --')}
+      {pageResults ? (pageResults.url):('-- Select a Page --')}
       </Button>
       <Popover>
-        <Menu id='menu-project'>
+        <Menu id='menu-page'>
         {selectedProject.pages.map((page) => (
           <MenuItem className='menu-item' onAction={()=>handleSelectChange(page._id)}>
             {page.url}

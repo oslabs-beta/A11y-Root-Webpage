@@ -1,4 +1,4 @@
-import * as React from 'react';
+// import * as React from 'react';
 import { useState, useEffect } from 'react';
 import { ProjectFormProps, Project, DBProject } from '../types';
 import {
@@ -54,6 +54,7 @@ export default function ProjectForm({
       }
     };
     getUserDetails();
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return(<div id='project-form'>
