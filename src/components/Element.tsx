@@ -6,11 +6,12 @@ function Element({ node }: ElementProps) {
       <span>{`role : ${node.role} | `}</span>
       <span>{node.level && `level:${node.level} | `}</span>
       <span>{`name: ${node.name} `}</span>
-      <span>
+      <span className="compliance-issue">
         {!node.compliance && `| compliance issue: ${node.complianceDetails}`}
       </span>
     </li>
   );
 }
+
 
 export default Element;
