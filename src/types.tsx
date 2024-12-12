@@ -74,6 +74,7 @@ export interface Project {
 //prop passing interfaces
 export interface ProjectFormProps {
   userInfo: UserInfo;
+  selectedProject: Project | null
   setSelectedProject: (project: Project | null) => void;
 }
 
@@ -97,11 +98,13 @@ export interface URLInputFormProps {
 
 export interface PageFormProps {
   setPageResults: (pageResults: PageResults | null) => void;
+  pageResults: PageResults;
   selectedProject: Project;
 }
 
 export interface FormContainerProps {
   setPageResults: (pageResults: PageResults | null) => void;
+  pageResults: PageResults;
   userInfo: UserInfo;
 }
 

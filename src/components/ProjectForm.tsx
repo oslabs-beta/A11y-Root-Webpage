@@ -1,17 +1,25 @@
 import * as React from 'react';
 import { useState, useEffect } from 'react';
 import { ProjectFormProps, Project, DBProject } from '../types';
+import {
+  Button,
+  Menu,
+  MenuItem,
+  MenuTrigger,
+  Popover,
+} from 'react-aria-components';
 
 //pass in user info from form container and use github id in fetch
 export default function ProjectForm({
   userInfo,
+  selectedProject,
   setSelectedProject,
 }: ProjectFormProps) {
   const [projects, setProjects] = useState<Project[]>([]);
 
-  const handleSelectChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
+  const handleSelectChange = (projectId: string) => {
     const chosenProject = projects.find(
-      (project) => project._id === event.target.value
+      (project) => project._id === projectId
     );
     setSelectedProject(chosenProject || null);
     console.log('selected project: ', chosenProject);
@@ -48,21 +56,38 @@ export default function ProjectForm({
     getUserDetails();
   }, []);
 
-  return (
-    <form id='project-form'>
-      <label>Select a project:</label>
-      <select onChange={handleSelectChange}>
-        {
-          <option value='' selected disabled hidden>
-            -- Select a Project --
-          </option>
-        }
+  return(<div id='project-form'>
+    <MenuTrigger>
+      <Button id='project-form-button' aria-label='Menu'>
+      {selectedProject ? (selectedProject.projectName):('-- Select a Project --')}
+      </Button>
+      <Popover>
+        <Menu id='menu-project'>
         {projects.map((project) => (
-          <option key={project._id} value={project._id}>
+          <MenuItem className='menu-item' onAction={()=>handleSelectChange(project._id)}>
             {project.projectName}
-          </option>
-        ))}
-      </select>
-    </form>
-  );
+          </MenuItem>))}
+        </Menu>
+      </Popover>
+    </MenuTrigger>
+
+  </div>);
+
+  // return (
+  //   <form id='project-form'>
+  //     <label>Select a project:</label>
+  //     <select onChange={handleSelectChange}>
+  //       {
+  //         <option value='' selected disabled hidden>
+  //           -- Select a Project --
+  //         </option>
+  //       }
+  //       {projects.map((project) => (
+  //         <option key={project._id} value={project._id}>
+  //           {project.projectName}
+  //         </option>
+  //       ))}
+  //     </select>
+  //   </form>
+  // );
 }
