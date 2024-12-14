@@ -5,7 +5,7 @@ dotenv.config();
 //contact Warren for URI key
 const MONGO_URI = process.env.MONGO_URI_KEY!;
 
-//when server initializes, check terminal for DB connection confirmation
+//when server initializes, check server terminal for DB connection confirmation
 function dbConnect() {
 mongoose
     .connect(MONGO_URI, { dbName: 'a11yRoot' })

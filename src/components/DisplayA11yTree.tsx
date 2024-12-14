@@ -4,7 +4,7 @@ import {
   DisplayA11yTreeProps,
   AccessibilityNode,
   AccessibilityTree,
-  TabIndexEntry,
+  // TabIndexEntry,
 } from '../types';
 import {
   headerAside,
@@ -12,7 +12,7 @@ import {
   linksAside,
   treeAside,
   tabIndexAside,
-  nonSemanticLinksAside,
+  nonContextualLinksAside,
 } from './AsideContent';
 import { nanoid } from 'nanoid';
 import DisplayElements from '../pages/DisplayElements';
@@ -138,7 +138,7 @@ function DisplayA11yTree({ pageResults, activeTab }: DisplayA11yTreeProps) {
       {activeTab === 'Non Contextual Links' && (
         <DisplayElements
           key={nanoid()}
-          aside={tabIndexAside}
+          aside={nonContextualLinksAside}
           title={'Non Contextual Links'}
         >
           {nonContextualLinks}

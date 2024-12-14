@@ -54,7 +54,7 @@ const tabIndexAside = (
     , it is important that the order is meaningful.
   </p>
 );
-const nonSemanticLinksAside = (
+const nonContextualLinksAside = (
   <p className='aside'>
     When a link has{' '}
     <a href='https://stevenmouret.github.io/web-accessibility-guidelines/accessibility/links/empty-link.html#:~:text=Explanation,text%20link%20for%20each%20link.'>
@@ -70,5 +70,5 @@ export {
   linksAside,
   treeAside,
   tabIndexAside,
-  nonSemanticLinksAside,
+  nonContextualLinksAside,
 };
