@@ -4,7 +4,6 @@ import {
   DisplayA11yTreeProps,
   AccessibilityNode,
   AccessibilityTree,
-  TabIndexEntry,
 } from '../types';
 import {
   headerAside,
@@ -12,15 +11,12 @@ import {
   linksAside,
   treeAside,
   tabIndexAside,
-  nonSemanticLinksAside,
 } from './AsideContent';
 import { nanoid } from 'nanoid';
 import DisplayElements from '../pages/DisplayElements';
 
 function DisplayA11yTree({ pageResults, activeTab }: DisplayA11yTreeProps) {
-  //const skipLink = tree.skipLink;
-  //const h1 = tree.h1;
-  //handle addToPriorities here?
+
   const [elements, setElements] = useState<React.ReactElement[]>([]);
   const [links, setLinks] = useState<React.ReactElement[]>([]);
   const [headings, setHeadings] = useState<React.ReactElement[]>([]);
@@ -33,8 +29,9 @@ function DisplayA11yTree({ pageResults, activeTab }: DisplayA11yTreeProps) {
       <Element node={pageResults.skipLink} />
     ) : null
   );
-  console.log(pageResults);
+
   function setNode(node: AccessibilityNode) {
+
     setElements((prev) => [...prev, <Element node={node} />]);
     switch (node.role) {
       case 'link':
@@ -67,8 +64,6 @@ function DisplayA11yTree({ pageResults, activeTab }: DisplayA11yTreeProps) {
     }
   }
 
-  // would be nice if tabIndex elements were regular a11y nodes
-
   function buildTabIndexElements(tabIndex: AccessibilityNode[]) {
     return tabIndex.map((node) => {
       return <Element node={node} />;
@@ -93,16 +88,6 @@ function DisplayA11yTree({ pageResults, activeTab }: DisplayA11yTreeProps) {
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [pageResults]);
-
-  //   const nonSemanticLinks = tree.nonSemanticLinks.map(({ text, link }) => {
-  //     return <Link text={text} link={link} key={nanoid()} />;
-  //   });
-
-  //   const skipLinkFound = skipLink.text.length ? (
-  //     <Link text={skipLink.text} link={skipLink.link} />
-  //   ) : (
-  //     <span className='bad tan'>No Skip Link Found</span>
-  //   );
 
   return (
     <section className='tree-results'>
@@ -160,7 +145,5 @@ function DisplayA11yTree({ pageResults, activeTab }: DisplayA11yTreeProps) {
     </section>
   );
 }
-
-//NonContextualLinks
 
 export default DisplayA11yTree;

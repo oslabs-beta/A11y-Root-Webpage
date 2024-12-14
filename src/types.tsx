@@ -1,5 +1,7 @@
 import { Types } from 'mongoose';
 
+export type loginTypes = "github";
+
 export type SerializedAXNode = {
   role: string; // The role of the node
   name?: string; // The accessible name of the node
