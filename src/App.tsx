@@ -24,7 +24,6 @@ function App() {
 
   useEffect(() => {
     const checkLoginStatus = async () => {
-      // console.log('CheckLoginStatus function is running');
 
       try {
         const response = await fetch(
@@ -36,7 +35,6 @@ function App() {
         if (response.ok) {
           const userInfo = await response.json();
           setUserInfo(userInfo);
-          console.log(`userinfoset: ${JSON.stringify(userInfo)}`);
           setIsLoggedIn(true);
         } else {
           setUserInfo(null);
