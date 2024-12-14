@@ -1,4 +1,3 @@
-// import * as React from 'react';
 import { useState, useEffect } from 'react';
 import { ProjectFormProps, Project, DBProject } from '../types';
 import {
@@ -22,7 +21,6 @@ export default function ProjectForm({
       (project) => project._id === projectId
     );
     setSelectedProject(chosenProject || null);
-    console.log('selected project: ', chosenProject);
   };
 
   useEffect(() => {
@@ -73,22 +71,4 @@ export default function ProjectForm({
     </MenuTrigger>
 
   </div>);
-
-  // return (
-  //   <form id='project-form'>
-  //     <label>Select a project:</label>
-  //     <select onChange={handleSelectChange}>
-  //       {
-  //         <option value='' selected disabled hidden>
-  //           -- Select a Project --
-  //         </option>
-  //       }
-  //       {projects.map((project) => (
-  //         <option key={project._id} value={project._id}>
-  //           {project.projectName}
-  //         </option>
-  //       ))}
-  //     </select>
-  //   </form>
-  // );
 }
