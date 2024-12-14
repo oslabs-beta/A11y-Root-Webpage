@@ -49,9 +49,9 @@ UserController.postUser = async (req, res, next) => {
     const user = await UserModel.create(newUser);
     res.locals.user = user;
     return next();
-  } catch (err) {
+  } catch (error) {
     return next({
-      log: `Error in UserController.postUser: ERROR: ${err}`,
+      log: `Error in UserController.postUser: ERROR: ${error}`,
       message: { err: 'An error occurred creating new User.' },
       status: 500,
     });
@@ -59,16 +59,16 @@ UserController.postUser = async (req, res, next) => {
 };
 
 UserController.updateUser = async (req, res, next) => {
-  //parse request body
-  const { githubId, projectId } = req.body;
+	const githubId = req.body.userGithubId;
+	const projectId = res.locals.project._id;
 
   try {
     //update list of user's projects for existing user
-    const user = await UserModel.findOneAndUpdate(
-      { githubId },
-      { $push: { projects: projectId } },
-      { new: true }
-    );
+		const user = await UserModel.findOneAndUpdate(
+			{githubId},
+			{$addToSet: {projects: projectId}},
+      		{new: true}
+		);
 
     //if no user found to update --> DB returns null
     if (!user) {
@@ -77,9 +77,9 @@ UserController.updateUser = async (req, res, next) => {
 
     res.locals.user = user;
     return next();
-  } catch (err) {
+  } catch (error) {
     return next({
-      log: `Error in UserController.updateUser: ERROR: ${err}`,
+      log: `Error in UserController.updateUser: ERROR: ${error}`,
       message: { err: 'An error occurred while updating the user.' },
       status: 500,
     });
@@ -99,9 +99,9 @@ UserController.deleteUser = async (req, res, next) => {
 
     res.locals.user = user;
     return next();
-  } catch (err) {
+  } catch (error) {
     return next({
-      log: `Error in UserController.deleteUser: ERROR: ${err}`,
+      log: `Error in UserController.deleteUser: ERROR: ${error}`,
       message: { err: 'An error occurred while trying to delete the user.' },
       status: 500,
     });
@@ -126,9 +126,9 @@ UserController.fullUserDetails = async (req, res, next) => {
 
     res.locals.fullUserDetails = fullUserDetails;
     return next();
-  } catch (err) {
+  } catch (error) {
     return next({
-      log: `Error in UserController.fullUserDetails: ERROR: ${err}`,
+      log: `Error in UserController.fullUserDetails: ERROR: ${error}`,
       message: { err: 'An error occurred while trying get user details.' },
       status: 500,
     });

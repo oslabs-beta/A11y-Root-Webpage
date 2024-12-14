@@ -21,14 +21,6 @@ projectRoute.post(
   }
 );
 
-projectRoute.patch(
-  '/',
-  ProjectController.updateProject,
-  (req: Request, res: Response): void => {
-    res.status(200).json(res.locals.project);
-  }
-);
-
 projectRoute.delete(
   '/:projectId',
   ProjectController.deleteProject,
