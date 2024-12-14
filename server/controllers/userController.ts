@@ -9,7 +9,7 @@ UserController.getUser = async (req, res, next) => {
 
   UserModel.findById({ _id: userId })
     .then((user) => {
-      //if no user found --> returns null
+      //if no user found --> DB returns null
       if (!user) {
         return res.status(204).send('No user found.');
       }
@@ -26,13 +26,11 @@ UserController.getUser = async (req, res, next) => {
 };
 
 UserController.postUser = async (req, res, next) => {
+  //parse request body
+  const { githubId, username, profileUrl, avatarUrl } = req.body;
+
   //check if required information exists in req.body
-  if (
-    !req.body.githubId ||
-    !req.body.username ||
-    !req.body.profileUrl ||
-    !req.body.avatarUrl
-  ) {
+  if (!githubId || !username || !profileUrl || !avatarUrl) {
     return next({
       log: 'Error in UserController.postUser: missing required data in request body',
       message: { err: 'Missing data to create new user.' },
@@ -42,14 +40,14 @@ UserController.postUser = async (req, res, next) => {
 
   //construct the newUser
   const newUser = {
-    githubId: req.body.githubId,
-    username: req.body.username,
-    profileUrl: req.body.profileUrl,
-    avatarUrl: req.body.avatarUrl,
+    githubId,
+    username,
+    profileUrl,
+    avatarUrl,
     projects: [],
   };
 
-  //send newUser to DB.
+  //create newUser in DB.
   UserModel.create(newUser)
     .then((user) => {
       res.locals.user = user;
@@ -64,8 +62,8 @@ UserController.postUser = async (req, res, next) => {
     });
 };
 
-//need to test once projectRoute is complete, since we need a valid project object ID in order to update user.projects
 UserController.updateUser = async (req, res, next) => {
+  //parse request body
   const { githubId, projectId } = req.body;
 
   try {
@@ -75,16 +73,17 @@ UserController.updateUser = async (req, res, next) => {
       { new: true }
     );
 
-    if (user) {
-      res.locals.user = user;
-      return next();
-    } else {
+    //if no user found to update --> DB returns null
+    if (!user) {
       return next({
         log: `user not found`,
         message: `user not found in UserController.updateUser`,
-        status: 400,
+        status: 204,
       });
     }
+
+    res.locals.user = user;
+    return next();
   } catch (error) {
     const err = {
       log:
@@ -97,13 +96,14 @@ UserController.updateUser = async (req, res, next) => {
 };
 
 UserController.deleteUser = async (req, res, next) => {
-  // req: Request, res: Response, next: NextFunction
+  //user to delete: githubId included as request param
   const githubId = req.params.githubId;
 
-  UserModel.findOneAndDelete({ githubId }) // use githubId to find user
+  UserModel.findOneAndDelete({ githubId })
     .then((user) => {
-      if (user === null) {
-        return res.status(404).send('No user found.');
+      //if no user found --> DB returns null
+      if (!user) {
+        return res.status(204).send('No user found.');
       }
 
       res.locals.user = user;
@@ -119,19 +119,22 @@ UserController.deleteUser = async (req, res, next) => {
 };
 
 UserController.fullUserDetails = async (req, res, next) => {
+  //user to find: githubId included as request param
   const githubId = req.params.githubId;
 
   try {
-    const response = await UserModel.findOne({ githubId }).populate({
+    //populate method replaces project/page id references with the actual documents
+    const fullUserDetails = await UserModel.findOne({ githubId }).populate({
       path: 'projects',
       populate: { path: 'pages' },
     });
 
-    if (!response) {
-      return res.status(404).send('No user found.');
+    //if no user found --> DB returns null
+    if (!fullUserDetails) {
+      return res.status(204).send('No user found.');
     }
 
-    res.locals.user = response;
+    res.locals.fullUserDetails = fullUserDetails;
     return next();
   } catch (err) {
     return next({
