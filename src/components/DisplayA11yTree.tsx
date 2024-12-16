@@ -37,7 +37,7 @@ function DisplayA11yTree({ pageResults, activeTab }: DisplayA11yTreeProps) {
 
     setElements((prev) => [...prev, <Element node={node} />]);
 
-		if(node.compliance) {
+		if(!node.compliance) {
 			setNonComplianceIssues((prev) => [...prev, <Element node={node} />]);
 		}
 
