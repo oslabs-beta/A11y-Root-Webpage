@@ -11,7 +11,9 @@ pageRoute.get(
   '/:pageId',
   PageController.getPage,
   (req: Request, res: Response): void => {
-    res.status(200).json(res.locals.page);
+    res
+      .status(200)
+      .json({ page: res.locals.page, projectName: res.locals.projectName });
   }
 );
 
