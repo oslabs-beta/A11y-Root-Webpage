@@ -18,6 +18,7 @@ import DisplayElements from '../pages/DisplayElements';
 
 function DisplayA11yTree({ pageResults, activeTab }: DisplayA11yTreeProps) {
 
+	const [nonComplianceIssues, setNonComplianceIssues] = useState<React.ReactElement[]>([]);
   const [elements, setElements] = useState<React.ReactElement[]>([]);
   const [links, setLinks] = useState<React.ReactElement[]>([]);
   const [headings, setHeadings] = useState<React.ReactElement[]>([]);
@@ -34,6 +35,11 @@ function DisplayA11yTree({ pageResults, activeTab }: DisplayA11yTreeProps) {
   function setNode(node: AccessibilityNode) {
 
     setElements((prev) => [...prev, <Element node={node} />]);
+
+		if(node.compliance) {
+			setNonComplianceIssues((prev) => [...prev, <Element node={node} />]);
+		}
+
     switch (node.role) {
       case 'link':
         setLinks((prev) => [...prev, <Element node={node} />]);
@@ -76,6 +82,7 @@ function DisplayA11yTree({ pageResults, activeTab }: DisplayA11yTreeProps) {
       setLinks([]); // Clear links
       setElements([]); // Clear elements
       setHeadings([]);
+			setNonComplianceIssues([]); // Clear Non Compliance Issues
       if (pageResults.tree) {
         treeCrawl(pageResults.tree);
       }
@@ -92,6 +99,15 @@ function DisplayA11yTree({ pageResults, activeTab }: DisplayA11yTreeProps) {
 
   return (
     <section className='tree-results'>
+			{activeTab === 'Non Compliance' && (
+        <DisplayElements
+          key={nanoid()}
+					aside={treeAside}
+          title={'Non Compliance'}
+        >
+          {nonComplianceIssues}
+        </DisplayElements>
+      )}
       {activeTab === 'Full Tree' && (
         <DisplayElements
           key={nanoid()}
