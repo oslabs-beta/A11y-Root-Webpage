@@ -16,7 +16,7 @@ function DirectLinkGenerator({ pageId }: DirectLinkGeneratorProps) {
   }, [pageId]);
 
   return (
-    <button onClick={() => handleClick()}>
+    <button id='copyDirectLink' onClick={() => handleClick()}>
       {isClicked ? 'Link copied to clipboard' : 'Share this tree!'}
     </button>
   );
