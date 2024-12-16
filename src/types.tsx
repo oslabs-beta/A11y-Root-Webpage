@@ -1,6 +1,6 @@
 import { Types } from 'mongoose';
 
-export type loginTypes = "github";
+export type loginTypes = 'github';
 
 export type SerializedAXNode = {
   role: string; // The role of the node
@@ -76,8 +76,12 @@ export interface Project {
 //prop passing interfaces
 export interface ProjectFormProps {
   userInfo: UserInfo;
-  selectedProject: Project | null
+  selectedProject: Project | null;
   setSelectedProject: (project: Project | null) => void;
+}
+
+export interface ProfilePageProps {
+  userInfo: UserInfo;
 }
 
 export interface MainDashboardProps {
@@ -100,13 +104,21 @@ export interface URLInputFormProps {
 
 export interface PageFormProps {
   setPageResults: (pageResults: PageResults | null) => void;
-  pageResults: PageResults;
+  pageResults: PageResults | null;
+  selectedProject: Project;
+}
+export interface ProfileFormProps {
+  userInfo: UserInfo;
+  setSelectedProject: (project: Project | null) => void;
   selectedProject: Project;
 }
 
 export interface FormContainerProps {
   setPageResults: (pageResults: PageResults | null) => void;
   pageResults: PageResults | null;
+  userInfo: UserInfo;
+}
+export interface ProfileContainerProps {
   userInfo: UserInfo;
 }
 

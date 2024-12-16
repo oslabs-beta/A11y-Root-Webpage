@@ -6,6 +6,7 @@ import OAuth from './components/OAuth';
 import { useEffect, useState } from 'react';
 import AccountMenu from './components/AccountMenu';
 import MainDashboard from './pages/MainDashboard';
+import ProfileDashboard from './pages/ProfileDashboard';
 import { UserInfo } from './types';
 
 function App() {
@@ -24,7 +25,6 @@ function App() {
 
   useEffect(() => {
     const checkLoginStatus = async () => {
-
       try {
         const response = await fetch(
           'https://localhost:3333/auth/checkstatus',
@@ -78,6 +78,10 @@ function App() {
         <Route
           path='/dashboard'
           element={userInfo && <MainDashboard userInfo={userInfo} />}
+        />
+        <Route
+          path='/profile'
+          element={userInfo && <ProfileDashboard userInfo={userInfo} />}
         />
       </Routes>
       {/* {Update Footer with copyright notice, privacy policy link, sitemap, logo, contact info, social media icons} */}

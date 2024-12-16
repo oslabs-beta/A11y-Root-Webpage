@@ -28,7 +28,10 @@ export default function AccountMenu({
         </Button>
         <Popover>
           <Menu id='menu-account'>
-            <MenuItem className='menu-item' onAction={() => alert('profile')}>
+            <MenuItem
+              className='menu-item'
+              onAction={() => navigate('/profile')}
+            >
               Profile
             </MenuItem>
             <MenuItem
