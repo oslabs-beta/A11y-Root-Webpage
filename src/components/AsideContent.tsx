@@ -68,11 +68,10 @@ const nonContextualLinksAside = (
 
 const complianceAside = (
   <p className='aside'>
-    This is a list of the{' '}
-    <a href='https://www.a11y-collective.com/blog/tabindex-accessibility/'>
-      non compliance issues
+    This is a list of the non compliance issues, followed by {' '}
+    <a href='https://www.siteimprove.com/glossary/wcag-compliance-checker/#:~:text=They%20specify%20how%20to%20make,using%20a%20WCAG%20compliance%20checker.'>
+      WCAG compliance checker
     </a>
-    , it is important that the order is meaningful.
   </p>
 );
 

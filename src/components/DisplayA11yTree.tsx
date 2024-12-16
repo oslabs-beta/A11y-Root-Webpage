@@ -11,7 +11,8 @@ import {
   linksAside,
   treeAside,
   tabIndexAside,
-  nonContextualLinksAside
+  nonContextualLinksAside,
+	complianceAside
 } from './AsideContent';
 import { nanoid } from 'nanoid';
 import DisplayElements from '../pages/DisplayElements';
@@ -102,7 +103,7 @@ function DisplayA11yTree({ pageResults, activeTab }: DisplayA11yTreeProps) {
 			{activeTab === 'Non Compliance' && (
         <DisplayElements
           key={nanoid()}
-					aside={treeAside}
+					aside={complianceAside}
           title={'Non Compliance'}
         >
           {nonComplianceIssues}
