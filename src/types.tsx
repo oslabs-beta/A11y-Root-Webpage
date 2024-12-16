@@ -109,8 +109,8 @@ export interface PageFormProps {
 }
 export interface ProfileFormProps {
   userInfo: UserInfo;
+  selectedProject: Project | null;
   setSelectedProject: (project: Project | null) => void;
-  selectedProject: Project;
 }
 
 export interface FormContainerProps {
