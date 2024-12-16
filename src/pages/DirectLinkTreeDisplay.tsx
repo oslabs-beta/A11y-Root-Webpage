@@ -15,6 +15,7 @@ function DirectLinkTreeDisplay() {
   //state required for displaying a tree
   const [activeTab, setActiveTab] = useState('Full Tree');
   const [pageResults, setPageResults] = useState<PageResults | null>(null);
+  const [projectName, setProjectName] = useState<string>('');
 
   const handleclick = (e: string) => {
     setActiveTab(e);
@@ -26,7 +27,9 @@ function DirectLinkTreeDisplay() {
       try {
         const response = await fetch(`https://localhost:3333/pages/${pageId}`);
         if (response.ok) {
-          const pageDetails = await response.json();
+          const data = await response.json();
+          const pageDetails = data.page;
+          const projectName = data.projectName;
 
           //turn stringified fields of page (as stored in DB) back into JSON objects for display
           pageDetails.tree = JSON.parse(pageDetails.tree);
@@ -37,6 +40,7 @@ function DirectLinkTreeDisplay() {
           });
 
           setPageResults(pageDetails as PageResults);
+          setProjectName(projectName);
         }
       } catch (error) {
         console.error('Could not get page details: ', error);
@@ -49,9 +53,9 @@ function DirectLinkTreeDisplay() {
   return (
     <main className='directLinkTree'>
       <h2>Accessibility (A11y) Tree Direct Link</h2>
-      {pageResults && <p>Displaying Tree for page: {pageResults.url}</p>}
-
-      {pageResults ? (
+      {pageResults && <p>Displaying Tree for: {pageResults.url}</p>}
+      {pageResults && <p>From project: {projectName}</p>}
+      {pageResults && pageId ? (
         <div className='tabs-and-display-container'>
           <TabNavigation
             activeTab={activeTab}

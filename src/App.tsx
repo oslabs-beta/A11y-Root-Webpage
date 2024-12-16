@@ -10,7 +10,7 @@ import OAuth from './components/OAuth';
 //PAGES
 import MainDashboard from './pages/MainDashboard';
 import Home from './pages/Home';
-import DirectLinkTreeDisplay from './pages/DirectLinkTreeDisplay'
+import DirectLinkTreeDisplay from './pages/DirectLinkTreeDisplay';
 
 function App() {
   const navigate = useNavigate();
@@ -82,10 +82,8 @@ function App() {
           path='/dashboard'
           element={userInfo && <MainDashboard userInfo={userInfo} />}
         />
-        <Route
-          path='/treedirect/:pageId'
-          element={<DirectLinkTreeDisplay/>}
-        />
+        <Route path='/treedirect/:pageId' element={<DirectLinkTreeDisplay />} />
+        <Route path='/treedirect/' element={<DirectLinkTreeDisplay />} />
       </Routes>
       {/* {Update Footer with copyright notice, privacy policy link, sitemap, logo, contact info, social media icons} */}
       {showHeaderFooter && (
