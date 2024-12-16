@@ -7,6 +7,12 @@ const TabNavigation: React.FC<TabNavigationProps> = ({
 }) => {
   return (
     <section className='tabs'>
+			<button
+        className={activeTab === 'Non Compliance' ? 'active' : ''}
+        onClick={() => handleTabChange('Non Compliance')}
+      >
+        Non Compliance
+      </button>
       <button
         className={activeTab === 'Full Tree' ? 'active' : ''}
         onClick={() => handleTabChange('Full Tree')}
