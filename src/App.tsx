@@ -1,12 +1,16 @@
 import { Routes, Route, useLocation, useNavigate } from 'react-router-dom';
 import './css/App.css';
-import Home from './pages/Home';
+import { useEffect, useState } from 'react';
+import { UserInfo } from './types';
+//COMPONENTS
+import AccountMenu from './components/AccountMenu';
 import BtnDownload from './components/BtnDownload';
 import OAuth from './components/OAuth';
-import { useEffect, useState } from 'react';
-import AccountMenu from './components/AccountMenu';
+
+//PAGES
 import MainDashboard from './pages/MainDashboard';
-import { UserInfo } from './types';
+import Home from './pages/Home';
+import DirectLinkTreeDisplay from './pages/DirectLinkTreeDisplay';
 
 function App() {
   const navigate = useNavigate();
@@ -24,7 +28,6 @@ function App() {
 
   useEffect(() => {
     const checkLoginStatus = async () => {
-
       try {
         const response = await fetch(
           'https://localhost:3333/auth/checkstatus',
@@ -79,6 +82,8 @@ function App() {
           path='/dashboard'
           element={userInfo && <MainDashboard userInfo={userInfo} />}
         />
+        <Route path='/treedirect/:pageId' element={<DirectLinkTreeDisplay />} />
+        <Route path='/treedirect/' element={<DirectLinkTreeDisplay />} />
       </Routes>
       {/* {Update Footer with copyright notice, privacy policy link, sitemap, logo, contact info, social media icons} */}
       {showHeaderFooter && (

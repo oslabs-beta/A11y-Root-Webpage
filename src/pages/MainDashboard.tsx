@@ -1,13 +1,16 @@
 import { useState } from 'react';
+
+import '../css/Dashboard.css';
+import { MainDashboardProps, PageResults } from '../types';
+
+//COMPONENTS
 import FormContainer from '../components/FormContainer';
 import TabNavigation from '../components/TabNavigation';
 import DisplayA11yTree from '../components/DisplayA11yTree';
-import { MainDashboardProps } from '../types';
-import { PageResults } from '../types';
-import '../css/Dashboard.css';
+import DirectLinkGenerator from '../components/DirectLinkGenerator';
 
 function MainDashboard({ userInfo }: MainDashboardProps) {
-  const [activeTab, setActiveTab] = useState('');
+  const [activeTab, setActiveTab] = useState('Full Tree');
   const [pageResults, setPageResults] = useState<PageResults | null>(null);
 
   const handleclick = (e: string) => {
@@ -22,6 +25,7 @@ function MainDashboard({ userInfo }: MainDashboardProps) {
         setPageResults={setPageResults}
         pageResults={pageResults}
       />
+      {pageResults && <DirectLinkGenerator pageId={pageResults._id} />}
       <div className='tabs-and-display-container'>
         {pageResults && (
           <TabNavigation
@@ -30,7 +34,9 @@ function MainDashboard({ userInfo }: MainDashboardProps) {
             pageResults={pageResults}
           />
         )}
-        <DisplayA11yTree activeTab={activeTab} pageResults={pageResults} />
+        {pageResults && (
+          <DisplayA11yTree activeTab={activeTab} pageResults={pageResults} />
+        )}
       </div>
     </main>
   );

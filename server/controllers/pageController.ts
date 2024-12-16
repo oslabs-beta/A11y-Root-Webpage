@@ -1,4 +1,5 @@
 import PageModel from '../models/pageModel';
+import ProjectModel from '../models/projectModel';
 import { pageController } from '../type';
 
 const PageController = {} as pageController;
@@ -12,6 +13,10 @@ PageController.getPage = async (req, res, next) => {
     //if no page found --> DB returns null
     if (!page) return res.status(204).send('No page tree found.');
 
+    const relatedProject = await ProjectModel.findById({_id: page.projectId})
+    if (!relatedProject) return res.status(204).send('Incomplete page tree found - missing valid project.');
+
+    res.locals.projectName = relatedProject.projectName;
     res.locals.page = page;
     return next();
   } catch (err) {
