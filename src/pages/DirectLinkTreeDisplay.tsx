@@ -52,9 +52,9 @@ function DirectLinkTreeDisplay() {
 
   return (
     <main className='directLinkTree'>
-      <h2>Accessibility (A11y) Tree Direct Link</h2>
+      <h2>Accessibility (A11y) Tree: Page For Direct Links</h2>
       {pageResults && <p>Displaying Tree for: {pageResults.url}</p>}
-      {pageResults && <p>From project: {projectName}</p>}
+      {pageResults && <p>From Project: {projectName}</p>}
       {pageResults && pageId ? (
         <div className='tabs-and-display-container'>
           <TabNavigation
