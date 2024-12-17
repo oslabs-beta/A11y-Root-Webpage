@@ -138,6 +138,10 @@ export interface AccountMenuProps {
   handleLogout: () => void;
 }
 
+export interface DirectLinkGeneratorProps {
+  pageId: string
+}
+
 //DB stringified types
 
 export interface DBProject {
