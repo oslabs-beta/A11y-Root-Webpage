@@ -9,6 +9,7 @@ import OAuth from './components/OAuth';
 
 //PAGES
 import MainDashboard from './pages/MainDashboard';
+import ProfileDashboard from './pages/ProfileDashboard';
 import Home from './pages/Home';
 import DirectLinkTreeDisplay from './pages/DirectLinkTreeDisplay';
 
@@ -84,6 +85,10 @@ function App() {
         />
         <Route path='/treedirect/:pageId' element={<DirectLinkTreeDisplay />} />
         <Route path='/treedirect/' element={<DirectLinkTreeDisplay />} />
+        <Route
+          path='/profile'
+          element={userInfo && <ProfileDashboard userInfo={userInfo} />}
+        />
       </Routes>
       {/* {Update Footer with copyright notice, privacy policy link, sitemap, logo, contact info, social media icons} */}
       {showHeaderFooter && (
