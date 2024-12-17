@@ -13,7 +13,7 @@ function ProfileForm({
   selectedProject,
   setSelectedProject,
 }: ProfileFormProps) {
-  const [projects, setProjects] = useState<Project[]>([]);
+  const [projects, setProjects] = useState<Project[] | null>([]);
 
   useEffect(() => {
     const getUserProjects = async () => {
@@ -81,10 +81,10 @@ function ProfileForm({
 
   return (
     <div>
-      <button id='delete-user-button' onClick={handleDeleteUser}>
+      <Button id='delete-user-button' onPress={handleDeleteUser}>
         Delete User
-      </button>
-
+      </Button>
+      <h2>View Your Projects</h2>
       {projects && projects.length > 0 ? (
         <div id='profile-form'>
           <MenuTrigger>
