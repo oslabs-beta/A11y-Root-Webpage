@@ -5,9 +5,11 @@ import React from 'react';
 import { loginTypes } from './AuthContext';
 
 interface OAuthProp {
+  // move to type folder
   handleOAuthClick: (type: loginTypes) => void;
 }
 
+// React.FC (functional component) -> Tells typescript this is a react component
 const OAuth: React.FC<OAuthProp> = ({ handleOAuthClick }) => {
   return (
     <div className='oauth'>

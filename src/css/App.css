@@ -24,3 +24,12 @@ header h1 {
 }
 
 /* add tree image here and set position to absolute */
+.img-tree {
+  position: absolute;
+  top: 2%;
+  left: 0;
+  /* height: 100%; */
+  /* aspect-ratio: 3/8; */
+  /* border: 2px solid red; */
+  width: 20%;
+}

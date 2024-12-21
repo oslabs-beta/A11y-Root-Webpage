@@ -7,6 +7,7 @@ import { useEffect, useState } from 'react';
 import AccountMenu from './components/AccountMenu';
 import MainDashboard from './pages/MainDashboard';
 import { UserInfo } from './types';
+import tree from './assets/tree-1.svg';
 
 function App() {
   const navigate = useNavigate();
@@ -74,6 +75,7 @@ function App() {
         </div>
         <h1 onClick={() => navigate('/')}>A11y Root</h1>
         <BtnDownload handleDownload={handleDownload} />
+        <img className='img-tree' src={tree} alt='' />
       </header>
       <Routes>
         <Route path='/' element={<Home />} />
@@ -82,6 +84,7 @@ function App() {
           element={userInfo && <MainDashboard userInfo={userInfo} />}
         />
       </Routes>
+
       {/* {Update Footer with copyright notice, privacy policy link, sitemap, logo, contact info, social media icons} */}
       {showHeaderFooter && (
         <footer>

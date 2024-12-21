@@ -3,6 +3,7 @@ import UserModel from '../models/userModel';
 import SessionModel from '../models/sessionModel';
 
 const oAuthController = {
+  //get code from request query and store it
   getTemporaryCode: (req: Request, res: Response, next: NextFunction): void => {
     console.log('Request Query:', req.query);
     const temporaryCode = req.query.code;
@@ -16,7 +17,7 @@ const oAuthController = {
     res.locals.temporaryCode = temporaryCode;
     return next();
   },
-
+  //use clientid, clientsecret, and code pulled from earlier to make a fetch request for a github token
   requestToken: async (req: Request, res: Response, next: NextFunction) => {
     try {
       const response = await fetch(
@@ -51,6 +52,7 @@ const oAuthController = {
           message: { err: 'An error occurred while obtaingin access token' },
         });
       }
+      //store token in res.locals
       res.locals.token = githubToken;
       return next();
     } catch {
@@ -61,12 +63,13 @@ const oAuthController = {
       });
     }
   },
-
+  //use github token to make a fetch request to github api and retrieve user data
   getUserData: async (req: Request, res: Response, next: NextFunction) => {
     console.log('got here');
     try {
       const response = await fetch('https://api.github.com/user', {
         headers: {
+          //send Bearer token to get access to user data
           Authorization: `Bearer ${res.locals.token}`,
         },
       });
@@ -79,6 +82,7 @@ const oAuthController = {
       }
       const githubUser = await response.json();
       console.log('Github User:', githubUser);
+      //store user data
       res.locals.githubUser = githubUser;
       return next();
     } catch {
@@ -93,7 +97,9 @@ const oAuthController = {
   saveUser: async (req: Request, res: Response, next: NextFunction) => {
     try {
       const { githubUser } = res.locals;
+      //find user in database based off of the id from user data
       let user = await UserModel.findOne({ githubId: githubUser.id });
+      //create user in database if they dont already exist
       if (!user) {
         user = new UserModel({
           githubId: githubUser.id,
@@ -105,6 +111,7 @@ const oAuthController = {
         await user.save();
       }
       console.log('user:', user);
+      //store user
       res.locals.user = user;
       return next();
     } catch {
@@ -120,7 +127,7 @@ const oAuthController = {
   checkStatus: async (req: Request, res: Response, next: NextFunction) => {
     try {
       const { ssid } = req.cookies;
-
+      //check if ssid from cookies exists
       if (!ssid) {
         return next({
           log: 'Error in oAuthController.checkStatus:Failed to get ssid',
@@ -128,6 +135,7 @@ const oAuthController = {
           message: { err: 'An error occurred while retrieving the ssid' },
         });
       }
+      //check if session is in database using ssid from cookies
       const session = await SessionModel.findOne({ cookieId: ssid });
       if (!session) {
         return next({
@@ -136,6 +144,7 @@ const oAuthController = {
           message: { err: 'An error occurred while finding the session' },
         });
       }
+      //check if user exists in database
       const user = await UserModel.findById(ssid);
       if (!user) {
         return next({
@@ -144,7 +153,7 @@ const oAuthController = {
           message: { err: 'An error occurred while checking status' },
         });
       }
-
+      //store user
       res.locals.user = user;
 
       return next();

@@ -12,6 +12,7 @@ const sessionController = {
           message: { err: 'Session ID is required to start a session' },
         });
       }
+      //check if session is in database using res.locals.ssid, create session if there isnt one
       const result = await SessionModel.findOne({ cookieId: res.locals.ssid });
       if (!result) {
         const session = await SessionModel.create({

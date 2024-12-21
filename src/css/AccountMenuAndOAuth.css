@@ -60,7 +60,7 @@
   padding-right: 1rem;
 }
 
-.menu-item:hover {
+#menu-item:hover {
   background-color: #83e09e;
   font-weight: bold;
   cursor: pointer;

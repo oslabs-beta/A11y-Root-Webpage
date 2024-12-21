@@ -16,10 +16,13 @@
   justify-content: space-evenly;
   align-items: center;
   margin: 3rem 0;
+  z-index: 50;
 }
 
 .a11y-details div {
   flex: 1;
+  background-color: #ffffffd0;
+  border-top-left-radius: 5rem;
   align-self: flex-start;
   max-width: 40%;
   text-align: center;
