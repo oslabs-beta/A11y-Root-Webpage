@@ -13,13 +13,15 @@ import ProfileDashboard from './pages/ProfileDashboard';
 import Home from './pages/Home';
 import DirectLinkTreeDisplay from './pages/DirectLinkTreeDisplay';
 
+const url = 'https://a11y-root-webpage.onrender.com';
+
 function App() {
   const navigate = useNavigate();
   const [isLoggedIn, setIsLoggedIn] = useState<boolean>(false);
   const [userInfo, setUserInfo] = useState<UserInfo | null>(null);
 
   const handleOAuthClick = () => {
-    window.location.href = 'https://a11y-root-webpage.onrender.com/auth';
+    window.location.href = `${url}/auth`;
   };
 
   const handleLogout = () => {
@@ -30,12 +32,9 @@ function App() {
   useEffect(() => {
     const checkLoginStatus = async () => {
       try {
-        const response = await fetch(
-          'https://localhost:3333/auth/checkstatus',
-          {
-            credentials: 'include',
-          }
-        );
+        const response = await fetch(`${url}/auth/checkstatus`, {
+          credentials: 'include',
+        });
         if (response.ok) {
           const userInfo = await response.json();
           setUserInfo(userInfo);
