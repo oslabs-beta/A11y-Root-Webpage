@@ -19,7 +19,7 @@ function App() {
   const [userInfo, setUserInfo] = useState<UserInfo | null>(null);
 
   const handleOAuthClick = () => {
-    window.location.href = 'https://localhost:3333/auth';
+    window.location.href = 'https://a11y-root-webpage.onrender.com/auth';
   };
 
   const handleLogout = () => {
