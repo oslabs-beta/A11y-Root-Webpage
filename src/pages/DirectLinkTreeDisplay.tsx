@@ -8,8 +8,7 @@ import { PageResults } from '../types';
 import TabNavigation from '../components/TabNavigation';
 import DisplayA11yTree from '../components/DisplayA11yTree';
 
-const DOMAIN_NAME =
-  process.env.REACT_APP_DOMAIN_NAME || 'https://localhost:3333';
+const DOMAIN_NAME = process.env.VITE_DOMAIN_NAME || 'https://localhost:3333';
 
 function DirectLinkTreeDisplay() {
   //read the projectId to display from the URL parameters

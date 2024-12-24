@@ -1,8 +1,7 @@
 import { useState, useEffect } from 'react';
 import { DirectLinkGeneratorProps } from '../types';
 
-const DOMAIN_NAME =
-  process.env.REACT_APP_DOMAIN_NAME || 'https://localhost:5173';
+const DOMAIN_NAME = process.env.VITE_DOMAIN_NAME || 'https://localhost:5173';
 
 function DirectLinkGenerator({ pageId }: DirectLinkGeneratorProps) {
   const [isClicked, setIsClicked] = useState<boolean>(false);
