@@ -8,7 +8,9 @@ import {
   Popover,
 } from 'react-aria-components';
 
-const DOMAIN_NAME = process.env.DOMAIN_NAME || 'https://localhost:3333';
+const DOMAIN_NAME = process.env.DOMAIN_NAME;
+
+//|| 'https://localhost:3333';
 
 //pass in user info from form container and use github id in fetch
 export default function ProjectForm({
