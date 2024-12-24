@@ -7,6 +7,8 @@ const oAuthController = {} as oauthController;
 oAuthController.getTemporaryCode = (req, res, next) => {
   const temporaryCode = req.query.code;
 
+  console.log('temp code - ', temporaryCode);
+
   if (!temporaryCode) {
     return next({
       log: 'Error in oAuthController.getTemporaryCode: No code received from Github',
