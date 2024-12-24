@@ -25,7 +25,9 @@ function DirectLinkTreeDisplay() {
   useEffect(() => {
     const getPage = async () => {
       try {
-        const response = await fetch(`https://localhost:3333/pages/${pageId}`);
+        const response = await fetch(
+          `https://a11y-root-webpage.onrender.com/pages/${pageId}`
+        );
         if (response.ok) {
           const data = await response.json();
           const pageDetails = data.page;
