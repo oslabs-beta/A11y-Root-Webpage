@@ -1,7 +1,7 @@
 import express, { Request, Response } from 'express';
 
 //AUTHENTICATION MIDDLEWARE
-//import cookieController from '../controllers/cookieController';
+import cookieController from '../controllers/cookieController';
 import oAuthController from '../controllers/oAuthController';
 import sessionController from '../controllers/sessionController';
 
@@ -37,6 +37,7 @@ extensionRoute.get(
   oAuthController.requestToken,
   oAuthController.getUserData,
   oAuthController.saveUser,
+  cookieController.setSSIDCookie,
   sessionController.startSession,
   (req: Request, res: Response) => {
     if (!res.locals.user) {
