@@ -8,6 +8,8 @@ import {
   Popover,
 } from 'react-aria-components';
 
+const DOMAIN_NAME = process.env.DOMAIN_NAME || 'https://localhost:3333';
+
 function ProfileForm({
   userInfo,
   selectedProject,
@@ -19,7 +21,7 @@ function ProfileForm({
     const getUserProjects = async () => {
       try {
         const response = await fetch(
-          `https://localhost:3333/users/findAll/${userInfo.githubId}`
+          `${DOMAIN_NAME}/users/findAll/${userInfo.githubId}`
         );
         if (response.ok) {
           const userDetails = await response.json();
@@ -40,7 +42,7 @@ function ProfileForm({
     if (window.confirm('Are you sure you want to delete this user?')) {
       try {
         const response = await fetch(
-          `https://localhost:3333/users/${userInfo.githubId}`,
+          `${DOMAIN_NAME}/users/${userInfo.githubId}`,
           {
             method: 'DELETE',
           }
@@ -58,12 +60,9 @@ function ProfileForm({
   const handleDeleteProject = async (projectId: string) => {
     if (window.confirm('Are you sure you want to delete this project?')) {
       try {
-        const response = await fetch(
-          `https://localhost:3333/projects/${projectId}`,
-          {
-            method: 'DELETE',
-          }
-        );
+        const response = await fetch(`${DOMAIN_NAME}projects/${projectId}`, {
+          method: 'DELETE',
+        });
         if (response.ok) {
           alert('Project deleted successfully');
           setProjects((prevProjects) =>
