@@ -25,7 +25,7 @@ authRoute.get(
   cookieController.setSSIDCookie,
   sessionController.startSession,
   (req: Request, res: Response) => {
-    return res.redirect('https://localhost:5173/');
+    return res.redirect('https://a11y-root-webpage.onrender.com');
   }
 );
 
