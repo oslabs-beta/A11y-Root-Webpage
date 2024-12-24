@@ -4,6 +4,7 @@ import { sessionController } from '../type';
 const SessionController = {} as sessionController;
 
 SessionController.startSession = async (req, res, next) => {
+  console.log('start session');
   try {
     if (!res.locals.ssid) {
       return next({

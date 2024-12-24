@@ -22,6 +22,7 @@ oAuthController.getTemporaryCode = (req, res, next) => {
 };
 //use code to request github access token
 oAuthController.requestToken = async (req, res, next) => {
+  console.log('requesting token');
   try {
     const response = await fetch(
       'https://github.com/login/oauth/access_token',
@@ -50,6 +51,8 @@ oAuthController.requestToken = async (req, res, next) => {
     const data = await response.json();
     const githubToken = data.access_token;
 
+    console.log('githubToken:', githubToken);
+
     if (!githubToken) {
       return next({
         log: 'Failed to get access token from Github',
@@ -70,6 +73,7 @@ oAuthController.requestToken = async (req, res, next) => {
 };
 //utilize access token to retrieve github user data from Github API
 oAuthController.getUserData = async (req, res, next) => {
+  console.log('getting user data');
   try {
     const response = await fetch('https://api.github.com/user', {
       headers: {
@@ -87,6 +91,7 @@ oAuthController.getUserData = async (req, res, next) => {
 
     const githubUser = await response.json();
     res.locals.githubUser = githubUser;
+    console.log('user data: ', githubUser);
     return next();
   } catch {
     return next({
