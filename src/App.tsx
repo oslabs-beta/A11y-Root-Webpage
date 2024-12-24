@@ -14,7 +14,7 @@ import Home from './pages/Home';
 import DirectLinkTreeDisplay from './pages/DirectLinkTreeDisplay';
 
 const DOMAIN_NAME =
-  process.env.REACT_APP_DOMAIN_NAME || 'https://localhost:3333';
+  import.meta.env.VITE_DOMAIN_NAME || 'https://localhost:3333';
 
 function App() {
   const navigate = useNavigate();
