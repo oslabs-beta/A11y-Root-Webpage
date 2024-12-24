@@ -8,7 +8,8 @@ import {
   Popover,
 } from 'react-aria-components';
 
-const DOMAIN_NAME = process.env.DOMAIN_NAME || 'https://localhost:3333';
+const DOMAIN_NAME =
+  process.env.REACT_APP_DOMAIN_NAME || 'https://localhost:3333';
 
 function ProfileForm({
   userInfo,

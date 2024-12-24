@@ -13,7 +13,8 @@ import ProfileDashboard from './pages/ProfileDashboard';
 import Home from './pages/Home';
 import DirectLinkTreeDisplay from './pages/DirectLinkTreeDisplay';
 
-const url = 'https://a11y-root-webpage.onrender.com';
+const DOMAIN_NAME =
+  process.env.REACT_APP_DOMAIN_NAME || 'https://localhost:3333';
 
 function App() {
   const navigate = useNavigate();
@@ -21,7 +22,7 @@ function App() {
   const [userInfo, setUserInfo] = useState<UserInfo | null>(null);
 
   const handleOAuthClick = () => {
-    window.location.href = `${url}/auth`;
+    window.location.href = `${DOMAIN_NAME}/auth`;
   };
 
   const handleLogout = () => {
@@ -32,7 +33,7 @@ function App() {
   useEffect(() => {
     const checkLoginStatus = async () => {
       try {
-        const response = await fetch(`${url}/auth/checkstatus`, {
+        const response = await fetch(`${DOMAIN_NAME}/auth/checkstatus`, {
           credentials: 'include',
         });
         if (response.ok) {
