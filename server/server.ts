@@ -12,6 +12,7 @@ import userRoute from './routes/userRoute';
 import projectRoute from './routes/projectRoute';
 import pageRoute from './routes/pageRoute';
 import authRoute from './routes/authRoute';
+import extensionRoute from './routes/extensionRoute';
 
 // DEFINE SERVER VARIABLES
 const app = express();
@@ -32,6 +33,7 @@ app.use('/users', userRoute);
 app.use('/projects', projectRoute);
 app.use('/pages', pageRoute);
 app.use('/auth', authRoute);
+app.use('/extension', extensionRoute);
 
 // SERVE REACT FRONTEND FOR ALL OTHER ROUTES
 app.get('*', (req: Request, res: Response) => {
