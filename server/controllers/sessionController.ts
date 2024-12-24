@@ -4,7 +4,7 @@ import { sessionController } from '../type';
 const SessionController = {} as sessionController;
 
 SessionController.startSession = async (req, res, next) => {
-  console.log('start session');
+  console.log('start session: ', res.locals.ssid);
   try {
     if (!res.locals.ssid) {
       return next({
@@ -15,6 +15,8 @@ SessionController.startSession = async (req, res, next) => {
     }
     //look for session in the database (based on res.locals.ssid)
     const result = await SessionModel.findOne({ cookieId: res.locals.ssid });
+
+    console.log('session result: ', result);
 
     if (!result) {
       //create session if one doesn't already exist
@@ -27,7 +29,8 @@ SessionController.startSession = async (req, res, next) => {
       console.log('Session already exists:', result);
       return next();
     }
-  } catch {
+  } catch (error) {
+    console.log('Error: ', error);
     return next({
       log: 'Error in sessionController.startSession: Failed to start session',
       status: 500,
