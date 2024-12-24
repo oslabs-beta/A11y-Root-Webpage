@@ -103,11 +103,14 @@ oAuthController.getUserData = async (req, res, next) => {
 };
 
 oAuthController.saveUser = async (req, res, next) => {
+  console.log('save user, res.locals:', res.locals);
   try {
     const { githubUser } = res.locals;
 
     // Check if user is in database based on their githubID
     let user = await UserModel.findOne({ githubId: githubUser.id });
+
+    console.log('user:', user);
 
     // Create new user in database if they don't exist
     if (!user) {
