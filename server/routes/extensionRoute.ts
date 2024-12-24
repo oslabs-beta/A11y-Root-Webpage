@@ -39,8 +39,8 @@ extensionRoute.get(
   oAuthController.saveUser,
   sessionController.startSession,
   (req: Request, res: Response) => {
-    if (!req.query.code) {
-      console.log('No code provided');
+    if (!res.locals.user) {
+      console.log('No user', res.locals);
       return res.status(400).json({ error: 'No code provided' });
     }
     return res.status(200).json(res.locals.user);
