@@ -4,7 +4,6 @@ import {
   DisplayA11yTreeProps,
   AccessibilityNode,
   AccessibilityTree,
-  TabIndexEntry,
 } from '../types';
 import {
   headerAside,
@@ -12,15 +11,15 @@ import {
   linksAside,
   treeAside,
   tabIndexAside,
-  nonSemanticLinksAside,
+  nonContextualLinksAside,
+	complianceAside
 } from './AsideContent';
 import { nanoid } from 'nanoid';
 import DisplayElements from '../pages/DisplayElements';
 
 function DisplayA11yTree({ pageResults, activeTab }: DisplayA11yTreeProps) {
-  //const skipLink = tree.skipLink;
-  //const h1 = tree.h1;
-  //handle addToPriorities here?
+
+	const [nonComplianceIssues, setNonComplianceIssues] = useState<React.ReactElement[]>([]);
   const [elements, setElements] = useState<React.ReactElement[]>([]);
   const [links, setLinks] = useState<React.ReactElement[]>([]);
   const [headings, setHeadings] = useState<React.ReactElement[]>([]);
@@ -33,9 +32,15 @@ function DisplayA11yTree({ pageResults, activeTab }: DisplayA11yTreeProps) {
       <Element node={pageResults.skipLink} />
     ) : null
   );
-  console.log(pageResults);
+
   function setNode(node: AccessibilityNode) {
+
     setElements((prev) => [...prev, <Element node={node} />]);
+
+		if(!node.compliance) {
+			setNonComplianceIssues((prev) => [...prev, <Element node={node} />]);
+		}
+
     switch (node.role) {
       case 'link':
         setLinks((prev) => [...prev, <Element node={node} />]);
@@ -67,8 +72,6 @@ function DisplayA11yTree({ pageResults, activeTab }: DisplayA11yTreeProps) {
     }
   }
 
-  // would be nice if tabIndex elements were regular a11y nodes
-
   function buildTabIndexElements(tabIndex: AccessibilityNode[]) {
     return tabIndex.map((node) => {
       return <Element node={node} />;
@@ -80,6 +83,7 @@ function DisplayA11yTree({ pageResults, activeTab }: DisplayA11yTreeProps) {
       setLinks([]); // Clear links
       setElements([]); // Clear elements
       setHeadings([]);
+			setNonComplianceIssues([]); // Clear Non Compliance Issues
       if (pageResults.tree) {
         treeCrawl(pageResults.tree);
       }
@@ -94,18 +98,17 @@ function DisplayA11yTree({ pageResults, activeTab }: DisplayA11yTreeProps) {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [pageResults]);
 
-  //   const nonSemanticLinks = tree.nonSemanticLinks.map(({ text, link }) => {
-  //     return <Link text={text} link={link} key={nanoid()} />;
-  //   });
-
-  //   const skipLinkFound = skipLink.text.length ? (
-  //     <Link text={skipLink.text} link={skipLink.link} />
-  //   ) : (
-  //     <span className='bad tan'>No Skip Link Found</span>
-  //   );
-
   return (
     <section className='tree-results'>
+			{activeTab === 'Non Compliance' && (
+        <DisplayElements
+          key={nanoid()}
+					aside={complianceAside}
+          title={'Non Compliance'}
+        >
+          {nonComplianceIssues}
+        </DisplayElements>
+      )}
       {activeTab === 'Full Tree' && (
         <DisplayElements
           key={nanoid()}
@@ -138,7 +141,7 @@ function DisplayA11yTree({ pageResults, activeTab }: DisplayA11yTreeProps) {
       {activeTab === 'Non Contextual Links' && (
         <DisplayElements
           key={nanoid()}
-          aside={tabIndexAside}
+          aside={nonContextualLinksAside}
           title={'Non Contextual Links'}
         >
           {nonContextualLinks}
@@ -160,7 +163,5 @@ function DisplayA11yTree({ pageResults, activeTab }: DisplayA11yTreeProps) {
     </section>
   );
 }
-
-//NonContextualLinks
 
 export default DisplayA11yTree;

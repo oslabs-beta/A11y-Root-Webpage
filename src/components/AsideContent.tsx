@@ -36,6 +36,7 @@ const linksAside = (
     link text that provide context to the links content or purpose.
   </p>
 );
+
 const treeAside = (
   <p className='aside'>
     This is a breakdown of the meaningful elements found in the{' '}
@@ -54,7 +55,8 @@ const tabIndexAside = (
     , it is important that the order is meaningful.
   </p>
 );
-const nonSemanticLinksAside = (
+
+const nonContextualLinksAside = (
   <p className='aside'>
     When a link has{' '}
     <a href='https://stevenmouret.github.io/web-accessibility-guidelines/accessibility/links/empty-link.html#:~:text=Explanation,text%20link%20for%20each%20link.'>
@@ -64,11 +66,21 @@ const nonSemanticLinksAside = (
   </p>
 );
 
+const complianceAside = (
+  <p className='aside'>
+    This is a list of the non compliance issues, followed by {' '}
+    <a href='https://www.siteimprove.com/glossary/wcag-compliance-checker/#:~:text=They%20specify%20how%20to%20make,using%20a%20WCAG%20compliance%20checker.'>
+      WCAG compliance checker
+    </a>
+  </p>
+);
+
 export {
   headerAside,
   skipLinkAside,
   linksAside,
   treeAside,
   tabIndexAside,
-  nonSemanticLinksAside,
+  nonContextualLinksAside,
+	complianceAside,
 };

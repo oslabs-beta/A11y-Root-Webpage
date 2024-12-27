@@ -7,6 +7,12 @@ const TabNavigation: React.FC<TabNavigationProps> = ({
 }) => {
   return (
     <section className='tabs'>
+			<button
+        className={activeTab === 'Non Compliance' ? 'active' : ''}
+        onClick={() => handleTabChange('Non Compliance')}
+      >
+        Non Compliance
+      </button>
       <button
         className={activeTab === 'Full Tree' ? 'active' : ''}
         onClick={() => handleTabChange('Full Tree')}
@@ -35,7 +41,7 @@ const TabNavigation: React.FC<TabNavigationProps> = ({
         className={activeTab === 'Non Contextual Links' ? 'active' : ''}
         onClick={() => handleTabChange('Non Contextual Links')}
       >
-        Non Semantic Links
+        Non Contextual Links
       </button>
       <button
         className={activeTab === 'Skip Link' ? 'active' : ''}

@@ -1,8 +1,7 @@
+import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faGithub } from '@fortawesome/free-brands-svg-icons';
-// import { motion } from 'framer-motion';
-import React from 'react';
-import { loginTypes } from './AuthContext';
+import { loginTypes } from '../types';
 
 interface OAuthProp {
   // move to type folder

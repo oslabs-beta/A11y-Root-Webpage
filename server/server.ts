@@ -1,25 +1,26 @@
-//IMPORTED MODULES
-import { Request, Response, NextFunction } from 'express';
-import express from 'express';
+//IMPORTED PACKAGES
+import express, { Request, Response, NextFunction } from 'express';
 import https from 'https';
 import cookieParser from 'cookie-parser';
 import path from 'path';
 import fs from 'fs';
 import cors from 'cors';
-import oAuthController from './controllers/oAuthController.ts';
-import cookieController from './controllers/cookieController.ts';
-import sessionController from './controllers/sessionController.ts';
 
-//IMPORTED FILES
+//DATABASE CONNECTION MODULE
 import dbConnect from './dbConnect.ts';
+
+//IMPORTED ROUTES
 import userRoute from './routes/userRoute.ts';
 import projectRoute from './routes/projectRoute.ts';
 import pageRoute from './routes/pageRoute.ts';
+import authRoute from './routes/authRoute.ts';
 
+//DEFINE SERVER VARIABLES
 const app = express();
 const PORT: number = 3333;
 const __dirname = import.meta.dirname;
 
+//HTTPS FILES
 const options = {
   key: fs.readFileSync(path.join(__dirname, 'localhost-key.pem')),
   cert: fs.readFileSync(path.join(__dirname, 'localhost.pem')),
@@ -31,47 +32,21 @@ app.use(cors({ credentials: true, origin: true }));
 app.use(express.json());
 app.use(cookieParser());
 
-//routes for our defined API endpoints
+//SERVER ROUTES
 app.use('/users', userRoute);
 app.use('/projects', projectRoute);
 app.use('/pages', pageRoute);
+app.use('/auth', authRoute);
 
+//SERVE HOMEPAGE
 app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, '../index.html'));
 });
 
-app.get('/auth', (req: Request, res: Response) => {
-  const githubOAuthURl = `https://github.com/login/oauth/authorize?client_id=${process.env.GITHUB_CLIENT_ID}&redirect_uri=${process.env.GITHUB_CALLBACK_URL}&force_login=true`;
-  return res.redirect(githubOAuthURl);
-});
-
-app.get(
-  '/auth/checkstatus',
-  oAuthController.checkStatus,
-  (req: Request, res: Response) => {
-    res.header('Access-Control-Allow-Credentials', true);
-    return res.status(200).json(res.locals.user);
-  }
-);
-
-//add middleware here
-app.get(
-  '/auth/callback',
-  oAuthController.getTemporaryCode,
-  oAuthController.requestToken,
-  oAuthController.getUserData,
-  oAuthController.saveUser,
-  cookieController.setSSIDCookie,
-  sessionController.startSession,
-  (req: Request, res: Response) => {
-    return res.redirect('https://localhost:5173/');
-  }
-);
-
-//404 handler for any unrecognized requests
+//404 FOR UNRECOGNIZED REQUESTS
 app.use('*', (req, res) => res.sendStatus(404).send('Page not found'));
 
-// Global error handler
+//GLOBAL ERROR HANDLER
 /* eslint-disable-next-line @typescript-eslint/no-unused-vars */
 app.use((err, req: Request, res: Response, next: NextFunction): void => {
   const defaultErr = {
@@ -84,11 +59,13 @@ app.use((err, req: Request, res: Response, next: NextFunction): void => {
   return res.status(errorObj.status).json(errorObj.message);
 });
 
-//initialize database connection
-dbConnect();
-// Create HTTPS server
+//CREATE HTTPS SERVER USING EXPRESS APP
 const server = https.createServer(options, app);
-//initialize server
+
+//INITIALIZE DATABASE CONNECTION
+dbConnect();
+
+//INITIALIZE SERVER
 server.listen(PORT, () => {
   console.log(`Listening on PORT: ${PORT}`);
 });

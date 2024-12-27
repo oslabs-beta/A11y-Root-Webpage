@@ -1,13 +1,22 @@
 import { Routes, Route, useLocation, useNavigate } from 'react-router-dom';
 import './css/App.css';
-import Home from './pages/Home';
+import { useEffect, useState } from 'react';
+import { UserInfo } from './types';
+//COMPONENTS
+import AccountMenu from './components/AccountMenu';
 import BtnDownload from './components/BtnDownload';
 import OAuth from './components/OAuth';
-import { useEffect, useState } from 'react';
-import AccountMenu from './components/AccountMenu';
+
+//PAGES
 import MainDashboard from './pages/MainDashboard';
+<<<<<<< HEAD
 import { UserInfo } from './types';
 import tree from './assets/tree-1.svg';
+=======
+import ProfileDashboard from './pages/ProfileDashboard';
+import Home from './pages/Home';
+import DirectLinkTreeDisplay from './pages/DirectLinkTreeDisplay';
+>>>>>>> aa58f93d0c336d43f4067dc3f0efea4e2b2abbed
 
 function App() {
   const navigate = useNavigate();
@@ -25,8 +34,6 @@ function App() {
 
   useEffect(() => {
     const checkLoginStatus = async () => {
-      // console.log('CheckLoginStatus function is running');
-
       try {
         const response = await fetch(
           'https://localhost:3333/auth/checkstatus',
@@ -37,7 +44,6 @@ function App() {
         if (response.ok) {
           const userInfo = await response.json();
           setUserInfo(userInfo);
-          console.log(`userinfoset: ${JSON.stringify(userInfo)}`);
           setIsLoggedIn(true);
         } else {
           setUserInfo(null);
@@ -82,6 +88,12 @@ function App() {
         <Route
           path='/dashboard'
           element={userInfo && <MainDashboard userInfo={userInfo} />}
+        />
+        <Route path='/treedirect/:pageId' element={<DirectLinkTreeDisplay />} />
+        <Route path='/treedirect/' element={<DirectLinkTreeDisplay />} />
+        <Route
+          path='/profile'
+          element={userInfo && <ProfileDashboard userInfo={userInfo} />}
         />
       </Routes>
 
