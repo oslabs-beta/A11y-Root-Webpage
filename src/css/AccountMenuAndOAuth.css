@@ -1,25 +1,22 @@
-/* mui elements have a built in class. Therefore, you need to use an ID to call on it */
-
+/* See docs/css-style-guide.md */
 .github-login {
   align-self: flex-end;
   margin-right: 3rem;
 }
 
 /* ---------- OAuth Component ---------- */
-
 #icon-github {
   padding-right: 0.5rem;
 }
 
 /* ---------- Menu Components ---------- */
 /* AccountMenu, ProjectForm, PageForm */
-
 #avatar {
   width: 2.2rem;
   height: 2.2rem;
-  border-radius: 50%; /* Makes the avatar circular */
-  object-fit: cover; /*   Ensures the image fits without distortion */
-  vertical-align: middle; /* Align avatar with text */
+  border-radius: 50%;
+  object-fit: cover; /* Fit image without distortion */
+  vertical-align: middle;
   margin-left: 0.5rem;
 }
 
@@ -89,24 +86,3 @@
 #delete-project-button {
   background-color: rgb(254, 0, 0);
 }
-
-/* .menu-item:focus {
-  background-color: #83e09e;
-  font-weight: bold;
-  transition: background-color 0.2s ease;
-} */
-
-/*
-display: inline-flex; Flexbox for layout 
-align-items: center; Align items vertically at the center
-border-radius: 2rem;
-font-size: 1rem; Adjust text size to match avatar 
-font-weight: bold;
-color: black;
-padding: 0.5rem 1rem; Padding for consistent spacing 
-background-color: #f0f0f0; /* Optional: button background color
-border: 1px solid ccc; /* Optional: button border 
-cursor: pointer; ointer cursor for button 
-gap: 0.5rem;  Space between text and avatar 
-white-space: nowrap; Prevent text wrapping
-*/
