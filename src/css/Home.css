@@ -1,4 +1,4 @@
-/* add for testing CSS block => border: 1px solid #ccc; */
+/* See docs/css-style-guide.md */
 
 .home {
   display: flex;
@@ -46,7 +46,7 @@
 }
 
 /* #img-a11y-tree {
-  adjust size of image, make into a popup, or add zoom; needs to be bigger
+  adjust size of comparison image; make it bigger by turning it into a popup, or adding a zoom/magnifying glass feature.
 } */
 
 .demo {
