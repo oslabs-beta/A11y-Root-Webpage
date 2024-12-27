@@ -1,3 +1,4 @@
+/* See docs/css-style-guide.md */
 .enterUrl {
   display: flex;
   flex-direction: column;
@@ -9,7 +10,6 @@
 }
 
 /* ---------- Main Dashboard ---------- */
-
 .app {
   display: grid;
 }
@@ -35,8 +35,6 @@
   flex-wrap: nowrap;
   width: 100%;
   padding: 5rem 8rem;
-  /* For Visual Testing => */
-  /* border: 3px solid rgb(60, 60, 213); */
 }
 
 .tabs {
@@ -44,8 +42,6 @@
   justify-content: center;
   align-items: flex-end;
   width: 100%;
-  /* For Visual Testing => */
-  /* border: 3px solid rgb(60, 60, 213); */
 }
 
 .tabs button {
@@ -55,8 +51,6 @@
 }
 .tree-results {
   width: 100%;
-  /* For Visual Testing => */
-  /* border: 3px solid rgb(60, 60, 213); */
 }
 
 .tree-results h2 {
