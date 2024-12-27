@@ -1,28 +1,28 @@
+/* See docs/css-style-guide.md */
 .enterUrl {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: center;
-    align-self: flex-end;
-    font-family: Hubot;
-    margin-right: 2rem;
-  }
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  align-self: flex-end;
+  font-family: Hubot;
+  margin-right: 2rem;
+}
 
-  /* ---------- Main Dashboard ---------- */
-
+/* ---------- Main Dashboard ---------- */
 .app {
-    display: grid;
-  }
-  
-  .directLinkTree {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 3rem;
-  }
-  
-  .directLinkTree h2 {
-    font-size: 2rem;
-    text-align: center;
-    padding-bottom: 2rem;
-  }
+  display: grid;
+}
+
+.directLinkTree {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 3rem;
+}
+
+.directLinkTree h2 {
+  font-size: 2rem;
+  text-align: center;
+  padding-bottom: 2rem;
+}
