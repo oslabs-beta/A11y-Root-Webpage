@@ -2,6 +2,11 @@
 
 This document is intended to guide future developers during the onboarding and iteration process. Please continue to add and appropriately adjust notes within this style guide so that others may easily navigate and debug the css files.
 
+# Tips:
+
+- If you don't have any styling tools, use a border to find your current container for easy debugging, e.g. add for visual testing to element's css => border: 3px solid red;
+- If using external tools (such as MUI or React ARIA Components) scroll to section below for notes.
+
 # Styling Hierarchy (in order of highest precedence):
 
 !important Declaration > Inline Style > ID Selector > Class Selector > Tag Selector > Universal
@@ -21,8 +26,19 @@ This document is intended to guide future developers during the onboarding and i
   -> box-sizing model to border-box for all elements, making element width and height calculations more predictable by including padding and borders in the specified width and height.
   -> In the [body], max-height is set to 100vh (the entire viewport's height) and max-width is set to 100% (the full parent element's (html's) width; we use '%' instead of 'vw' in this case, to avoid the potential horizontal scroll bar that will appear if the height expands past the 'vh'. This occurs because the vertical scroll bar takes up an additional 10px of width, making the 'vw' wider.)
 
-# Responsive Design Requirements:
+# Considerations Per Styling Tool
 
-# WCAG Level A Requirements:
+# MUI
+
+- mui elements have a built in class. Therefore, you need to use an ID to call on it
+
+# React ARIA Components
+
+- These elements have a built in class that can be overridden to be called on; use the class attribute to customize.
+- For Flexbox and Grid effects, be mindful that some parts of the elements won't be targeted since they don't exist within the container; confirm by inspecting elements with the Chrome developer tools.
+
+# Responsive Design Requirements
+
+# WCAG Level A Requirements
 
 - 44px | min-width & min-height for touch-friendly targets, such as buttons.
