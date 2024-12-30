@@ -3,7 +3,9 @@
 
 # A11y Root Webpage 
 
-[A11y Root](https://a11yroot.dev/) is an open source VS code extension and accompanying webpage designed to enable developers and interdisciplinary teams to collaboratively address user accessibility of their projects throughout the development process.
+[A11y Root](https://a11yroot.dev/): A Visual Studio Code extension rooted in accessibility. 
+
+A11y Root is an open source VS code extension and accompanying webpage designed to enable developers and interdisciplinary teams to collaboratively address user accessibility of their projects throughout the development process.
 
 At its root, the [VS Code extension](https://github.com/oslabs-beta/A11y-Root-Extension) allows developers to generate and receive feedback on the accessibility tree of a webpage, whether in production or in a dev environment. Check out the [README](https://github.com/oslabs-beta/A11y-Root-Extension/blob/dev/README.md) for the extension for more details on getting started.
 
@@ -11,8 +13,37 @@ Once a tree is generated, it is stored in a database and associated to the devel
 
 ## Why build your project with A11y Root?
 
+A11y Root integrates **WCAG compliance** tools directly into the development workflow. The extension provides:
+
+- **Accessibility Tree Visualization**: Exposes the full accessibility tree, allowing developers to understand how assistive technologies interact with the DOM.
+- **Real-Time Analysis**: Detects WCAG guideline issues in projects and provides actionable insights.
+- **Team Collaboration**: Enables sharing of accessibility reports through public links for seamless collaboration.
+- **Simplified Development Workflow**: Makes accessibility a priority from day one.
 
 ## Main Features of the A11y Root Webpage
+
+The home page of [A11y Root](https://a11yroot.dev) provides a link to download the VS Code Extension.
+
+Additionally, users can sign in with GitHub to gain access to more features:
+
+<p align="center"> <img src="src/assets/user-dropdown.png" alt=""/></p>
+
+### Developer Dashboard
+
+The Dashboard provides access to any projects and pages that a user has previously created through the extension. Simply select from the available dropdowns to review the accessibility tree and feedback in browser.
+
+<p align="center"> <img src="src/assets/dashboard.gif" alt=""/></p>
+
+
+### User Profile Page
+
+Logged in users also have access to a profile page. Currently, this provides the ability to delete an existing project (removing all of its pages' trees from our database), or delete your account completely (removing the user and all associated projects/pages from our database).
+
+### Direct Links
+
+On the developer's dashboard, there is a "Share this tree" button. This will generate a direct link to that specific tree/feedback.
+
+The direct link allows *anyone with the link* to view the tree; no login needed. This can be useful to share the accessibility feedback with contributors and stakeholders who may not have direct access to the dev environment repo.
 
 
 ## Community Contributions
