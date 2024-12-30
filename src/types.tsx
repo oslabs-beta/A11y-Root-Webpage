@@ -139,7 +139,7 @@ export interface AccountMenuProps {
 }
 
 export interface DirectLinkGeneratorProps {
-  pageId: string
+  pageId: string;
 }
 
 //DB stringified types

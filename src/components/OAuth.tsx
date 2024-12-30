@@ -4,9 +4,11 @@ import { faGithub } from '@fortawesome/free-brands-svg-icons';
 import { loginTypes } from '../types';
 
 interface OAuthProp {
+  // move to type folder
   handleOAuthClick: (type: loginTypes) => void;
 }
 
+// React.FC (functional component) -> Tells typescript this is a react component
 const OAuth: React.FC<OAuthProp> = ({ handleOAuthClick }) => {
   return (
     <div className='oauth'>
