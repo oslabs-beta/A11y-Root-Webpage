@@ -8,6 +8,8 @@ import {
   Popover,
 } from 'react-aria-components';
 
+const DOMAIN_NAME = import.meta.env.VITE_DOMAIN_NAME || 'http://localhost:3333';
+
 //pass in user info from form container and use github id in fetch
 export default function ProjectForm({
   userInfo,
@@ -17,9 +19,7 @@ export default function ProjectForm({
   const [projects, setProjects] = useState<Project[]>([]);
 
   const handleSelectChange = (projectId: string) => {
-    const chosenProject = projects.find(
-      (project) => project._id === projectId
-    );
+    const chosenProject = projects.find((project) => project._id === projectId);
     setSelectedProject(chosenProject || null);
   };
 
@@ -27,7 +27,7 @@ export default function ProjectForm({
     const getUserDetails = async () => {
       try {
         const response = await fetch(
-          `https://localhost:3333/users/findAll/${userInfo.githubId}`
+          `${DOMAIN_NAME}/users/findAll/${userInfo.githubId}`
         );
         if (response.ok) {
           const userDetails = await response.json();
@@ -52,23 +52,30 @@ export default function ProjectForm({
       }
     };
     getUserDetails();
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  return(<div id='project-form'>
-    <MenuTrigger>
-      <Button id='project-form-button' aria-label='Menu'>
-      {selectedProject ? (selectedProject.projectName):('-- Select a Project --')}
-      </Button>
-      <Popover>
-        <Menu id='menu-project'>
-        {projects.map((project) => (
-          <MenuItem className='menu-item' onAction={()=>handleSelectChange(project._id)}>
-            {project.projectName}
-          </MenuItem>))}
-        </Menu>
-      </Popover>
-    </MenuTrigger>
-
-  </div>);
+  return (
+    <div id='project-form'>
+      <MenuTrigger>
+        <Button id='project-form-button' aria-label='Menu'>
+          {selectedProject
+            ? selectedProject.projectName
+            : '-- Select a Project --'}
+        </Button>
+        <Popover>
+          <Menu id='menu-project'>
+            {projects.map((project) => (
+              <MenuItem
+                className='menu-item'
+                onAction={() => handleSelectChange(project._id)}
+              >
+                {project.projectName}
+              </MenuItem>
+            ))}
+          </Menu>
+        </Popover>
+      </MenuTrigger>
+    </div>
+  );
 }

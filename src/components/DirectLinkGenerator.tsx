@@ -1,12 +1,15 @@
 import { useState, useEffect } from 'react';
 import { DirectLinkGeneratorProps } from '../types';
 
+const DOMAIN_NAME =
+  import.meta.env.VITE_DOMAIN_NAME || 'https://localhost:5173';
+
 function DirectLinkGenerator({ pageId }: DirectLinkGeneratorProps) {
   const [isClicked, setIsClicked] = useState<boolean>(false);
 
   //clicking the button will copy Tree-specific direct link to client's clipboard
   const handleClick = (): void => {
-    const directLink = `https://localhost:5173/treedirect/${pageId}`;
+    const directLink = `${DOMAIN_NAME}/treedirect/${pageId}`;
     navigator.clipboard.writeText(directLink);
     setIsClicked(true);
   };

@@ -7,6 +7,8 @@ const oAuthController = {} as oauthController;
 oAuthController.getTemporaryCode = (req, res, next) => {
   const temporaryCode = req.query.code;
 
+  console.log('temp code - ', temporaryCode);
+
   if (!temporaryCode) {
     return next({
       log: 'Error in oAuthController.getTemporaryCode: No code received from Github',
@@ -20,6 +22,7 @@ oAuthController.getTemporaryCode = (req, res, next) => {
 };
 //use code to request github access token
 oAuthController.requestToken = async (req, res, next) => {
+  console.log('requesting token');
   try {
     const response = await fetch(
       'https://github.com/login/oauth/access_token',
@@ -48,6 +51,8 @@ oAuthController.requestToken = async (req, res, next) => {
     const data = await response.json();
     const githubToken = data.access_token;
 
+    console.log('githubToken:', githubToken);
+
     if (!githubToken) {
       return next({
         log: 'Failed to get access token from Github',
@@ -68,6 +73,7 @@ oAuthController.requestToken = async (req, res, next) => {
 };
 //utilize access token to retrieve github user data from Github API
 oAuthController.getUserData = async (req, res, next) => {
+  console.log('getting user data');
   try {
     const response = await fetch('https://api.github.com/user', {
       headers: {
@@ -85,6 +91,7 @@ oAuthController.getUserData = async (req, res, next) => {
 
     const githubUser = await response.json();
     res.locals.githubUser = githubUser;
+    console.log('user data: ', githubUser);
     return next();
   } catch {
     return next({
@@ -96,11 +103,14 @@ oAuthController.getUserData = async (req, res, next) => {
 };
 
 oAuthController.saveUser = async (req, res, next) => {
+  console.log('save user, res.locals:', res.locals);
   try {
     const { githubUser } = res.locals;
 
     // Check if user is in database based on their githubID
     let user = await UserModel.findOne({ githubId: githubUser.id });
+
+    console.log('user:', user);
 
     // Create new user in database if they don't exist
     if (!user) {
