@@ -1,6 +1,6 @@
 import '../css/Home.css';
 import a11yTree from '../assets/a11y-tree-light.png';
-import demo from '../assets/a11y-tree-grey.png';
+import demo from '../assets/webpage_rundev.gif';
 
 const Home = () => {
   return (
@@ -30,7 +30,7 @@ const Home = () => {
         <p>“a Visual Studio Code extension rooted in accessibility”</p>
       </section>
       <section className='demo'>
-        <h2>Try It Out!</h2>
+        <h2>A11y Root VSCode Extension</h2>
         <img
           id='img-demo'
           src={demo}
