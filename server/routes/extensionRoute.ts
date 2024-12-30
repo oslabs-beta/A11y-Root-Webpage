@@ -39,7 +39,7 @@ extensionRoute.get(
   oAuthController.saveUser,
   cookieController.setSSIDCookie,
   sessionController.startSession,
-  (req: Request, res: Response) => {
+  (_req: Request, res: Response) => {
     if (!res.locals.user) {
       console.log('No user', res.locals);
       return res.status(400).json({ error: 'No code provided' });

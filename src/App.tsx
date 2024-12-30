@@ -14,8 +14,7 @@ import ProfileDashboard from './pages/ProfileDashboard';
 import Home from './pages/Home';
 import DirectLinkTreeDisplay from './pages/DirectLinkTreeDisplay';
 
-const DOMAIN_NAME =
-  import.meta.env.VITE_DOMAIN_NAME || 'https://localhost:3333';
+const DOMAIN_NAME = import.meta.env.VITE_DOMAIN_NAME || 'http://localhost:3333';
 
 function App() {
   const navigate = useNavigate();

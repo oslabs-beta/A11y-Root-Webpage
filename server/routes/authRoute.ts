@@ -7,7 +7,7 @@ import sessionController from '../controllers/sessionController';
 
 const authRoute = express.Router();
 
-const DOMAIN_NAME = process.env.VITE_DOMAIN_NAME || 'https://localhost:5173/';
+const DOMAIN_NAME = process.env.VITE_DOMAIN_NAME || 'http://localhost:5173/';
 
 //AUTHENTICATION ENDPOINTS
 
