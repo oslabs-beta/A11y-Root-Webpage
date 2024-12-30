@@ -13,8 +13,11 @@ PageController.getPage = async (req, res, next) => {
     //if no page found --> DB returns null
     if (!page) return res.status(204).send('No page tree found.');
 
-    const relatedProject = await ProjectModel.findById({_id: page.projectId})
-    if (!relatedProject) return res.status(204).send('Incomplete page tree found - missing valid project.');
+    const relatedProject = await ProjectModel.findById({ _id: page.projectId });
+    if (!relatedProject)
+      return res
+        .status(204)
+        .send('Incomplete page tree found - missing valid project.');
 
     res.locals.projectName = relatedProject.projectName;
     res.locals.page = page;
@@ -30,7 +33,7 @@ PageController.getPage = async (req, res, next) => {
 
 PageController.postPage = async (req, res, next) => {
   //parse request body and res.locals from previous middleware for necessary info
-  const {url, tree, skipLink, h1, tabIndex } = req.body.newPage;
+  const { url, tree, skipLink, h1, tabIndex } = req.body.newPage;
   const projectId = res.locals.project._id;
 
   // check if required information exists in req.body

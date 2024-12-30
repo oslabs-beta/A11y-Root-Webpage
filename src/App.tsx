@@ -9,14 +9,10 @@ import OAuth from './components/OAuth';
 
 //PAGES
 import MainDashboard from './pages/MainDashboard';
-<<<<<<< HEAD
-import { UserInfo } from './types';
 import tree from './assets/tree-1.svg';
-=======
 import ProfileDashboard from './pages/ProfileDashboard';
 import Home from './pages/Home';
 import DirectLinkTreeDisplay from './pages/DirectLinkTreeDisplay';
->>>>>>> aa58f93d0c336d43f4067dc3f0efea4e2b2abbed
 
 function App() {
   const navigate = useNavigate();
