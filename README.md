@@ -1,4 +1,7 @@
-# A11y Root Webpage
+<p align="center"> <img src="src/assets/a11y-root-icon_360.png" width="140px;" alt=""/></p>
+
+
+# A11y Root Webpage 
 
 [A11y Root](https://a11yroot.dev/) is an open source VS code extension and accompanying webpage designed to enable developers and interdisciplinary teams to collaboratively address user accessibility of their projects throughout the development process.
 
