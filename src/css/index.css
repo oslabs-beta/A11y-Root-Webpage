@@ -33,10 +33,31 @@ h1 {
   font-weight: bold;
   min-width: fit-content;
   font-size: clamp(5rem, calc(5rem + 1vw), 8rem);
+  margin-bottom: 50px;
 }
 
 h1:hover {
   cursor: pointer;
+}
+
+/* link button */
+
+.btn-download a {
+  text-decoration: none;
+  color: #333333;
+  background-color: #83e09e;
+  border-radius: 5rem;
+  min-width: 44px;
+  width: fit-content;
+  min-height: 44px;
+  padding: 2rem;
+  margin: 10rem;
+  font-size: 2em;
+  font-weight: 600;
+}
+
+.btn-download {
+  margin-bottom: 5rem;
 }
 
 button {
