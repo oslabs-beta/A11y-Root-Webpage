@@ -7,6 +7,8 @@ import sessionController from '../controllers/sessionController';
 
 const authRoute = express.Router();
 
+const DOMAIN_NAME = process.env.VITE_DOMAIN_NAME || 'http://localhost:5173/';
+
 //AUTHENTICATION ENDPOINTS
 
 //start of github oAuth
@@ -25,9 +27,11 @@ authRoute.get(
   cookieController.setSSIDCookie,
   sessionController.startSession,
   (req: Request, res: Response) => {
-    return res.redirect('https://localhost:5173/');
+    return res.redirect(DOMAIN_NAME);
   }
 );
+
+//'https://localhost:5173/' for above
 
 //check if client has active login
 authRoute.get(

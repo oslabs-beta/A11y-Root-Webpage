@@ -8,6 +8,9 @@ import { PageResults } from '../types';
 import TabNavigation from '../components/TabNavigation';
 import DisplayA11yTree from '../components/DisplayA11yTree';
 
+const DOMAIN_NAME =
+  import.meta.env.VITE_DOMAIN_NAME || 'https://localhost:3333';
+
 function DirectLinkTreeDisplay() {
   //read the projectId to display from the URL parameters
   const { pageId } = useParams();
@@ -25,7 +28,7 @@ function DirectLinkTreeDisplay() {
   useEffect(() => {
     const getPage = async () => {
       try {
-        const response = await fetch(`https://localhost:3333/pages/${pageId}`);
+        const response = await fetch(`${DOMAIN_NAME}/pages/${pageId}`);
         if (response.ok) {
           const data = await response.json();
           const pageDetails = data.page;

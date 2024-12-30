@@ -1,5 +1,7 @@
 interface BtnDownloadProps {
-    handleDownload: () => void;
+  handleDownload: () => void;
 }
-declare const BtnDownload: React.FC<BtnDownloadProps>;
+declare const BtnDownload: ({
+  handleDownload,
+}: BtnDownloadProps) => import('react/jsx-runtime').JSX.Element;
 export default BtnDownload;

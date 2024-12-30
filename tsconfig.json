@@ -1,7 +1,32 @@
+// {
+//   "files": ["./src/App.tsx", "src/main.tsx", "./src/vite-env.d.ts"],
+//   "references": [
+//     { "path": "./tsconfig.app.json" },
+//     { "path": "./tsconfig.node.json" }
+//   ]
+// }
+
 {
   "files": ["./src/App.tsx", "src/main.tsx", "./src/vite-env.d.ts"],
   "references": [
     { "path": "./tsconfig.app.json" },
     { "path": "./tsconfig.node.json" }
-  ]
+  ],
+  "compilerOptions": {
+    "forceConsistentCasingInFileNames": true, // Ensures case-sensitive file imports
+    "strict": true, // Enables strict type-checking
+    "target": "ES2022", // Target ECMAScript version
+    "module": "ESNext", // Modern module resolution
+    "moduleResolution": "node", // Recommended for most projects
+    "jsx": "react-jsx", // React JSX transformation
+    "skipLibCheck": true, // Skip type checking for node_modules
+    "esModuleInterop": true, // Simplifies imports
+    "resolveJsonModule": true, // Allow importing JSON files
+    "baseUrl": "./", // Base URL for module resolution
+    "paths": {
+      "@/*": ["src/*"] // Optional: Set up module aliasing
+    }
+  },
+  "include": ["src/**/*.ts", "src/**/*.tsx"],
+  "exclude": ["node_modules", "dist"]
 }
