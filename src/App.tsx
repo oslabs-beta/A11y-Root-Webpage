@@ -9,6 +9,7 @@ import OAuth from './components/OAuth';
 
 //PAGES
 import MainDashboard from './pages/MainDashboard';
+import tree from './assets/tree-1.svg';
 import ProfileDashboard from './pages/ProfileDashboard';
 import Home from './pages/Home';
 import DirectLinkTreeDisplay from './pages/DirectLinkTreeDisplay';
@@ -76,6 +77,7 @@ function App() {
         </div>
         <h1 onClick={() => navigate('/')}>A11y Root</h1>
         <BtnDownload handleDownload={handleDownload} />
+        <img className='img-tree' src={tree} alt='' />
       </header>
       <Routes>
         <Route path='/' element={<Home />} />
@@ -90,6 +92,7 @@ function App() {
           element={userInfo && <ProfileDashboard userInfo={userInfo} />}
         />
       </Routes>
+
       {/* {Update Footer with copyright notice, privacy policy link, sitemap, logo, contact info, social media icons} */}
       {showHeaderFooter && (
         <footer>

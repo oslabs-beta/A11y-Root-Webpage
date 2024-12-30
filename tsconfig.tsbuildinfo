@@ -1,1 +1,27 @@
-{"root":["./src/app.tsx","./src/main.tsx","./src/vite-env.d.ts","./src/types.tsx","./src/components/accountmenu.tsx","./src/components/asidecontent.tsx","./src/components/btndownload.tsx","./src/components/directlinkgenerator.tsx","./src/components/displaya11ytree.tsx","./src/components/element.tsx","./src/components/formcontainer.tsx","./src/components/oauth.tsx","./src/components/pageform.tsx","./src/components/profilecontainer.tsx","./src/components/profileform.tsx","./src/components/projectform.tsx","./src/components/tabnavigation.tsx","./src/pages/directlinktreedisplay.tsx","./src/pages/displayelements.tsx","./src/pages/home.tsx","./src/pages/maindashboard.tsx","./src/pages/profiledashboard.tsx"],"version":"5.6.3"}
+{
+  "root": [
+    "./src/app.tsx",
+    "./src/main.tsx",
+    "./src/vite-env.d.ts",
+    "./src/types.tsx",
+    "./src/components/accountmenu.tsx",
+    "./src/components/asidecontent.tsx",
+    "./src/components/btndownload.tsx",
+    "./src/components/directlinkgenerator.tsx",
+    "./src/components/displaya11ytree.tsx",
+    "./src/components/element.tsx",
+    "./src/components/formcontainer.tsx",
+    "./src/components/oauth.tsx",
+    "./src/components/pageform.tsx",
+    "./src/components/profilecontainer.tsx",
+    "./src/components/profileform.tsx",
+    "./src/components/projectform.tsx",
+    "./src/components/tabnavigation.tsx",
+    "./src/pages/directlinktreedisplay.tsx",
+    "./src/pages/displayelements.tsx",
+    "./src/pages/home.tsx",
+    "./src/pages/maindashboard.tsx",
+    "./src/pages/profiledashboard.tsx"
+  ],
+  "version": "5.6.3"
+}

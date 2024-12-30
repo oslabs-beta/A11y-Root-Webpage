@@ -1,39 +1,27 @@
-/* 
-Styling Hierarchy (in order of highest precedence): 
-  !important Declaration > Inline Style > ID Selector > Class Selector > Tag Selector > Universal
-    
-    Hierarchy Examples: 
-      !important Declaration => p { color: black !important; }
-      ID Selector => #id
-      Class/Pseudo-class Selector => .class
-      Tag Selector => div or p
-      Universal Selector => *
-*/
+/* See docs/css-style-guide.md */
 
-/* CSS Reset - Browsers apply different default styles to elements, which can lead to inconsistent layouts. This reset ensures a clean slate. */
 html {
   font-size: 10px;
 }
 
-/* Universal Selector (*) overrides default browser styling unless specified otherwise in specific rules. */
 * {
   margin: 0;
   padding: 0;
   font-size: clamp(1.6rem, calc(1.6rem), calc(1rem + 1vw));
-  box-sizing: border-box; /* Sets the box-sizing model to border-box for all elements, making element width and height calculations more predictable by including padding and borders in the specified width and height.  */
-}
-
-@media only screen and (max-width: 768px) {
-  /* Tablet */
+  box-sizing: border-box;
 }
 
 @media only screen and (max-width: 480px) {
   /* Mobile */
 }
 
+@media only screen and (max-width: 768px) {
+  /* Tablet */
+}
+
 body {
-  max-height: 100vh; /* sets body's height to the entire viewport's height */
-  max-width: 100%; /* sets width to full parent element's (body) width; if we used vw a horizontal scroll bar will appear when height expands and requires a vertical scroll bar. This is because the vertical scroll bar takes up an additional 10px of width. */
+  max-height: 100vh;
+  max-width: 100%;
   background-color: #ffffff;
   font-size: clamp(1.3rem, calc(1.3rem + 1vw), 1.3rem);
   font-family: Verdana, Geneva, Tahoma, sans-serif;
@@ -54,7 +42,7 @@ h1:hover {
 button {
   background-color: #83e09e;
   border-radius: 5rem;
-  min-width: 44px; /* min-width & min-height 44px for touch-friendly targets */
+  min-width: 44px;
   width: fit-content;
   min-height: 44px;
   padding: 0 1rem;

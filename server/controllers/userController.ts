@@ -59,16 +59,16 @@ UserController.postUser = async (req, res, next) => {
 };
 
 UserController.updateUser = async (req, res, next) => {
-	const githubId = req.body.userGithubId;
-	const projectId = res.locals.project._id;
+  const githubId = req.body.userGithubId;
+  const projectId = res.locals.project._id;
 
   try {
     //update list of user's projects for existing user
-		const user = await UserModel.findOneAndUpdate(
-			{githubId},
-			{$addToSet: {projects: projectId}},
-      		{new: true}
-		);
+    const user = await UserModel.findOneAndUpdate(
+      { githubId },
+      { $addToSet: { projects: projectId } },
+      { new: true }
+    );
 
     //if no user found to update --> DB returns null
     if (!user) {

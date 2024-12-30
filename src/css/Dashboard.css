@@ -1,3 +1,4 @@
+/* See docs/css-style-guide.md */
 .enterUrl {
   display: flex;
   flex-direction: column;
@@ -9,16 +10,16 @@
 }
 
 /* ---------- Main Dashboard ---------- */
-
-.app {
+/* .app {
   display: grid;
-}
+} */
 
 .dashboard {
   display: flex;
   flex-direction: column;
   align-items: center;
   padding: 3rem;
+  max-width: 100%;
 }
 
 .dashboard h2 {
@@ -29,34 +30,39 @@
 
 /* ---------- Dashboard Tabs & Results Display ---------- */
 .tabs-and-display-container {
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  max-width: 100%;
   align-items: center;
-  flex-wrap: nowrap;
   width: 100%;
-  padding: 5rem 8rem;
-  /* For Visual Testing => */
-  /* border: 3px solid rgb(60, 60, 213); */
+  padding: 5rem 2rem;
 }
 
 .tabs {
   display: flex;
   justify-content: center;
   align-items: flex-end;
-  width: 100%;
-  /* For Visual Testing => */
-  /* border: 3px solid rgb(60, 60, 213); */
+  /* Force items to stay on one line (no wrap) */
+  white-space: nowrap;
+  overflow-x: hidden; /* or scroll, if you prefer a scrollbar on overflow */
+  width: 100%; /* let the container fit its parent */
+  max-width: 100%;
 }
 
 .tabs button {
   border-radius: 2rem 2rem 0 0;
-  margin: 0 1rem;
-  padding: 0 5rem;
+  margin: 0 0.1rem;
+  padding: 0 2rem;
+  width: 100%;
+  font-size: clamp(0.8rem, 1.5vw, 1.5rem);
+  flex-shrink: 1;
+  white-space: wrap;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
+
 .tree-results {
   width: 100%;
-  /* For Visual Testing => */
-  /* border: 3px solid rgb(60, 60, 213); */
 }
 
 .tree-results h2 {
@@ -69,12 +75,19 @@
   width: 100%;
   padding: 1.5rem 5rem;
   border: 3px solid black;
+  /* overflow-y: scroll; */
+}
+
+.dashboard-display ul {
+  width: 100%;
+  max-height: clamp(30rem, 10vh, 30rem);
+  overflow-y: scroll;
 }
 
 .aside {
   background-color: #3a3b3e;
   color: white;
-  padding: 5rem;
+  padding: 3rem;
   width: 100%;
 }
 
@@ -83,7 +96,7 @@
 }
 
 .dashboard-header {
-  padding-bottom: 3rem;
+  padding-bottom: 2rem;
 }
 
 .compliance-issue {
