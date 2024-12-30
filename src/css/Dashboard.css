@@ -75,12 +75,19 @@
   width: 100%;
   padding: 1.5rem 5rem;
   border: 3px solid black;
+  /* overflow-y: scroll; */
+}
+
+.dashboard-display ul {
+  width: 100%;
+  max-height: clamp(30rem, 10vh, 30rem);
+  overflow-y: scroll;
 }
 
 .aside {
   background-color: #3a3b3e;
   color: white;
-  padding: 5rem;
+  padding: 3rem;
   width: 100%;
 }
 
@@ -89,7 +96,7 @@
 }
 
 .dashboard-header {
-  padding-bottom: 3rem;
+  padding-bottom: 2rem;
 }
 
 .compliance-issue {
