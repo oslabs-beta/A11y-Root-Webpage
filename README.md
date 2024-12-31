@@ -34,17 +34,19 @@ The Dashboard provides access to any projects and pages that a user has previous
 
 <p align="center"> <img src="src/assets/dashboard.gif" alt=""/></p>
 
-
-### User Profile Page
-
-Logged in users also have access to a profile page. Currently, this provides the ability to delete an existing project (removing all of its pages' trees from our database), or delete your account completely (removing the user and all associated projects/pages from our database).
-
 ### Direct Links
 
 On the developer's dashboard, there is a "Share this tree" button. This will generate a direct link to that specific tree/feedback.
 
+<p align="center"> <img src="src/assets/sharetree.png" alt=""/></p>
+
 The direct link allows *anyone with the link* to view the tree; no login needed. This can be useful to share the accessibility feedback with contributors and stakeholders who may not have direct access to the dev environment repo.
 
+<p align="center"> <img src="src/assets/directlink.png" alt=""/></p>
+
+### User Profile Page
+
+Logged in users also have access to a profile page. Currently, this provides the ability to delete an existing project (removing all of its pages' trees from our database), or delete your account completely (removing the user and all associated projects/pages from our database).
 
 ## Community Contributions
 
@@ -97,7 +99,7 @@ This product was initially created and deployed by the following team of develop
   <sub><b>Jeet Patel</b></sub>
   <br/>
   <a href="https://github.com/Jeetp45">GitHub</a>
-  <a href="http://www.linkedin.com/in/jeetpatel-a838202545">LinkedIn</a>
+  <a href="http://www.linkedin.com/in/jeetpatel-a83820254">LinkedIn</a>
 </td>
 
 </table>
