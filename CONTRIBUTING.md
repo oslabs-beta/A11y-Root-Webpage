@@ -8,6 +8,11 @@ For details on contributing to the VS Code Extension, [click here](https://githu
 
 ## Running in Dev
 
+Run 
+>npm install 
+
+after cloning repo locally.
+
 Webpage and server can easily be started with:
 
 ```bash
@@ -54,5 +59,9 @@ Please follow the below steps when looking to make contributions to the project.
 
 ## Planned/Desired Features
 
+- Incorporate additional resources for addressing accessibility issues
 
+-  Assistive Technology Lens: Allow developers to see how AT is interacting with the accessibility tree of a given page, such as a rotor
+
+- Improvements to visualization of accessibility tree / feedback: easing the use and understanding for non-developer collaborators
 
