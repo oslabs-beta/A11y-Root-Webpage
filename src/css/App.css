@@ -7,8 +7,8 @@
 header {
   display: flex;
   /* flex-direction: column; */
-  /* justify-content: flex-start; */
-  /* align-items: center; */
+  justify-content: space-between;
+  align-items: center;
   max-width: 100%;
   height: auto;
   padding: 1rem 0 2rem 0;
@@ -16,14 +16,38 @@ header {
   position: relative;
 }
 
-/* A11y Root Title Style --> To be replaced with logo svg */
-header h1 {
+#header-download {
+  align-self: flex-start;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+#header-download p {
+  padding-left: 3rem;
+  color: white;
+  font-size: small;
+}
+
+.btn-download {
+  padding: 0;
+  margin: 0;
+}
+
+/* A11y Root Title */
+
+#logo-a11yroot {
+  width: 40%;
+}
+
+/* header h1 {
   background-color: #f4f6fc;
   border-radius: 5rem;
   border-width: fit-content;
   padding: 1rem 2rem;
   margin-bottom: 7rem;
-}
+} */
 
 /* .img-tree {
   position: absolute;

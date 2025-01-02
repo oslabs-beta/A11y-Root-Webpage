@@ -62,6 +62,18 @@ function App() {
   return (
     <div className='app'>
       <header>
+        <div id='header-download'>
+          <BtnDownload />
+          <p>v1.0 (Beta)</p>
+        </div>
+
+        {/* <img className='img-tree' src={tree} alt='' /> */}
+        <img
+          id='logo-a11yroot'
+          onClick={() => navigate('/')}
+          src={logo}
+          alt='A11y Root'
+        />
         <div className='github-login'>
           {isLoggedIn && userInfo ? (
             <AccountMenu
@@ -72,15 +84,6 @@ function App() {
             <OAuth handleOAuthClick={handleOAuthClick}></OAuth>
           )}
         </div>
-
-        <BtnDownload />
-        {/* <img className='img-tree' src={tree} alt='' /> */}
-        <img
-          id='logo-a11yroot'
-          onClick={() => navigate('/')}
-          src={logo}
-          alt='A11y Root'
-        />
       </header>
       <Routes>
         <Route path='/' element={<NewHome />} />

@@ -1,4 +1,4 @@
-import { Link } from 'react-aria-components';
+import { Button } from 'react-aria-components';
 
 // interface handles the prop type issue in params
 
@@ -6,9 +6,9 @@ const BtnDownload = () => {
   return (
     <div className='btn-download'>
       {/* Using Link component instead of Button */}
-      <Link href='https://github.com/oslabs-beta/A11y-Root-Extension/releases/download/test/a11y-root-extension-0.0.1.vsix'>
+      <Button href='https://github.com/oslabs-beta/A11y-Root-Extension/releases/download/test/a11y-root-extension-0.0.1.vsix'>
         Download VS Code Extension
-      </Link>
+      </Button>
     </div>
   );
 };
