@@ -1,6 +1,6 @@
 /* See docs/css-style-guide.md */
 .github-login {
-  align-self: flex-end;
+  align-self: flex-start;
   margin-right: 3rem;
 }
 
