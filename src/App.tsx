@@ -9,7 +9,7 @@ import OAuth from './components/OAuth';
 
 //PAGES
 import MainDashboard from './pages/MainDashboard';
-import tree from './assets/tree-1.svg';
+//import tree from './assets/tree-1.svg';
 import ProfileDashboard from './pages/ProfileDashboard';
 import Home from './pages/Home';
 import DirectLinkTreeDisplay from './pages/DirectLinkTreeDisplay';
@@ -54,10 +54,6 @@ function App() {
     checkLoginStatus();
   }, []);
 
-  const handleDownload = (): void => {
-    return;
-  };
-
   const location = useLocation();
   const showHeaderFooter = location.pathname !== '/dashboard';
 
@@ -75,8 +71,8 @@ function App() {
           )}
         </div>
         <h1 onClick={() => navigate('/')}>A11y Root</h1>
-        <BtnDownload handleDownload={handleDownload} />
-        <img className='img-tree' src={tree} alt='' />
+        <BtnDownload />
+        {/* <img className='img-tree' src={tree} alt='' /> */}
       </header>
       <Routes>
         <Route path='/' element={<Home />} />

@@ -1,17 +1,14 @@
-import { Button } from 'react-aria-components';
+import { Link } from 'react-aria-components';
 
 // interface handles the prop type issue in params
-interface BtnDownloadProps {
-  handleDownload: () => void;
-}
 
-const BtnDownload: React.FC<BtnDownloadProps> = ({ handleDownload }: BtnDownloadProps) => {
+const BtnDownload = () => {
   return (
     <div className='btn-download'>
-      {/* react-aria-components have built-in a11y compliant components that work as expected, even in a div */}
-      <Button className='btn' onPress={handleDownload}>
+      {/* Using Link component instead of Button */}
+      <Link href='https://github.com/oslabs-beta/A11y-Root-Extension/releases/download/test/a11y-root-extension-0.0.1.vsix'>
         Download VS Code Extension
-      </Button>
+      </Link>
     </div>
   );
 };
