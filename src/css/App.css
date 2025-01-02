@@ -36,6 +36,10 @@ header {
   width: 40%;
 }
 
+#logo-a11yroot:hover {
+  cursor: pointer;
+}
+
 /* header h1 {
   background-color: #f4f6fc;
   border-radius: 5rem;
