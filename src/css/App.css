@@ -6,9 +6,9 @@
 
 header {
   display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: center;
+  /* flex-direction: column; */
+  /* justify-content: flex-start; */
+  /* align-items: center; */
   max-width: 100%;
   height: auto;
   padding: 1rem 0 2rem 0;
@@ -25,12 +25,12 @@ header h1 {
   margin-bottom: 7rem;
 }
 
-.img-tree {
+/* .img-tree {
   position: absolute;
   top: 2%;
   left: 0;
-  /* height: 100%; */
-  /* aspect-ratio: 3/8; */
-  /* border: 2px solid red; */
+  height: 100%;
+  aspect-ratio: 3/8;
+  border: 2px solid red;
   width: 20%;
-}
+} */
