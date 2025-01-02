@@ -6,12 +6,13 @@ import { UserInfo } from './types';
 import AccountMenu from './components/AccountMenu';
 import BtnDownload from './components/BtnDownload';
 import OAuth from './components/OAuth';
+//import tree from './assets/tree-1.svg';
 
 //PAGES
-import MainDashboard from './pages/MainDashboard';
-//import tree from './assets/tree-1.svg';
-import ProfileDashboard from './pages/ProfileDashboard';
 import Home from './pages/Home';
+import NewHome from './pages/NewHome';
+import ProfileDashboard from './pages/ProfileDashboard';
+import MainDashboard from './pages/MainDashboard';
 import DirectLinkTreeDisplay from './pages/DirectLinkTreeDisplay';
 
 const DOMAIN_NAME = import.meta.env.VITE_DOMAIN_NAME || 'http://localhost:3333';
@@ -76,6 +77,7 @@ function App() {
       </header>
       <Routes>
         <Route path='/' element={<Home />} />
+        <Route path='/home' element={<NewHome />} />
         <Route
           path='/dashboard'
           element={userInfo && <MainDashboard userInfo={userInfo} />}
