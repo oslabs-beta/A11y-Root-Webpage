@@ -55,15 +55,7 @@
   width: 50%;
 }
 
-footer {
-  background-color: #3a3b3e;
-  max-width: 100%;
-  min-height: fit-content;
-  padding: 4rem;
-  color: white;
-  text-align: center;
-  margin-top: 3rem;
-} */
+
 
 /* ---------- New Home ---------- */
 
@@ -202,4 +194,14 @@ footer {
   height: auto;
   object-fit: contain;
   z-index: 1;
+}
+
+footer {
+  background-color: #3a3b3e;
+  max-width: 100%;
+  min-height: fit-content;
+  padding: 4rem;
+  color: white;
+  text-align: center;
+  margin-top: 3rem;
 }
