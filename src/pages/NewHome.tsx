@@ -1,3 +1,4 @@
+import '../css/Home.css';
 import roots from '../assets/roots.svg';
 // import webA11yIcon from '../assets/icon-weba11y.svg';
 import quote1 from '../assets/quote-with-icon-weba11y.svg';

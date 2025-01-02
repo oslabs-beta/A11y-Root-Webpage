@@ -9,7 +9,7 @@ import OAuth from './components/OAuth';
 //import tree from './assets/tree-1.svg';
 
 //PAGES
-import Home from './pages/Home';
+// import Home from './pages/Home';
 import NewHome from './pages/NewHome';
 import ProfileDashboard from './pages/ProfileDashboard';
 import MainDashboard from './pages/MainDashboard';
@@ -76,8 +76,7 @@ function App() {
         {/* <img className='img-tree' src={tree} alt='' /> */}
       </header>
       <Routes>
-        <Route path='/' element={<Home />} />
-        <Route path='/home' element={<NewHome />} />
+        <Route path='/' element={<NewHome />} />
         <Route
           path='/dashboard'
           element={userInfo && <MainDashboard userInfo={userInfo} />}
