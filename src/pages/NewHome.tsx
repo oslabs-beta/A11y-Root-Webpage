@@ -1,5 +1,5 @@
 import roots from '../assets/roots.svg';
-import webA11yIcon from '../assets/icon-weba11y.svg';
+// import webA11yIcon from '../assets/icon-weba11y.svg';
 import quote1 from '../assets/quote-with-icon-weba11y.svg';
 import developers from '../assets/developers.svg';
 import user from '../assets/user.svg';
@@ -26,11 +26,16 @@ const NewHome = () => {
       <section id='sect-3' className='home-a11yroot'>
         <img id='s3-item-1' src={developers} alt='' />
         <div id='sect-3-details'>
-          <h2 id='s3-item-2'>What Is A11y Root</h2>
+          <h2 id='s3-item-2'>What Is A11y Root?</h2>
           <p id='s3-item-3'>
-            A11y (pronounced ‘Accessibility’ or ‘Aye-eleven-why’) Lorem ipsum
-            odor amet, consectetuer adipiscing elit. Nulla gravida netus nulla
-            adipiscing, consequat pellentesque finibus.
+            A11y (pronounced ‘Accessibility’ or ‘Aye-eleven-why’) Root is a VS
+            Code Extension paired with a Companion Web Dashboard.
+            <br />
+            <br />
+            It streamlines accessibility analysis and fosters collaboration
+            across development teams by exposing accessibility insights and
+            enabling seamless communication between developers, designers, and
+            stakeholders.
           </p>
         </div>
       </section>
@@ -44,11 +49,16 @@ const NewHome = () => {
           <h2>What Is Web Accessibility?</h2>
           <p>
             Assistive technologies are hindered by poorly constructed
-            accessibility trees (their map of the DOM). Web developers are often
-            unaware of the accessibility tree and its needs during development,
-            such as: semantic HTML, thoughtful DOM structure, etc. Users must
-            then struggle to navigate the website and are given limited access
-            to its features.
+            accessibility trees (their map of the DOM).
+            <br />
+            <br />
+            Web developers are often unaware of the accessibility tree and its
+            needs during development, such as: semantic HTML, thoughtful DOM
+            structure, etc.
+            <br />
+            <br />
+            Users must then struggle to navigate the website and are given
+            limited access to its features.
           </p>
         </div>
         <img src={user} alt='' />
