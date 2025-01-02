@@ -92,7 +92,11 @@ footer {
   padding: 0 8rem;
 }
 
-#s2-item-1 {
+#sect-2 img {
+  width: 70%;
+}
+
+/* #s2-item-1 {
   font-size: 3rem;
   font-weight: bold;
   text-align: center;
@@ -102,7 +106,7 @@ footer {
   width: 10%;
   height: auto;
   object-fit: contain;
-}
+} */
 
 #sect-3 {
   grid-area: 4 / 1 / 6 / 9;

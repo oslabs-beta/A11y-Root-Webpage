@@ -1,5 +1,6 @@
 import roots from '../assets/roots.svg';
 import webA11yIcon from '../assets/icon-weba11y.svg';
+import quote1 from '../assets/quote-with-icon-weba11y.svg';
 import developers from '../assets/developers.svg';
 import user from '../assets/user.svg';
 
@@ -17,8 +18,9 @@ const NewHome = () => {
       </section>
 
       <section id='sect-2' className='home-quote'>
-        <p id='s2-item-1'>"BUILD APPLICATIONS ROOTED IN ACCESSIBILITY"</p>
-        <img id='s2-item-2' src={webA11yIcon} alt='' />
+        {/* <p id='s2-item-1'>"BUILD APPLICATIONS ROOTED IN ACCESSIBILITY"</p>
+        <img id='s2-item-2' src={webA11yIcon} alt='' /> */}
+        <img src={quote1} alt='build applications rooted in accessibility' />
       </section>
 
       <section id='sect-3' className='home-a11yroot'>
