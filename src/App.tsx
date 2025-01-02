@@ -7,7 +7,7 @@ import AccountMenu from './components/AccountMenu';
 import BtnDownload from './components/BtnDownload';
 import OAuth from './components/OAuth';
 //import tree from './assets/tree-1.svg';
-import logo from '../assets/logo.svg';
+import logo from './assets/logo.svg';
 
 //PAGES
 // import Home from './pages/Home';
@@ -75,7 +75,12 @@ function App() {
 
         <BtnDownload />
         {/* <img className='img-tree' src={tree} alt='' /> */}
-        <h1 onClick={() => navigate('/')}>A11y Root</h1>
+        <img
+          id='logo-a11yroot'
+          onClick={() => navigate('/')}
+          src={logo}
+          alt='A11y Root'
+        />
       </header>
       <Routes>
         <Route path='/' element={<NewHome />} />
