@@ -154,14 +154,21 @@
 #sect-4 {
   grid-area: 5 / 1 / 6 / 8;
   background-color: #fff4ce;
+  padding: 3rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-#sect-4 h2 {
+#sect-4 img {
+  width: 55%;
+}
+
+/* #sect-4 h2 {
   font-size: 3rem;
   color: #407549;
   text-align: center;
-  /* gap: 3rem; */
-}
+} */
 
 #sect-5 {
   grid-area: 6 / 1 / 7 / 8;
