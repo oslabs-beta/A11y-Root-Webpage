@@ -10,7 +10,7 @@ function Element({ node }: ElementProps) {
   return (
     <Disclosure>
       <Heading>
-        {node.role && (
+        {node.role && node.name && (
           <Button slot='trigger'>
             <svg viewBox='0 0 24 24'>
               <path d='m8.25 4.5 7.5 7.5-7.5 7.5' />
