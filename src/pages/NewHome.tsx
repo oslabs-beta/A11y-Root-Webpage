@@ -29,7 +29,7 @@ const NewHome = () => {
         <div id='sect-3-details'>
           <h2 id='s3-item-2'>What Is A11y Root?</h2>
           <p id='s3-item-3'>
-            A11y (pronounced ‘Accessibility’ or ‘Aye-eleven-why’) Root is a VS
+            A11y Root (pronounced ‘Accessibility’ or ‘Aye-eleven-why’) is a VS
             Code Extension paired with a Companion Web Dashboard.
             <br />
             <br />
