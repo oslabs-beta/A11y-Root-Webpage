@@ -7,6 +7,7 @@ import AccountMenu from './components/AccountMenu';
 import BtnDownload from './components/BtnDownload';
 import OAuth from './components/OAuth';
 //import tree from './assets/tree-1.svg';
+import logo from './assets/logo.svg';
 
 //PAGES
 // import Home from './pages/Home';
@@ -61,6 +62,18 @@ function App() {
   return (
     <div className='app'>
       <header>
+        <div id='header-download'>
+          <BtnDownload />
+          <p>v1.0 (Beta)</p>
+        </div>
+
+        {/* <img className='img-tree' src={tree} alt='' /> */}
+        <img
+          id='logo-a11yroot'
+          onClick={() => navigate('/')}
+          src={logo}
+          alt='A11y Root'
+        />
         <div className='github-login'>
           {isLoggedIn && userInfo ? (
             <AccountMenu
@@ -71,9 +84,6 @@ function App() {
             <OAuth handleOAuthClick={handleOAuthClick}></OAuth>
           )}
         </div>
-        <h1 onClick={() => navigate('/')}>A11y Root</h1>
-        <BtnDownload />
-        {/* <img className='img-tree' src={tree} alt='' /> */}
       </header>
       <Routes>
         <Route path='/' element={<NewHome />} />

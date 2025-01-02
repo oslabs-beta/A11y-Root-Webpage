@@ -6,8 +6,8 @@
 
 header {
   display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
+  /* flex-direction: column; */
+  justify-content: space-between;
   align-items: center;
   max-width: 100%;
   height: auto;
@@ -16,21 +16,44 @@ header {
   position: relative;
 }
 
-/* A11y Root Title Style --> To be replaced with logo svg */
-header h1 {
+#header-download {
+  align-self: flex-start;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+#header-download p {
+  padding-left: 3rem;
+  color: white;
+  font-size: small;
+}
+
+/* A11y Root Title */
+
+#logo-a11yroot {
+  width: 40%;
+}
+
+#logo-a11yroot:hover {
+  cursor: pointer;
+}
+
+/* header h1 {
   background-color: #f4f6fc;
   border-radius: 5rem;
   border-width: fit-content;
   padding: 1rem 2rem;
   margin-bottom: 7rem;
-}
+} */
 
-.img-tree {
+/* .img-tree {
   position: absolute;
   top: 2%;
   left: 0;
-  /* height: 100%; */
-  /* aspect-ratio: 3/8; */
-  /* border: 2px solid red; */
+  height: 100%;
+  aspect-ratio: 3/8;
+  border: 2px solid red;
   width: 20%;
-}
+} */
