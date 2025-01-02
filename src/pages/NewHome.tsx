@@ -9,7 +9,9 @@ import user from '../assets/user.svg';
 const NewHome = () => {
   return (
     <main className='newhome'>
-      <img id='sect-0' src={roots} alt='' />
+      <section id='sect-0'>
+        <img src={roots} alt='' />
+      </section>
 
       <section id='sect-1' className='home-intro'>
         <p>
