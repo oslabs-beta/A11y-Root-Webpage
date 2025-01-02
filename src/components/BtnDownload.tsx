@@ -4,7 +4,7 @@ import { Button } from 'react-aria-components';
 
 const handleDownloadClick = () => {
   window.location.href =
-    'https://github.com/oslabs-beta/A11y-Root-Extension/releases/download/test/a11y-root-extension-0.0.1.vsix';
+    'https://github.com/oslabs-beta/A11y-Root-Extension/releases/download/beta/a11y-root-extension-1.0.0-1.vsix';
 };
 
 const BtnDownload = () => {
