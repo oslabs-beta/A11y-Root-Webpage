@@ -2,6 +2,7 @@ import '../css/Home.css';
 import roots from '../assets/roots.svg';
 // import webA11yIcon from '../assets/icon-weba11y.svg';
 import quote1 from '../assets/quote-with-icon-weba11y.svg';
+import quote2 from '../assets/quote2.svg';
 import developers from '../assets/developers.svg';
 import user from '../assets/user.svg';
 
@@ -42,7 +43,10 @@ const NewHome = () => {
       </section>
 
       <section id='sect-4' className='home-quote'>
-        <h2>Assistive Technologies Depend On Web Accessibility!</h2>
+        <img
+          src={quote2}
+          alt='assistive technologies depend on web accessibility!'
+        />
       </section>
 
       <section id='sect-5' className='home-weba11y'>
