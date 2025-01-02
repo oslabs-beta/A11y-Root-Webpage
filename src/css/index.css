@@ -44,20 +44,21 @@ h1:hover {
 
 .btn-download a {
   text-decoration: none;
+  font-size: clamp(1.5rem, calc(1.5rem + 1vw), 1.5rem);
+  font-weight: 600;
   color: #333333;
   background-color: #83e09e;
   border-radius: 5rem;
   min-width: 44px;
-  width: fit-content;
   min-height: 44px;
   padding: 2rem;
-  margin: 10rem;
-  font-size: 2em;
-  font-weight: 600;
+  margin-left: 3rem;
+  margin-bottom: 5rem;
 }
 
-.btn-download {
-  margin-bottom: 5rem;
+.btn-download a:hover {
+  background-color: #bef3d6;
+  cursor: pointer;
 }
 
 button {
