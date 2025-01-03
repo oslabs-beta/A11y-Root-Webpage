@@ -1,11 +1,36 @@
-<p align="center"> <img src="src/assets/a11y-root-icon_360.png" width="140px;" alt=""/></p>
+<p align="center"> <img src="src/assets/a11yroot_v2.jpg" width="640px;" alt=""/></p>
 
+<div align="center">
 
-# A11y Root Webpage 
-
+# A11y Root Webpage
 [A11y Root](https://a11yroot.dev/): A Visual Studio Code extension rooted in accessibility. 
 
-A11y Root is an open source VS code extension and accompanying webpage designed to enable developers and interdisciplinary teams to collaboratively address user accessibility of their projects throughout the development process.
+
+### 🌱✨ Built with ✨🌱
+![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)
+![TypeScript](https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white)
+![HTML](https://img.shields.io/badge/HTML-e85a2e?style=for-the-badge&logo=html5&logoColor=white)
+![CSS](https://img.shields.io/badge/CSS-2e35e8?style=for-the-badge&logo=css3&logoColor=white)
+
+
+![React](https://img.shields.io/badge/React-61DAFB?style=for-the-badge&logo=react&logoColor=black)
+![React Router](https://img.shields.io/badge/React_Router-CA4245?style=for-the-badge&logo=react-router&logoColor=white)
+![Vite](https://img.shields.io/badge/Vite-646CFF?style=for-the-badge&logo=vite&logoColor=white)
+
+
+![Node.js](https://img.shields.io/badge/Node.js-339933?style=for-the-badge&logo=node.js&logoColor=white)
+![Express.js](https://img.shields.io/badge/Express.js-000000?style=for-the-badge&logo=express&logoColor=white)
+![Axios](https://img.shields.io/badge/Axios-671DDF?style=for-the-badge&logoColor=white)
+![MongoDB](https://img.shields.io/badge/-MongoDB-13aa52?style=for-the-badge&logo=mongodb&logoColor=white)
+![Puppeteer](https://img.shields.io/badge/Puppeteer-white.svg?style=for-the-badge&logo=Puppeteer&logoColor=black)
+
+</div>
+
+#
+
+## About this Project
+
+[A11y Root](https://a11yroot.dev/) is an open source VS code extension and accompanying webpage designed to enable developers and interdisciplinary teams to collaboratively address user accessibility of their projects throughout the development process.
 
 At its root, the [VS Code extension](https://github.com/oslabs-beta/A11y-Root-Extension) allows developers to generate and receive feedback on the accessibility tree of a webpage, whether in production or in a dev environment. Check out the [README](https://github.com/oslabs-beta/A11y-Root-Extension/blob/dev/README.md) for the extension for more details on getting started.
 
@@ -52,7 +77,7 @@ Logged in users also have access to a profile page. Currently, this provides the
 
 A11y Root is an open source product! Contributions and feedback from the community is welcomed. Please look at our [CONTRIBUTING.md](./CONTRIBUTING.md) for how to get involved.
 
-## Key Contributors
+## Key Contributors 🌱
 
 This product was initially created and deployed by the following team of developers.
 
