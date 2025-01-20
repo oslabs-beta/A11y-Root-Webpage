@@ -206,3 +206,101 @@ footer {
   text-align: center;
   margin-top: 3rem;
 }
+
+/*  Mobile  */
+@media only screen and (max-width: 480px) {
+  .newhome {
+    display: block; /* Switch to block layout */
+  }
+
+  #sect-3-details {
+    padding-right: 0;
+  }
+
+  #sect-5-details {
+    padding-left: 0;
+  }
+
+  /* Adjust individual sections for mobile */
+  #sect-0,
+  #sect-1,
+  #sect-2,
+  #sect-3,
+  #sect-4,
+  #sect-5 {
+    margin: 1rem 0; /* Add spacing between sections */
+    padding: 1rem; /* Optional padding for better spacing */
+  }
+
+  #sect-2 img,
+  #sect-5 img {
+    width: 100%; /* Ensure images scale to fit their container */
+    margin: 1rem auto; /* Center images */
+  }
+
+  #sect-3 h2,
+  #sect-5 h2 {
+    font-size: 2.5rem; /* Scale down headers for smaller screens */
+  }
+
+  #sect-1 p,
+  #sect-3 p,
+  #sect-5 p {
+    font-size: 1.5rem; /* Adjust paragraph text size */
+    text-align: center;
+  }
+  #s3-item-1 {
+    display: none; /* Switch to block layout */
+  }
+  #s5-item-1 {
+    display: none;
+  }
+}
+
+/* Tablet Styles */
+@media only screen and (max-width: 768px) {
+  .newhome {
+    display: block; /* Switch to block layout */
+  }
+  #sect-3-details {
+    padding-right: 0;
+  }
+
+  #sect-5-details {
+    padding-left: 0;
+  }
+
+  /* Adjust individual sections for mobile */
+  #sect-0,
+  #sect-1,
+  #sect-2,
+  #sect-3,
+  #sect-4,
+  #sect-5 {
+    margin: 1rem 0; /* Add spacing between sections */
+    padding: 1rem; /* Optional padding for better spacing */
+  }
+
+  #sect-2 img,
+  #sect-5 img {
+    width: 100%; /* Ensure images scale to fit their container */
+    margin: 1rem auto; /* Center images */
+  }
+
+  #sect-3 h2,
+  #sect-5 h2 {
+    font-size: 2.5rem; /* Scale down headers for smaller screens */
+  }
+
+  #sect-1 p,
+  #sect-3 p,
+  #sect-5 p {
+    font-size: 1.5rem; /* Adjust paragraph text size */
+  }
+  #s3-item-1 {
+    display: none; /* Switch to block layout */
+  }
+  #s5-item-1 {
+    display: none;
+  }
+}
