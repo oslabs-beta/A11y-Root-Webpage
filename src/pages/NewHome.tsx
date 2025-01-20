@@ -62,7 +62,7 @@ const NewHome = () => {
             limited access to its features.
           </p>
         </div>
-        <img src={user} alt='' />
+        <img id='s5-item-1' src={user} alt='' />
       </section>
     </main>
   );
