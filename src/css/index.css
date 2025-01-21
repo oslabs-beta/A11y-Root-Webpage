@@ -53,6 +53,17 @@ h1:hover {
   cursor: pointer;
 }
 
+/* link to extension repo on GitHub */
+#github-link {
+  color: #333333;
+  background-color: #83e09e;
+  font-size: large;
+  text-decoration: none;
+  padding: 2rem;
+  border-radius: 5rem;
+  margin-bottom: 4rem;
+}
+
 button {
   background-color: #83e09e;
   border-radius: 5rem;
@@ -85,6 +96,11 @@ img {
     margin-bottom: 30px;
   }
 
+  #github-link {
+    font-size: small;
+    display: block;
+  }
+
   .btn-download a {
     padding: 2rem;
     margin-left: 4rem;
@@ -108,6 +124,11 @@ img {
   h1 {
     font-size: clamp(4rem, calc(4rem + 1vw), 7rem);
     margin-bottom: 40px;
+  }
+
+  #github-link {
+    font-size: medium;
+    display: block;
   }
 
   .btn-download a {
