@@ -16,6 +16,12 @@ const NewHome = () => {
           compliance. Our tool simplifies accessibility debugging for
           developers, ensuring no user is left behind.
         </p>
+        <a
+          id='github-link'
+          href='https://github.com/oslabs-beta/A11y-Root-Extension'
+        >
+          Checkout the project on GitHub
+        </a>
       </section>
 
       <section id='sect-2' className='home-quote'>
