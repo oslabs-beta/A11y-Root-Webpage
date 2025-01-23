@@ -10,7 +10,7 @@ import DisplayA11yTree from '../components/DisplayA11yTree';
 import DirectLinkGenerator from '../components/DirectLinkGenerator';
 
 function MainDashboard({ userInfo }: MainDashboardProps) {
-  const [activeTab, setActiveTab] = useState('Full Tree');
+  const [activeTab, setActiveTab] = useState('Non Compliance');
   const [pageResults, setPageResults] = useState<PageResults | null>(null);
 
   const handleclick = (e: string) => {
