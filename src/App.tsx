@@ -30,6 +30,7 @@ function App() {
   const handleLogout = () => {
     setIsLoggedIn(false);
     setUserInfo(null);
+    navigate('/');
   };
 
   useEffect(() => {
